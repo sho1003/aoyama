@@ -73,7 +73,7 @@ public class Card : MonoBehaviour
             {
                 //タグ毎に表示されているかの判定
                 if (gameObject.tag == "spade") Score.Spade += 1;
-                if (gameObject.tag == "haret") Score.Haret += 1;
+                if (gameObject.tag == "heart") Score.Haret += 1;
                 if (gameObject.tag == "clover") Score.Clover += 1;
                 if (gameObject.tag == "dia") Score.Dia += 1;
                 if (gameObject.tag == "hosi") Score.Hosi += 1;
@@ -102,7 +102,7 @@ public class Card : MonoBehaviour
         }
         //カードが揃うと消す
         if (Score.Spade > 2) if (gameObject.tag == "spade") Destroy(gameObject);
-        if (Score.Haret > 2) if (gameObject.tag == "haret") Destroy(gameObject);
+        if (Score.Haret > 2) if (gameObject.tag == "heart") Destroy(gameObject);
         if (Score.Clover > 2) if (gameObject.tag == "clover") Destroy(gameObject);
         if (Score.Dia > 2) if (gameObject.tag == "dia") Destroy(gameObject);
         if (Score.Hosi > 2) if (gameObject.tag == "hosi") Destroy(gameObject);
