@@ -27,7 +27,7 @@ public class Score : MonoBehaviour {
     void Update() {
 
 
-        ScorePoint.text = "スコア" + score;
+        ScorePoint.text = "ス コ ア  " + score;
 
         if (Spade == 2) { score += 1; Spade += 1; }
         if (Haret == 2) { score += 1; Haret += 1; }
@@ -36,5 +36,6 @@ public class Score : MonoBehaviour {
         if (Hosi == 2) { score += 1; Hosi += 1; }
         if (Kinoko == 2) { score += 1; Kinoko += 1; }
         if (Nico == 2) { score += 1; Nico += 1; }
+
     }
 }
