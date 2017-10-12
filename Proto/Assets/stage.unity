@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1200, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -246,8 +246,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &25312903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -312,7 +316,7 @@ GameObject:
   - component: {fileID: 40194206}
   - component: {fileID: 40194205}
   m_Layer: 0
-  m_Name: ' spade (1)'
+  m_Name: spade (1)
   m_TagString: spade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,7 +329,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 40194203}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.21, y: -4.1727343, z: 9.17}
+  m_LocalPosition: {x: 1, y: -4.1727343, z: 13}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 159668904}
@@ -344,8 +348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &40194206
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -423,7 +431,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52496749}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.62, y: -4.1727343, z: 9.17}
+  m_LocalPosition: {x: 5.36, y: -4.1727343, z: 13}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 2000794284}
@@ -442,8 +450,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &52496752
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -689,8 +701,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &153118082
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -749,7 +765,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 153118080}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2741601, y: -4.1727343, z: 2.0966988}
+  m_LocalPosition: {x: -2.86, y: -4.1727343, z: 4}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 413871297}
@@ -800,8 +816,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &159668906
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -897,8 +917,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &255101911
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -994,8 +1018,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &413871299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1091,8 +1119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &435553185
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1188,8 +1220,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &673834492
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1285,8 +1321,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &711065703
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1414,7 +1454,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 752100559}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.35, z: 0}
   m_LocalScale: {x: 22, y: 1, z: 25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1487,7 +1527,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911755679}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.03416, y: -4.187422, z: 9.17}
+  m_LocalPosition: {x: 6.73, y: -4.187422, z: 8.5}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 25312901}
@@ -1506,8 +1546,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &911755682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1590,8 +1634,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &912793946
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1650,7 +1698,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 912793944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.114161, y: -4.187422, z: 2.0966988}
+  m_LocalPosition: {x: 9.25, y: -4.187422, z: 4}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1740974692}
@@ -1825,8 +1873,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1076749722
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1909,8 +1961,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1116694387
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1969,7 +2025,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1116694385}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.63416, y: -4.187422, z: 2.0966988}
+  m_LocalPosition: {x: 5.28, y: -4.187422, z: 4}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1681321835}
@@ -2020,8 +2076,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1168652520
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2134,15 +2194,15 @@ RectTransform:
   m_GameObject: {fileID: 1215286781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 24710088}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720.9, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 700, y: -30}
+  m_SizeDelta: {x: 300, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1215286783
 MonoBehaviour:
@@ -2157,7 +2217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2165,18 +2225,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
+    m_FontSize: 60
+    m_FontStyle: 3
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
+    m_MinSize: 0
+    m_MaxSize: 230
+    m_Alignment: 2
+    m_AlignByGeometry: 1
+    m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\u30B9 \u30B3 \u30A2  0"
 --- !u!222 &1215286784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2195,6 +2255,169 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScorePoint: {fileID: 1215286783}
+--- !u!1 &1218578730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1218578738}
+  - component: {fileID: 1218578737}
+  - component: {fileID: 1218578736}
+  - component: {fileID: 1218578735}
+  - component: {fileID: 1218578734}
+  - component: {fileID: 1218578733}
+  - component: {fileID: 1218578732}
+  - component: {fileID: 1218578731}
+  m_Layer: 0
+  m_Name: Player (2)
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1218578731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1218578732}
+          m_MethodName: Pointer_Click
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &1218578732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61d929599aa93184f92acd74df18f4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!195 &1218578733
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!54 &1218578734
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!23 &1218578735
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 803f1f33929ee7743a80cb18b877a6e8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &1218578736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1218578737
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1218578738
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1218578730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.6, y: 1.36, z: -8.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1269602819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,8 +2513,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!1 &1282502277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2543,7 +2770,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1409061425}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.55, y: -4.187422, z: 9.17}
+  m_LocalPosition: {x: 1.12, y: -4.187422, z: 4}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 673834490}
@@ -2562,8 +2789,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1409061428
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2659,8 +2890,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1681321837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2738,7 +2973,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1717766556}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.1, y: -4.187422, z: 9.17}
+  m_LocalPosition: {x: 9.1, y: -4.187422, z: 13}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1076749720}
@@ -2757,8 +2992,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1717766559
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2836,7 +3075,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1730660053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.75, y: -4.1727343, z: 9.17}
+  m_LocalPosition: {x: -3.25, y: -4.1727343, z: 13}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 435553183}
@@ -2855,8 +3094,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1730660056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3017,8 +3260,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1740974694
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3101,8 +3348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1762340022
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3161,7 +3412,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1762340020}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3858398, y: -4.1727343, z: 2.0966988}
+  m_LocalPosition: {x: -1.85, y: -4.1727343, z: 8.5}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1835028065}
@@ -3212,8 +3463,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1835028067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3278,7 +3533,7 @@ GameObject:
   - component: {fileID: 1887051680}
   - component: {fileID: 1887051683}
   m_Layer: 0
-  m_Name: ' spade'
+  m_Name: spade
   m_TagString: spade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3291,7 +3546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1887051678}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.28584, y: -4.1727343, z: 2.0966988}
+  m_LocalPosition: {x: -5.87, y: -4.1727343, z: 8.5}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1269602820}
@@ -3361,8 +3616,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!1 &1940552339
 GameObject:
   m_ObjectHideFlags: 0
@@ -3376,7 +3635,7 @@ GameObject:
   - component: {fileID: 1940552342}
   - component: {fileID: 1940552341}
   m_Layer: 0
-  m_Name: ' heart (1)'
+  m_Name: heart (1)
   m_TagString: heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3389,7 +3648,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1940552339}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.56, y: -4.1727343, z: 9.17}
+  m_LocalPosition: {x: -7.56, y: -4.1727343, z: 13}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 711065701}
@@ -3408,8 +3667,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1940552342
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3492,8 +3755,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &1996540469
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3552,7 +3819,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1996540467}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.03416, y: -4.187422, z: 2.0966988}
+  m_LocalPosition: {x: 2.22, y: -4.187422, z: 8.5}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 1168652518}
@@ -3603,8 +3870,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &2000794286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3669,7 +3940,7 @@ GameObject:
   - component: {fileID: 2016163417}
   - component: {fileID: 2016163416}
   m_Layer: 0
-  m_Name: ' heart'
+  m_Name: heart
   m_TagString: heart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3687,8 +3958,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeleft: 0
+  timeleft2: 0
   flag: 0
   Openflag: 0
+  Closeflag: 0
+  Stayflag: 0
+  CardCloseflag: 0
 --- !u!23 &2016163417
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3747,7 +4022,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2016163415}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.38584, y: -4.1727343, z: 2.0966988}
+  m_LocalPosition: {x: -7.24, y: -4.1727343, z: 4}
   m_LocalScale: {x: 2, y: 1, z: 3}
   m_Children:
   - {fileID: 255101909}
