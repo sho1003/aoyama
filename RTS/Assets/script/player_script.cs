@@ -53,7 +53,7 @@ public class player_script : MonoBehaviour {
         if (collision.gameObject.tag == "Enemy") {
 
             HP -= EnemyATK; //攻撃で体力が減少
-            Debug.Log(HP); //HPを表示
+            //Debug.Log(HP); //HPを表示
             
         }
         if (HP == 0)
