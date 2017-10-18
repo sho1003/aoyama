@@ -1,0 +1,22 @@
+
+■Player_scriptの差し替え
+・変更内容は前回までプレイヤーキャラクターをそれぞれ
+　移動されなかったが今回のscriptでは可能になった。
+
+
+■プレイヤーのプレハブ化
+・Hierarchyにあるplayer_prefabオブジェクトに
+　Player_Manager(Script)を付けて
+　オブジェクトを入れる欄には
+　Project→AssetsにあるCubeのPrefabを入れる。
+
+
+■HierarchyにあるCylinderオブジェクト（敵キャラクター）に
+　PointMove_scriptを付ける。
+　オブジェクトを入れる欄にはbox（占領拠点）を入れる。
+　※拠点に向かうだけなので攻撃はしない。
+
+
+▽未実装
+・リスポーン
+　
