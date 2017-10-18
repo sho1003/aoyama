@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2017.1.1f1:3.3.0.2
 StandaloneWindows64
 C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll
@@ -10,4 +11,18 @@ C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/
 C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
 C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
 C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+=======
+2017.1.1f1:3.3.0.2
+StandaloneWindows64
+C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll
+C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
+C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll
+C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll
+>>>>>>> 2281a693ef68a1adfd1f5b3ac451a5e02cdffb1b
 C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Common.dll

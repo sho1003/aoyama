@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<?xml version="1.0"?>
 <doc>
 	<assembly>
@@ -6,3 +7,13 @@
 	<members>
 	</members>
 </doc>
+=======
+﻿<?xml version="1.0"?>
+<doc>
+	<assembly>
+		<name>UnityEditor.iOS.Extensions.Xcode</name>
+	</assembly>
+	<members>
+	</members>
+</doc>
+>>>>>>> 2281a693ef68a1adfd1f5b3ac451a5e02cdffb1b
