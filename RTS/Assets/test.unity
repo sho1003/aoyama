@@ -284,7 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateCamera: {fileID: 1192901292}
   player: {fileID: 1127841349}
-  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &312184385
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +403,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateCamera: {fileID: 1192901292}
   player: {fileID: 614243461}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &327249392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,7 +1521,7 @@ GameObject:
   - component: {fileID: 1127841356}
   - component: {fileID: 1127841357}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1615,7 +1613,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1127841349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 207889103}

@@ -8,7 +8,7 @@ public class UI_Script : MonoBehaviour
 
     public Camera rotateCamera;
     public GameObject player;
-    public Vector3 offset = Vector3.zero;
+    Vector3 offset;
 
     RectTransform myRectTrans;
     RectTransform childRectTrans;
@@ -20,7 +20,6 @@ public class UI_Script : MonoBehaviour
 
         myRectTrans = GetComponent<RectTransform>();
         childRectTrans = transform.GetChild(0).GetComponent<RectTransform>();
-
     }
 
     // Update is called once per frame
@@ -28,7 +27,7 @@ public class UI_Script : MonoBehaviour
     {
         transform.rotation = rotateCamera.transform.rotation;
 
-        //transform.position = player.transform.position + new Vector3(0,5,0);
+        OffsetAdjustment();
 
         var screenPos = Camera.main.WorldToScreenPoint(player.transform.position + offset);
         var localPos = Vector2.zero;
@@ -36,10 +35,16 @@ public class UI_Script : MonoBehaviour
         childRectTrans.localPosition = localPos;
     }
 
+    void OffsetAdjustment()
+    {
+        offset.x = -player.transform.position.x / 20;
+        offset.y = 1.5f;
+        offset.z = -player.transform.position.z / 20;
+    }
+
     void Disable()
     {
         this.gameObject.SetActive(false);
-
     }
 
 }

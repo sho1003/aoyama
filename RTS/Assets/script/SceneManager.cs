@@ -16,7 +16,7 @@ public class SceneManager : MonoBehaviour {
 
         CubeClick = false;
         
-        player_ = GameObject.Find("Cube").GetComponent<player_script>();
+        player_ = GameObject.Find("Player").GetComponent<player_script>();
     }
 
     public string cubeTag = "Player";
