@@ -10,7 +10,7 @@ public class Player_Manager : MonoBehaviour {
 
 
     //定義したオブジェクトの箱をn個作る
-    static int PLAYER_MAX = 3;
+    static int PLAYER_MAX = 7;
     GameObject[] playerObj = new GameObject[PLAYER_MAX];
     //player_scriptを定義できる箱をn個作る
     player_script[] player = new player_script[PLAYER_MAX];
@@ -28,9 +28,13 @@ public class Player_Manager : MonoBehaviour {
     {
 
         //初めの座標位置を指定
-        pos[0] = new Vector3(0.0f, 0.6f, 13.5f);
-        pos[1] = new Vector3(5.0f, 0.6f, 14.0f);
-        pos[2] = new Vector3(-5.0f, 0.6f, 13.5f);
+        pos[0] = new Vector3(10.0f, 0.6f, 15.0f);
+        pos[1] = new Vector3(5.0f, 0.6f, 15.0f);
+        pos[2] = new Vector3(0.0f, 0.6f, 15.0f);
+        pos[3] = new Vector3(-5.0f, 0.6f, 15.0f);
+        pos[4] = new Vector3(-10.0f, 0.6f, 15.0f);
+        pos[5] = new Vector3(5.0f, 0.6f, 11.0f);
+        pos[6] = new Vector3(-5.0f, 0.6f, 11.0f);
 
 
         for (int i = 0; i < PLAYER_MAX; i++)
@@ -64,6 +68,8 @@ public class Player_Manager : MonoBehaviour {
         }
 		
 	}
+
+
 
     void DeathObject(GameObject obj)
     {
