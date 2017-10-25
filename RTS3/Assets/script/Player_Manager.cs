@@ -14,6 +14,9 @@ public class Player_Manager : MonoBehaviour {
     GameObject[] playerObj = new GameObject[PLAYER_MAX];
     //player_scriptを定義できる箱をn個作る
     player_script[] player = new player_script[PLAYER_MAX];
+    private bool[] FlagDeath = new bool[PLAYER_MAX];
+    static int RespawnTime = 60;
+    private int[] time = new int[PLAYER_MAX];
 
 
     //座標位置を指定する箱をn個作る
@@ -32,30 +35,49 @@ public class Player_Manager : MonoBehaviour {
 
         for (int i = 0; i < PLAYER_MAX; i++)
         {
-            //playerObj[i]の座標位置、付与するscriptを指示している
-            playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
-            //playerObj[i]として呼び出されるオブジェクト名を変えられる
-            playerObj[i].name = "player" + i;
-            player[i] = playerObj[i].GetComponent<player_script>();
+            SetPlayer(i);
+            time[i] = RespawnTime;
         }
 
-        //playerObj[1]の座標位置、付与するscriptを指示している
-        //playerObj[1] = Instantiate(playerPrefab, pos[1], Quaternion.identity);
-        //playerObj[1].name = "player1";
-        //player[1] = playerObj[1].GetComponent<player_script>();
-
-        ////playerObj[2]の座標位置、付与するscriptを指示している
-        //playerObj[2] = Instantiate(playerPrefab, pos[2], Quaternion.identity);
-        //playerObj[2].name = "player2";
-        //player[2] = playerObj[2].GetComponent<player_script>();
-
-
-        //player[0].Number = 5;
     }
 
     // Update is called once per frame
     void Update () {
+        for(int i=0;i<PLAYER_MAX;i++)
+        {
+            if (FlagDeath[i])
+            {
+                if (time[i] > 0) time[i]--;
+                else
+                {
+                    SetPlayer(i);
+                    time[i] = RespawnTime;
+                }
+            }
 
+            if(player[i].death)
+            {
+                DeathObject(player[i].gameObject);
+                FlagDeath[i] = true;
+                player[i].death = false;
+            }
+        }
 		
 	}
+
+    void DeathObject(GameObject obj)
+    {
+        Destroy(obj);
+    }
+
+    void SetPlayer(int i)
+    {
+        //playerObj[i]の座標位置、付与するscriptを指示している
+        playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
+        //playerObj[i]として呼び出されるオブジェクト名を変えられる
+        playerObj[i].name = "player" + i;
+        player[i] = playerObj[i].GetComponent<player_script>();
+        player[i].Number = i + 1;
+        FlagDeath[i] = false;
+    }
 }
