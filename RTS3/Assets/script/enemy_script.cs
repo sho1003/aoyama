@@ -61,7 +61,7 @@ public class enemy_script : MonoBehaviour {
             player = GameObject.Find(collision.gameObject.transform.name).GetComponent<player_script>();
 
             HP -= player.PlayerATK;//攻撃で体力が減少
-            Debug.Log(HP); //HPを表示
+            //Debug.Log(HP); //HPを表示
 
         }
         if (HP < 0)

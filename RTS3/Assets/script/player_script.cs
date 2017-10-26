@@ -12,11 +12,12 @@ public class player_script : MonoBehaviour {
     private Ray ray;
 
 
-    public readonly int maxHP = 100;    //体力の最大値
+    public readonly int maxHP = 1;    //体力の最大値
     public int HP;    //体力
     public int a = 1;
     public int PlayerATK = 3;  //敵の攻撃力
     public int Number;   //キャラクターの記されている数字
+    public bool death;
     
 
     private enemy_script enemy;
@@ -28,7 +29,7 @@ public class player_script : MonoBehaviour {
 
 
         HP = maxHP; //初期体力を最大値にする
-        
+        death = false;
     }
 
     void Update()
@@ -58,12 +59,12 @@ public class player_script : MonoBehaviour {
             enemy = GameObject.Find(collision.gameObject.transform.name).GetComponent<enemy_script>();
 
             HP -= enemy.EnemyATK;//攻撃で体力が減少
-            Debug.Log(HP); //HPを表示
+            //Debug.Log(HP); //HPを表示
             
         }
         if (HP < 0)
         {
-            Destroy(gameObject);
+            death = true;
         }
     }
 
