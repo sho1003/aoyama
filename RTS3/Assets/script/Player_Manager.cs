@@ -36,7 +36,7 @@ public class Player_Manager : MonoBehaviour {
         pos[5] = new Vector3(5.0f, 0.6f, 11.0f);
         pos[6] = new Vector3(-5.0f, 0.6f, 11.0f);
 
-
+        //  死んだ時からスポーン場所まで戻る時間処理
         for (int i = 0; i < PLAYER_MAX; i++)
         {
             SetPlayer(i);
@@ -85,5 +85,7 @@ public class Player_Manager : MonoBehaviour {
         player[i] = playerObj[i].GetComponent<player_script>();
         player[i].Number = i + 1;
         FlagDeath[i] = false;
+        //  
+        playerObj[i].transform.Find("Zone").gameObject.SetActive(false);
     }
 }
