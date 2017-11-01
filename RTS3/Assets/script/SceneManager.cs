@@ -13,7 +13,6 @@ public class SceneManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
         CubeClick = false;
         
         //player_ = GameObject.Find("Cube").GetComponent<player_script>();
