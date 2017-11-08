@@ -88,5 +88,7 @@ public class Player_Manager : MonoBehaviour {
         player[i].Number = i + 1;
         FlagDeath[i] = false;
         
+        //  キャラクター番号と体力を同じにする
+        player[i].PlayerATK = player[i].Number;
     }
 }

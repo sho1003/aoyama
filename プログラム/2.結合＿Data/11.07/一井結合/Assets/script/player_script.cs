@@ -13,10 +13,10 @@ public class player_script : MonoBehaviour
     private Ray ray;
 
 
-    public readonly int maxHP = 100;    //体力の最大値
+    public readonly int maxHP = 1000;    //体力の最大値
     public int HP;    //体力
     public int a = 1;
-    public int PlayerATK = 3;  //プレイヤーの攻撃力
+    public int PlayerATK = 0;  //プレイヤーの攻撃力
     public int Number;   //キャラクターの記されている数字
     public bool death;
     public float Deathtime;
@@ -61,34 +61,23 @@ public class player_script : MonoBehaviour
         }
     }
 
-    // 
-    void OnCollisionStay(Collision collision)
+
+    void OnTriggerStay(Collider collision)
     {
-
-        //if (collision.gameObject.tag == "Enemy") {
-        //    enemy = GameObject.Find(collision.gameObject.transform.name).GetComponent<enemy_script>();
-
-        //    HP -= enemy.EnemyATK;//攻撃で体力が減少
-        //    //Debug.Log(HP); //HPを表示
-
-        //}
-        //if (HP < 0)
-        //{
-        //    death = true;
-        //}
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-
-        if (col.gameObject.tag == "Enemy")
+        //  合った相手がエネミーの場合
+        if (collision.gameObject.tag == "Enemy")
         {
-            enemy = GameObject.Find(col.gameObject.transform.name).GetComponent<enemy_script>();
+            enemy = GameObject.Find
+                (collision.gameObject.transform.name).GetComponent<enemy_script>();
 
-            //HP -= enemy.EnemyATK;//攻撃で体力が減少
-                                 //Debug.Log(HP); //HPを表示
-
+            //  プレイヤーと敵の攻撃力が同じか、上回った場合は１ダメージ
+            if (PlayerATK == enemy.EnemyATK 
+                || PlayerATK > enemy.EnemyATK)
+                HP--;
+            //  下回った場合はその分ダメージ加算
+            else HP -= (enemy.EnemyATK - PlayerATK);
         }
+        if (HP < 0) death = true;
         
     }
 }
