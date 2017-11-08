@@ -119,11 +119,10 @@ GameObject:
   - component: {fileID: 379152002}
   - component: {fileID: 379152007}
   - component: {fileID: 379152006}
-  - component: {fileID: 379152005}
   - component: {fileID: 379152004}
   - component: {fileID: 379152003}
   m_Layer: 5
-  m_Name: restart
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,26 +156,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 379152001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fcf9c90234835840bc5002063a190af, type: 3}
+  m_Script: {fileID: 11500000, guid: e549c16a3eeeb8b4dbaa6ec1fff7bb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &379152004
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114679947074468794, guid: da0222d37eca76b47b3c90e2c14d79d2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 379152001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &379152005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114135050601664350, guid: da0222d37eca76b47b3c90e2c14d79d2,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 379152001}
   m_Enabled: 1
@@ -196,7 +182,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1.38
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -213,7 +199,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 379152003}
-        m_MethodName: SceneLoad
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -466,7 +452,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: 'Start
+
+'
 --- !u!222 &1256106692
 CanvasRenderer:
   m_ObjectHideFlags: 0

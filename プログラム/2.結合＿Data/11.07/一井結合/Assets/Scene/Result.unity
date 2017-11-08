@@ -178,7 +178,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Restart
+  m_Text: "Title\u3078"
 --- !u!222 &264858973
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 1330310225}
   - component: {fileID: 1330310230}
   - component: {fileID: 1330310229}
-  - component: {fileID: 1330310228}
+  - component: {fileID: 1330310227}
   - component: {fileID: 1330310226}
   m_Layer: 5
   m_Name: restart
@@ -606,14 +606,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330310224}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fcf9c90234835840bc5002063a190af, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e1d14fbd740baa46b7e0d3f42f1fd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1330310228
+  text: {fileID: 556796026}
+--- !u!114 &1330310227
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114135050601664350, guid: da0222d37eca76b47b3c90e2c14d79d2,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1330310224}
   m_Enabled: 1
@@ -633,7 +633,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1.38
+    m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -650,7 +650,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1330310226}
-        m_MethodName: SceneLoad
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
