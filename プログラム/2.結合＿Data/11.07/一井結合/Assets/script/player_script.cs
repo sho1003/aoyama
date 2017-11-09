@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class player_script : MonoBehaviour
 {
+
+    public Slider slider;
 
 
     private NavMeshAgent agent;
@@ -36,6 +39,7 @@ public class player_script : MonoBehaviour
 
     void Update()
     {
+
         if (HP < 0)
         {
             transform.position = new Vector3(0, 50, 0);
@@ -78,7 +82,7 @@ public class player_script : MonoBehaviour
             else HP -= (enemy.EnemyATK - PlayerATK);
         }
         if (HP < 0) death = true;
-        
+           
     }
 }
 
