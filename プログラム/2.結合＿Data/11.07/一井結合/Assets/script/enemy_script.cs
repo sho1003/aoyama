@@ -46,13 +46,13 @@ public class enemy_script : MonoBehaviour {
 
         if (col.gameObject.tag == "Player")
         {
-           player = GameObject.Find(col.gameObject.transform.name).GetComponent<player_script>();
-            //  HP -= player.PlayerATK;//攻撃で体力が減少
-
-            HP -= player.Number;//
-
-            //Debug.Log(HP); //HPを表示
-
+            //  あたっている相手のScript取得
+            player = GameObject.Find(col.gameObject.transform.name).GetComponent<player_script>();
+            //  enemey側がプレイヤーと攻撃力が同じか、上回った場合は１ダメージ
+            if (EnemyATK == player.PlayerATK || EnemyATK > player.PlayerATK)
+                HP--;
+            //  下回った場合はその分ダメージ加算
+            else HP -= (player.PlayerATK - EnemyATK);
         }
         if (HP < 0)
         {
