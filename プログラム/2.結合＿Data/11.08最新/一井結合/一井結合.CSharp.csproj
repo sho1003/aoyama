@@ -78,10 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life_script.cs" />
+    <Compile Include="Assets\script\PickManager.cs" />
+    <Compile Include="Assets\script\PickScript.cs" />
     <Compile Include="Assets\script\Player_Manager.cs" />
     <Compile Include="Assets\script\player_script.cs" />
     <Compile Include="Assets\script\PointMove_script.cs" />

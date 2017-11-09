@@ -57,7 +57,7 @@ public class player_script : MonoBehaviour
 
 
 
-    public void Pointer_Click()
+    public bool Pointer_Click()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 100f))
@@ -65,6 +65,7 @@ public class player_script : MonoBehaviour
             agent.SetDestination(hit.point);
             anime.SetBool("run", true);
         }
+        return true;
     }
 
     void OnTriggerStay(Collider col)
