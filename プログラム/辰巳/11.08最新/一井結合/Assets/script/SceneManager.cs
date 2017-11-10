@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//=========================================================//
+//
+//          SceneManager
+//
+//=========================================================//
+
 public class SceneManager : MonoBehaviour {
 
 
@@ -10,13 +16,16 @@ public class SceneManager : MonoBehaviour {
 
 
 
-    // Use this for initialization
+    //========================================================//
+    //      初期化
+    //========================================================//
+
     void Start()
     {
 
         CubeClick = false;
-        
-        //player_ = GameObject.Find("Cube").GetComponent<player_script>();
+
+
     }
 
     public string cubeTag = "Player";
@@ -43,6 +52,8 @@ public class SceneManager : MonoBehaviour {
                         Debug.Log("押した");
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player_ = GameObject.Find(hit.transform.gameObject.name).GetComponent<player_script>();
+                        //  Zone表示
+                        player_.transform.Find("Zone").gameObject.SetActive(true);
                     }
                 }
             }

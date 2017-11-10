@@ -20,10 +20,7 @@ public class player_script : MonoBehaviour
     public int Number;   //キャラクターの記されている数字
     public bool death;
     public float Deathtime;
-  
-
-    private enemy_script enemy;
-
+ 
 
     void Start()
     {
@@ -66,21 +63,6 @@ public class player_script : MonoBehaviour
             anime.SetBool("run", true);
         }
         return true;
-    }
-
-    void OnTriggerStay(Collider col)
-    {
-
-        if (col.gameObject.tag == "Enemy")
-        {
-            // enemyのcollisionに当たるとsetアニメーションをtrueにする
-            //anime.SetBool("set", true);
-            enemy = GameObject.Find(col.gameObject.transform.name).GetComponent<enemy_script>();
-        }
-
-        //
-        //anime.SetBool("set", false);
-
     }
 }
 
