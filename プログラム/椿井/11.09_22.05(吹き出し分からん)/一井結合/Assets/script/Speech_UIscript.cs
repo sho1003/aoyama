@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Speech_UIscript : MonoBehaviour {
 
-    const float GET_LENGTH = 5.0f;
+    const float GET_LENGTH = 3.0f;
 
     public Vector3 offset;
     Camera rotateCamera;
@@ -32,23 +32,27 @@ public class Speech_UIscript : MonoBehaviour {
         transform.rotation = rotateCamera.transform.rotation;
 
         //一番近いプレイヤーを取得
-        GameObject otherplayer = SearchTag(transform.gameObject, "Player");
+        GameObject otherplayer = SearchTag(player, "Player");
         //プレイヤーとのベクトルを取得
         Vector3 vec = otherplayer.transform.position - player.transform.position;
         //絶対値を取る
         float Dis = Mathf.Abs(vec.magnitude);
-        //プレイヤーとの距離が一定以下(今は５)なら
-        if (Dis <= GET_LENGTH)
+        //プレイヤーとの距離が一定以下なら
+        if (Dis < GET_LENGTH)
         {
             //Debug.Log("近い");
 
-            if (vec.z < 0)
+            if (vec.z < 0.00f)
             {
                 hukidashi.SetActive(false);
             }
+            else
+            {
+                hukidashi.SetActive(true);
+            }
 
             offset.x = vec.x / 2;
-            offset.y = 0.5f;
+            offset.y = 4.0f;
             offset.z = 2.0f;
         }
         else
@@ -70,7 +74,7 @@ public class Speech_UIscript : MonoBehaviour {
     void OffsetAdjustment()
     {
         offset.x = 0;
-        offset.y = 1.0f;
+        offset.y = 4.0f;
         offset.z = 2.0f;
     }
 
@@ -79,8 +83,8 @@ public class Speech_UIscript : MonoBehaviour {
     {
         float tmpDis = 0;               //距離用一時変数
         float nearDis = 0.1f;           //最も近いオブジェクトの距離
-        float farDis = 100.0f;          //最も遠い距離
-        GameObject targetObj = null;    //オブジェクト
+        float farDis = 100.0f;
+        GameObject targetObj = null;    //リターンするオブジェクト
 
         //タグ指定されたオブジェクトを配列で取得する
         foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
@@ -88,7 +92,7 @@ public class Speech_UIscript : MonoBehaviour {
             //取得したオブジェクトと自身の距離を取得
             tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
 
-            //オブジェクトの距離がnearDis以上farDis以下ならばオブジェクトを取得
+            //オブジェクトの距離が0.1以上5.0以下ならばオブジェクトを取得
             if (nearDis < tmpDis && tmpDis < farDis)
             {
                 //一時変数に距離を格納

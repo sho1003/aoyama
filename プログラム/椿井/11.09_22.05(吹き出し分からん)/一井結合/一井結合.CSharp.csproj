@@ -82,6 +82,8 @@
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life_script.cs" />
+    <Compile Include="Assets\script\PickManager.cs" />
+    <Compile Include="Assets\script\PickScript.cs" />
     <Compile Include="Assets\script\Player_Manager.cs" />
     <Compile Include="Assets\script\player_script.cs" />
     <Compile Include="Assets\script\PointMove_script.cs" />
@@ -89,11 +91,12 @@
     <Compile Include="Assets\script\Result.cs" />
     <Compile Include="Assets\script\SceneManager.cs" />
     <Compile Include="Assets\script\ScoreScript.cs" />
+    <Compile Include="Assets\script\Speech_UIscript.cs" />
     <Compile Include="Assets\script\SuutiScript.cs" />
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
     <Compile Include="Assets\script\UI_Script.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

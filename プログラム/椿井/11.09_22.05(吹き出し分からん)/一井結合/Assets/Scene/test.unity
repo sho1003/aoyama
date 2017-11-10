@@ -1800,7 +1800,7 @@ Transform:
   - {fileID: 730189363}
   - {fileID: 714138071}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619441422
 GameObject:
@@ -3078,81 +3078,6 @@ Transform:
   m_Father: {fileID: 974255560}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1204416243
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 4.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4009137317948838, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_RootOrder
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 1369601532919478, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_Name
-      value: KNIFE_KING_motion (hukidasi)
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476646072527496, guid: f4ad7f781c763af418e5205317fea5d9,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476646072527496, guid: f4ad7f781c763af418e5205317fea5d9,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224156676425322616, guid: f4ad7f781c763af418e5205317fea5d9,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 224186595454648910, guid: f4ad7f781c763af418e5205317fea5d9,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224541878325273374, guid: f4ad7f781c763af418e5205317fea5d9,
-        type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1922028025446402, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f4ad7f781c763af418e5205317fea5d9, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1216164653
 Prefab:
   m_ObjectHideFlags: 0
@@ -5231,7 +5156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2099616398
 GameObject:

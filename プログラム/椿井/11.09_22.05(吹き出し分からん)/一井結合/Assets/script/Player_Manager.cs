@@ -41,7 +41,7 @@ public class Player_Manager : MonoBehaviour {
             number[i] = PlayerPrefs.GetInt("PlayerNum" + i);
         }
 
-        for (int i = 0; i < PLAYER_MAX; i++)
+        for (int i = 0; i < 2; i++)
         {
             SetPlayer(i);
             time[i] = RespawnTime;
@@ -51,7 +51,7 @@ public class Player_Manager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        for(int i=0;i<PLAYER_MAX;i++)
+        for (int i = 0; i < 2; i++)
         {
             // player[i]が止まりかけるとアニメーションrunをfalseにする
             //if (player[i].agent.remainingDistance <= player[i].agent.stoppingDistance)
