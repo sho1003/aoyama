@@ -92,6 +92,11 @@ public class BattleScript : MonoBehaviour {
 
                         //  バトル処理
                     case BATTLE_STEP.BATTLE:
+
+
+
+
+
                         //  プレイヤーと相手が存在する場合
                         if (this.gameObject != null && rival != null)
                         {
