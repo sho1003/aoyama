@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{864C20EC-789E-E826-7365-1D9D86A24E77}</ProjectGuid>
+    <ProjectGuid>{0401D9F9-218D-B0F1-B242-DC8102680EF7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,9 +51,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\script\BattleScript.cs" />
      <Compile Include="Assets\script\enemy_script.cs" />
      <Compile Include="Assets\script\GameUIManager.cs" />
+     <Compile Include="Assets\script\HP_UIscript.cs" />
      <Compile Include="Assets\script\Life_script.cs" />
+     <Compile Include="Assets\script\PickManager.cs" />
+     <Compile Include="Assets\script\PickScript.cs" />
      <Compile Include="Assets\script\Player_Manager.cs" />
      <Compile Include="Assets\script\player_script.cs" />
      <Compile Include="Assets\script\PointMove_script.cs" />
@@ -63,6 +67,7 @@
      <Compile Include="Assets\script\ScoreScript.cs" />
      <Compile Include="Assets\script\SuutiScript.cs" />
      <Compile Include="Assets\script\TimeScript.cs" />
+     <Compile Include="Assets\script\TitleSceneScript.cs" />
      <Compile Include="Assets\script\UI_Script.cs" />
      <Compile Include="Assets\script\ZinScript.cs" />
  <Reference Include="UnityEngine.UI">
