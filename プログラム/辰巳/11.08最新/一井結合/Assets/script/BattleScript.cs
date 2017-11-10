@@ -10,24 +10,24 @@ using UnityEngine;
 
 public class BattleScript : MonoBehaviour {
 
+    //  スクリプト取得
+    player_script ps;
+
     //  rival(ライバル)
     public GameObject rival;
 
     //  距離変数
     private float length;
     //  プレイヤーとライバルの距離幅
-    private float space = 4.0f;
-
-    //  フラグ
-    
-    public bool flg = true;
+    public float space = 3.0f;
 
     //  行動順
     enum BATTLE_STEP
     {
+        NOT_APPROACH = -1,
         APPROACH = 0,
         BATTLE,
-    } BATTLE_STEP step = 0;
+    } BATTLE_STEP step = BATTLE_STEP.NOT_APPROACH;
 
     //========================================================//
     //      初期化
@@ -35,7 +35,9 @@ public class BattleScript : MonoBehaviour {
 
     void Start() 
     {
-
+        //  呼び込み
+        ps = GetComponent<player_script>();
+        //  敵を指定(仮)
         rival = GameObject.Find("enemy1");
     }
 
@@ -61,35 +63,48 @@ public class BattleScript : MonoBehaviour {
 
     void Update()
     {
-        switch (step)
-        {
-            //  近づくまでの処理
-            case BATTLE_STEP.APPROACH:
-                //  プレイヤーと相手が存在する場合
-                if (this.gameObject != null && rival != null)
+                switch (step)
                 {
-                    //  距離計算
-                    BattleLength(this.gameObject, rival);
-                    //  指定距離まで近づいた場合実行
-                    if (space > length)
-                    {
-                        Debug.Log("近づいた");
-                        player_script ps = GetComponent<player_script>();
+                        //  接近していない時の処理
+                    case BATTLE_STEP.NOT_APPROACH:
+                        //  プレイヤーと相手が存在する場合
+                        if (this.gameObject != null && rival != null)
+                        {
+                            //  距離計算
+                            BattleLength(this.gameObject, rival);
+                            //  指定距離まで近づいた場合実行
+                            if (space > length)
+                                step = BATTLE_STEP.APPROACH;
+                        }
+                        break;
+
+                        //  接近時の処理
+                    case BATTLE_STEP.APPROACH:
+                        //  キャラクターの移動を止める
                         ps.agent.ResetPath();
+                        GameObject Zone = this.transform.Find("Zone").gameObject;
+                        Zone.SetActive(false);
+                        
+                        Debug.Log("近づいた");
+
                         step = BATTLE_STEP.BATTLE;
-                    }
+                        break;
+
+                        //  バトル処理
+                    case BATTLE_STEP.BATTLE:
+                        //  プレイヤーと相手が存在する場合
+                        if (this.gameObject != null && rival != null)
+                        {
+                            //  距離計算
+                            BattleLength(this.gameObject, rival);
+                            //  指定距離から離れた場合実行
+                            if (space < length)
+                            {
+                                Debug.Log("離れた");
+                                step = BATTLE_STEP.NOT_APPROACH;
+                            }
+                        }
+                        break;
                 }
-                break;
-
-            //  バトル処理
-            case BATTLE_STEP.BATTLE:
-
-                break;
-        }
-       
     }
-
-
-
-
 }

@@ -47,7 +47,7 @@ public class enemy_script : MonoBehaviour {
         if (col.gameObject.tag == "Player")
         {
            player = GameObject.Find(col.gameObject.transform.name).GetComponent<player_script>();
-            //  HP -= player.PlayerATK;//攻撃で体力が減少
+           HP -= player.PlayerATK;//攻撃で体力が減少
 
             HP -= player.Number;//
 
@@ -56,7 +56,7 @@ public class enemy_script : MonoBehaviour {
         }
         if (HP < 0)
         {
-            col.transform.position = new Vector3(0, 50, 0);
+            //col.transform.position = new Vector3(0, 50, 0);
             Destroy(gameObject);
 
         }
