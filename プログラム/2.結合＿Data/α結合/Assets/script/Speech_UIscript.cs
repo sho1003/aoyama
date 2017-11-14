@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Speech_UIscript : MonoBehaviour
 {
@@ -9,22 +10,29 @@ public class Speech_UIscript : MonoBehaviour
 
     public Vector3 offset;
     Camera rotateCamera;
-    GameObject player1;
+    GameObject player;
+    player1_script player1;
+    player2_script player2;
 
     RectTransform myRectTrans;
     RectTransform SpeechBalloon;
     GameObject hukidashi;
+    Text sumText;
 
     // Use this for initialization
     void Start()
     {
         rotateCamera = Camera.main;
-        player1 = transform.root.gameObject;
+        player = transform.root.gameObject;
+
+        if (player.tag == "Player1") player1 = player.GetComponent<player1_script>();
+        else if (player.tag == "Player2") player2 = player.GetComponent<player2_script>();
 
         myRectTrans = GetComponent<RectTransform>();
         SpeechBalloon = transform.GetChild(1).GetComponent<RectTransform>();
 
         hukidashi = transform.Find("SpeechBalloon").gameObject;
+        sumText = hukidashi.transform.GetChild(0).GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -32,12 +40,12 @@ public class Speech_UIscript : MonoBehaviour
     {
         transform.rotation = rotateCamera.transform.rotation;
 
-        //一番近いプレイヤーを取得
-        GameObject otherplayer = SearchTag(player1, "Player1");
+        //同じタグの一番近いプレイヤーを取得
+        GameObject otherplayer = SearchTag(player, player.tag);
         if (otherplayer != null)
         {
             //プレイヤーとのベクトルを取得
-            Vector3 vec = otherplayer.transform.position - player1.transform.position;
+            Vector3 vec = otherplayer.transform.position - player.transform.position;
             //絶対値を取る
             float Dis = Mathf.Abs(vec.magnitude);
             //プレイヤーとの距離が一定以下なら
@@ -47,12 +55,25 @@ public class Speech_UIscript : MonoBehaviour
 
                 if (vec.z < 0.00f)
                 {
+                    //吹き出しを一旦消す
                     hukidashi.SetActive(false);
                 }
                 else
                 {
                     hukidashi.SetActive(true);
                 }
+
+                //吹き出しの中の数字
+                int player_number = 0;
+                if (player.tag == "Player1")
+                {
+                    player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
+                }
+                else if (player.tag == "Player2")
+                {
+                    player_number = otherplayer.GetComponent<player2_script>().Number + player2.Number;
+                }
+                sumText.text = "" + player_number;
 
                 offset.x = vec.x / 2;
                 offset.y = 4.0f;
@@ -62,13 +83,23 @@ public class Speech_UIscript : MonoBehaviour
             {
                 //Debug.Log("遠い");
                 hukidashi.SetActive(true);
+
+                if (player.tag == "Player1")
+                {
+                    sumText.text = "" + player1.Number;
+                }
+                else if (player.tag == "Player2")
+                {
+                    sumText.text = "" + player2.Number;
+                }
+
                 //プレイヤーの位置によって微調整
                 OffsetAdjustment();
             }
         }
 
         //ワールド座標をスクリーン座標に変換
-        var screenPos = Camera.main.WorldToScreenPoint(player1.transform.position + offset);
+        var screenPos = Camera.main.WorldToScreenPoint(player.transform.position + offset);
         var localPos = Vector2.zero;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(myRectTrans, screenPos, Camera.main, out localPos);
         SpeechBalloon.localPosition = localPos;

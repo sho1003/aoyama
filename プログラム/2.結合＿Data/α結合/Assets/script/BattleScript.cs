@@ -110,7 +110,7 @@ public class BattleScript : MonoBehaviour
                     if (this.gameObject != null && rival[i] != null)
                     {
                         //　ダメージ処理
-                        ps1.HP -= ps2[i].PlayerATK+ps2[i].Number;
+                        ps1.HP -= ps2[i].PlayerATK + ps2[i].Number;
                         ps2[i].HP -= ps1.PlayerATK + ps1.Number;
                         //　攻撃アニメーション再生
                         ps1.anime.SetBool("set", true);

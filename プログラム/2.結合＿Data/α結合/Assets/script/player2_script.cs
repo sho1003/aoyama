@@ -94,7 +94,7 @@ public class player2_script : MonoBehaviour
 
             // Number = Number + player.Number;
 
-            if (tasi == true && zeroflag == false) i2 = player2.Number;
+            //if (tasi == true && zeroflag == false) i2 = player2.Number;
         }
 
 
@@ -104,8 +104,8 @@ public class player2_script : MonoBehaviour
             player2 = GameObject.Find(col.gameObject.transform.name).GetComponent<player2_script>();
             if (tasi == true)
             {
-                i3 = i2;
-                Number = Number + i3;
+                //i3 = i2;
+                //Number = Number + i3;
                 tasi = false;
                 zeroflag = true;
 
@@ -117,7 +117,7 @@ public class player2_script : MonoBehaviour
         {
             if (tasi == true)
             {
-                i3 = Number;
+                //i3 = Number;
                 //Number = 0;プレイヤーの順番的にバグる
                 tasi = false;
                 //player.tasi = false;//相手の方↑でfalseにしてる?
@@ -148,7 +148,7 @@ public class player2_script : MonoBehaviour
 
             if (tasi == false)
             {
-                Number = Number - i3;
+                //Number = Number - i3;
                 tasi = true;
                 //player.tasi = false;
 
@@ -160,7 +160,7 @@ public class player2_script : MonoBehaviour
         {
             if (tasi == false)
             {
-                Number = i3;
+                //Number = i3;
                 tasi = true;
                 //player.tasi = false;//相手の方↑でfalseにしてる?
                 //zeroflag = false;

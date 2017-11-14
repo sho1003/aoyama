@@ -19,7 +19,8 @@ public class Suuti2Script : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        target = transform.root.gameObject;
+        player2 = target.GetComponent<player2_script>();
     }
 
     // Update is called once per frame
@@ -30,9 +31,6 @@ public class Suuti2Script : MonoBehaviour
 
         if (target.gameObject.tag == "Player2")
         {
-            player2 = GameObject.Find(target.gameObject.transform.name).GetComponent<player2_script>();
-          
-
             suuti = player2.Number;
             Suutitext.text = "" + suuti;
 

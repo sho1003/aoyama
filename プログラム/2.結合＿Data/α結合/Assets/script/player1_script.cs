@@ -74,11 +74,14 @@ public class player1_script : MonoBehaviour
 
     public void Pointer_Click()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 100f))
+        if (this.gameObject != null)
         {
-            agent.SetDestination(hit.point);
-            anime.SetBool("run", true);
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, 100f))
+            {
+                agent.SetDestination(hit.point);
+                anime.SetBool("run", true);
+            }
         }
     }
     
@@ -93,7 +96,7 @@ public class player1_script : MonoBehaviour
 
             // Number = Number + player.Number;
 
-         if (tasi == true && zeroflag == false) i2 = player1.Number;
+         //if (tasi == true && zeroflag == false) i2 = player1.Number;
         }
 
 
@@ -103,8 +106,8 @@ public class player1_script : MonoBehaviour
             player1 = GameObject.Find(col.gameObject.transform.name).GetComponent<player1_script>();
             if (tasi == true)
             {
-                i3 = i2;
-                Number = Number + i3;
+                //i3 = i2;
+                //Number = Number + i3;
                 tasi = false;
                 zeroflag = true;
 
@@ -115,7 +118,7 @@ public class player1_script : MonoBehaviour
         {
             if (tasi == true)
             {
-                i3 = Number;
+                //i3 = Number;
                //Number = 0;プレイヤーの順番的にバグる
                 tasi = false;
                 //player.tasi = false;//相手の方↑でfalseにしてる?
@@ -152,7 +155,7 @@ public class player1_script : MonoBehaviour
    
             if (tasi == false)
             {
-                Number = Number - i3;
+                //Number = Number - i3;
                 tasi = true;
                // player1.tasi = false;
                 
@@ -164,7 +167,7 @@ public class player1_script : MonoBehaviour
         {
             if (tasi == false)
             {
-                Number = i3;
+                //Number = i3;
                 tasi = true;
                 //player.tasi = false;//相手の方↑でfalseにしてる?
               
