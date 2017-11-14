@@ -74,14 +74,11 @@ public class player1_script : MonoBehaviour
 
     public void Pointer_Click()
     {
-        if (this.gameObject != null)
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, 100f))
         {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, 100f))
-            {
-                agent.SetDestination(hit.point);
-                anime.SetBool("run", true);
-            }
+            agent.SetDestination(hit.point);
+            anime.SetBool("run", true);
         }
     }
     

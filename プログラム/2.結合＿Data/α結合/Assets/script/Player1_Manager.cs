@@ -56,6 +56,9 @@ public class Player1_Manager : MonoBehaviour {
                 }
             }
 
+            //Destroyしたオブジェクトは厳密にはNULLではない
+            //一旦SetActiveをfalseにして数値をリセットしてみる
+
             if (FlagDeath[i])
             {
                 if (time[i] > 0) time[i]--;
