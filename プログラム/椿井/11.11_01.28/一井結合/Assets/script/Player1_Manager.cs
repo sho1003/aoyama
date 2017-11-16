@@ -26,7 +26,7 @@ public class Player1_Manager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        NUMBER();
         //初めの座標位置を指定
         pos[0] = new Vector3(10.0f, 0.6f, -15.0f);
         pos[1] = new Vector3(5.0f, 0.6f, -15.0f);
@@ -102,5 +102,13 @@ public class Player1_Manager : MonoBehaviour {
         player[i].Number = number[i];
         FlagDeath[i] = false;
 
+    }
+
+    void NUMBER()
+    {
+        for(int i =0;i<10;i++)
+        {
+            Debug.Log(i);
+        }
     }
 }
