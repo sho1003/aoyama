@@ -96,7 +96,7 @@ MonoBehaviour:
   m_MinSize: {x: 510, y: 221}
   m_MaxSize: {x: 12010, y: 4021}
   vertical: 0
-  controlID: 81
+  controlID: 50
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_MinSize: {x: 817, y: 492}
   m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 195
+  controlID: 193
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -533,9 +533,9 @@ MonoBehaviour:
     height: 442
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: fc260000
+    m_SelectedIDs: 6e050000
     m_LastClickedID: 0
-    m_ExpandedIDs: fc49ffff7c55ffff1afcffff000000000e2e0000
+    m_ExpandedIDs: fefbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -672,18 +672,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets
+    - Assets/script
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\2140150.MAETEL\\Desktop\\\u5352\u696D\u5236\u4F5C\\aoyama\\\u30D7\u30ED\u30B0\u30E9\u30E0\\\u693F\u4E95\\11.11_01.28\\\u4E00\u4E95\u7D50\u5408"
+  m_LastProjectPath: "C:\\Users\\2140020.MAETEL\\Desktop\\\u5352\u696D\u5236\u4F5CUnity\\GIT\\aoyama\\\u30D7\u30ED\u30B0\u30E9\u30E0\\\u693F\u4E95\\11.11_01.28\\\u4E00\u4E95\u7D50\u5408"
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0a050000
     m_LastClickedID: 1290
-    m_ExpandedIDs: 000000001e26000070270000742700007a270000
+    m_ExpandedIDs: 000000001a27000086280000b4280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -708,10 +708,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 283}
+    scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000001e2600008a270000b8270000
+    m_ExpandedIDs: 000000001a2700007028000086280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
