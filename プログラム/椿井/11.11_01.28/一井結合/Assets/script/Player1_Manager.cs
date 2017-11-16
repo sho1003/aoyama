@@ -116,4 +116,8 @@ public class Player1_Manager : MonoBehaviour
             Debug.Log("橋口");
         }
     }
+    void kansuu()
+    {
+        Debug.Log("つばい");
+    }
 }
