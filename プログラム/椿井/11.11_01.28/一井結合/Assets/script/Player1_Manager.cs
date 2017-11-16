@@ -47,6 +47,7 @@ public class Player1_Manager : MonoBehaviour
             SetPlayer(i);
             time[i] = RespawnTime;
         }
+        Debug.Log("橋口２");
 
     }
 
