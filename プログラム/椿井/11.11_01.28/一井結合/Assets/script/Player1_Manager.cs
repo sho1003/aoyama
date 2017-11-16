@@ -26,7 +26,11 @@ public class Player1_Manager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+<<<<<<< HEAD
         NUMBER();
+=======
+        TUBAI();
+>>>>>>> dd879e75026f469501ec225075a810b806e29032
         //初めの座標位置を指定
         pos[0] = new Vector3(10.0f, 0.6f, -15.0f);
         pos[1] = new Vector3(5.0f, 0.6f, -15.0f);
@@ -104,11 +108,19 @@ public class Player1_Manager : MonoBehaviour {
 
     }
 
+<<<<<<< HEAD
     void NUMBER()
     {
         for(int i =0;i<10;i++)
         {
             Debug.Log(i);
+=======
+    void TUBAI()
+    {
+        for(int i=0;i<5;i++)
+        {
+            Debug.Log("椿井");
+>>>>>>> dd879e75026f469501ec225075a810b806e29032
         }
     }
 }

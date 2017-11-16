@@ -677,7 +677,7 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: "C:\\Users\\2140150.MAETEL\\Desktop\\\u5352\u696D\u5236\u4F5C\\aoyama\\\u30D7\u30ED\u30B0\u30E9\u30E0\\\u693F\u4E95\\11.11_01.28\\\u4E00\u4E95\u7D50\u5408"
+  m_LastProjectPath: "C:\\Users\\2140020.MAETEL\\Desktop\\\u5352\u696D\u5236\u4F5CUnity\\GIT\\aoyama\\\u30D7\u30ED\u30B0\u30E9\u30E0\\\u693F\u4E95\\11.11_01.28\\\u4E00\u4E95\u7D50\u5408"
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
@@ -708,7 +708,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 120}
+=======
+    scrollPos: {x: 0, y: 0}
+>>>>>>> dd879e75026f469501ec225075a810b806e29032
     m_SelectedIDs: 
     m_LastClickedID: 0
     m_ExpandedIDs: 000000001a2700007028000086280000
