@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1_Manager : MonoBehaviour {
+public class Player1_Manager : MonoBehaviour
+{
 
 
     //オブジェクトの定義
@@ -26,8 +27,7 @@ public class Player1_Manager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        HASHIGUCHI();
-
+        Tubai();
         //初めの座標位置を指定
         pos[0] = new Vector3(10.0f, 0.6f, -15.0f);
         pos[1] = new Vector3(5.0f, 0.6f, -15.0f);
@@ -51,8 +51,9 @@ public class Player1_Manager : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        for(int i=0;i<PLAYER_MAX;i++)
+    void Update()
+    {
+        for (int i = 0; i < PLAYER_MAX; i++)
         {
             if (FlagDeath[i] == false)
             {
@@ -73,15 +74,15 @@ public class Player1_Manager : MonoBehaviour {
                 }
             }
 
-            if(player[i].death)
+            if (player[i].death)
             {
                 DeathObject(player[i].gameObject);
                 FlagDeath[i] = true;
                 player[i].death = false;
             }
         }
-		
-	}
+
+    }
 
 
 
@@ -96,19 +97,20 @@ public class Player1_Manager : MonoBehaviour {
         //playerObj[i]の座標位置、付与するscriptを指示している
         playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
         //playerObj[i]として呼び出されるオブジェクト名を変えられる
-     
-        playerObj[i].name = "player1_" + (i+1);
+
+        playerObj[i].name = "player1_" + (i + 1);
         player[i] = playerObj[i].GetComponent<player1_script>();
-        
+
         player[i].Number = number[i];
         FlagDeath[i] = false;
 
     }
 
-    void HASHIGUCHI()
+    void Tubai()
     {
-        for(int i = 0;i<3;i++)
+        for(int i=0;i<3;i++)
         {
+            Debug.Log("椿井");
             Debug.Log("橋口");
         }
     }
