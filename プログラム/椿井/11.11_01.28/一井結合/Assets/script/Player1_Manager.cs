@@ -54,6 +54,7 @@ public class Player1_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("椿井２");
         for (int i = 0; i < PLAYER_MAX; i++)
         {
             if (FlagDeath[i] == false)
