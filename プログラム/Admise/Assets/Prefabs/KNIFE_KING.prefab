@@ -2514,17 +2514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rival:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   Deathtime: 0
-  PS1Sabun: 0
-  PS2Sabun: 0
 --- !u!114 &114633077658730066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2650,6 +2640,8 @@ MonoBehaviour:
   Number: 0
   death: 0
   Deathtime: 0
+  FlagTeam: 0
+  TeamNumber: 0
   tasi: 0
   i2: 0
   i3: 0
