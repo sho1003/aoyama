@@ -19,6 +19,8 @@ public class Speech_UIscript : MonoBehaviour
     GameObject hukidashi;
     Text sumText;
 
+    int player_number;
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +35,8 @@ public class Speech_UIscript : MonoBehaviour
 
         hukidashi = transform.Find("SpeechBalloon").gameObject;
         sumText = hukidashi.transform.GetChild(0).GetComponent<Text>();
+
+        player_number = 0;
     }
 
     // Update is called once per frame
@@ -64,7 +68,6 @@ public class Speech_UIscript : MonoBehaviour
                 }
 
                 //吹き出しの中の数字
-                int player_number = 0;
                 if (player.tag == "Player1")
                 {
                     player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
@@ -87,10 +90,12 @@ public class Speech_UIscript : MonoBehaviour
                 if (player.tag == "Player1")
                 {
                     sumText.text = "" + player1.Number;
+                    player_number = player1.Number;
                 }
                 else if (player.tag == "Player2")
                 {
                     sumText.text = "" + player2.Number;
+                    player_number = player2.Number;
                 }
 
                 //プレイヤーの位置によって微調整
