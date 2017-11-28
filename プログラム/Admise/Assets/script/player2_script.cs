@@ -20,6 +20,8 @@ public class player2_script : MonoBehaviour
     public int Number;   //キャラクターの記されている数字
     public bool death;
     public float Deathtime;
+    public bool FlagTeam;
+    public int TeamNumber;
 
     private player2_script player2;
     private player1_script player1;
@@ -47,6 +49,8 @@ public class player2_script : MonoBehaviour
         death = false;
         tasi = true;
         zeroflag = false;
+        FlagTeam = false;
+        TeamNumber = 0;
     }
 
     void Update()

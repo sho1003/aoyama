@@ -886,6 +886,7 @@ GameObject:
   - component: {fileID: 114938885556949282}
   - component: {fileID: 114737417153507510}
   - component: {fileID: 195552928629525120}
+  - component: {fileID: 114438614495685824}
   m_Layer: 0
   m_Name: FORK_KING
   m_TagString: Player2
@@ -2457,6 +2458,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114438614495685824
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1640488673869798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deathtime: 0
 --- !u!114 &114447708585160188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2649,11 +2662,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anime: {fileID: 0}
   agent: {fileID: 0}
-  HP: 0
+  HP: -4770
   PlayerATK: 1
   Number: 0
   death: 0
   Deathtime: 0
+  FlagTeam: 0
+  TeamNumber: 0
   tasi: 0
   i2: 0
   i3: 0

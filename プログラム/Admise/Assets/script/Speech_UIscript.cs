@@ -71,12 +71,31 @@ public class Speech_UIscript : MonoBehaviour
                 if (player.tag == "Player1")
                 {
                     player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
+                    //　プレイヤー個人にもチームの数字を持たせる
+                    player1.TeamNumber = player_number;
+                    //　チームを組んだフラグを立てる
+                    player1.FlagTeam = true;
+                    //　数字の小さいオブジェクトを調べる
+                    if (otherplayer.GetComponent<player1_script>().Number < player1.Number)
+                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject.name);
+                    else
+                        player1.GetComponent<BattleScript>().SetObjectName(player1.name);
                 }
                 else if (player.tag == "Player2")
                 {
                     player_number = otherplayer.GetComponent<player2_script>().Number + player2.Number;
+                    //　プレイヤー個人にもチームの数字を持たせる
+                    player2.TeamNumber = player_number;
+                    //　チームを組んだフラグを立てる
+                    player2.FlagTeam = true;
+                    //　数字の小さいオブジェクトを調べる
+                    if (otherplayer.GetComponent<player2_script>().Number < player2.Number)
+                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject.name);
+                    else
+                        player1.GetComponent<BattleScript>().SetObjectName(player2.name);
                 }
                 sumText.text = "" + player_number;
+
 
                 offset.x = vec.x / 2;
                 offset.y = 4.0f;
@@ -84,18 +103,23 @@ public class Speech_UIscript : MonoBehaviour
             }
             else
             {
-                //Debug.Log("遠い");
                 hukidashi.SetActive(true);
 
                 if (player.tag == "Player1")
                 {
                     sumText.text = "" + player1.Number;
-                    player_number = player1.Number;
+                    //　チームを組んでいないため自分の数値を代入
+                    player1.TeamNumber = player1.Number;
+                    //　チームを組んでいないのでフラグを立てない
+                    player1.FlagTeam = false;
                 }
                 else if (player.tag == "Player2")
                 {
                     sumText.text = "" + player2.Number;
-                    player_number = player2.Number;
+                    //　チームを組んでいないため自分の数値を代入
+                    player2.TeamNumber = player2.Number;
+                    //　チームを組んでいないのでフラグを立てない
+                    player2.FlagTeam = false;
                 }
 
                 //プレイヤーの位置によって微調整
