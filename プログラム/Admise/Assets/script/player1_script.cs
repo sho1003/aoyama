@@ -24,6 +24,9 @@ public class player1_script : MonoBehaviour
 
     public bool tasi;
 
+    public List<int> edge;
+    public int ID;
+
    public int i2;//相手側の数値
 
     public int i3;//相手側の数値保管
@@ -48,6 +51,8 @@ public class player1_script : MonoBehaviour
         FlagTeam = false;
         edge = new List<int>();
         TeamNumber = 0;
+
+        edge = new List<int>();
     }
 
     void Update()
