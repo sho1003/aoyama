@@ -23,6 +23,9 @@ public class player1_script : MonoBehaviour
     private player1_script player1;
     private player2_script player2;
 
+    public List<int> edge;
+    public int ID;
+
     public bool tasi;
 
    public int i2;//相手側の数値
@@ -47,6 +50,8 @@ public class player1_script : MonoBehaviour
         death = false;
         tasi = true;
         zeroflag = false;
+
+        edge = new List<int>();
     }
 
     void Update()
