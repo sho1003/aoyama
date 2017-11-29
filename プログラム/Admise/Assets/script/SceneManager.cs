@@ -52,32 +52,43 @@ public class SceneManager : MonoBehaviour {
                         //  外枠表示
                         zone1 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
                         zone1.SetActive(true);
+
+
+                        if (Input.GetMouseButtonDown(1))
+                        {
+                            Player1Click = false;
+
+
+                        }
+
+
                     }
                 }
             }
         }
+
         else
         {
-            //二回目のクリック
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = new Ray();
-                RaycastHit hit = new RaycastHit();
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
-                if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+                //二回目のクリック
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.transform.tag != Player1Tag)
+                    Ray ray = new Ray();
+                    RaycastHit hit = new RaycastHit();
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
+                    if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
                     {
-                        //  外枠非表示
-                        zone1.SetActive(false);
-                        //移動させる
-                        player1.Pointer_Click();
-                        Player1Click = false;
+                        if (hit.transform.tag != Player1Tag)
+                        {
+                            //  外枠非表示
+                            zone1.SetActive(false);
+                            //移動させる
+                            player1.Pointer_Click();
+                            Player1Click = false;
+                        }
                     }
                 }
-            }
         }
         if (!Player2Click)
         {

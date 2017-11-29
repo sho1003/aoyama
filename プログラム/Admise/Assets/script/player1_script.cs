@@ -51,6 +51,7 @@ public class player1_script : MonoBehaviour
         FlagTeam = false;
         edge = new List<int>();
         TeamNumber = 0;
+        ID = 0;
 
         edge = new List<int>();
     }
