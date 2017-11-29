@@ -70,7 +70,7 @@ public class BattleScript : MonoBehaviour
             else if (this.gameObject.tag == "Player2")
             {
                 //　オブジェクト取得
-                rival[i] = GameObject.Find("player1_" + (i+1));
+                rival[i] = GameObject.Find("player1_" + i);
             }
         }
 

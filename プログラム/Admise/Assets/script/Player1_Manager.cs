@@ -97,11 +97,11 @@ public class Player1_Manager : MonoBehaviour {
         //playerObj[i]の座標位置、付与するscriptを指示している
         playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
         //playerObj[i]として呼び出されるオブジェクト名を変えられる
-        player[i].ID = i;
+        
         playerObj[i].name = "player1_" + i;
         player[i] = playerObj[i].GetComponent<player1_script>();
         player[i].Number = number[i];
         FlagDeath[i] = false;
-
+        player[i].ID = i;
     }
 }
