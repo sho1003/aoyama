@@ -6,9 +6,12 @@ public class GameMusicScript : MonoBehaviour {
 
     private StatusScript status;
 
-    //  タイトルBGM
-    private AudioSource bgm;
+    //  ゲームBGM
+    private AudioSource[] bgm;
+    //  クリップ挿入用
     public AudioClip clipGameBGM;
+
+    public AudioClip SE_Click;
     //  ピッチ
     public float pitch;
     //  ピッチ変更
@@ -18,21 +21,33 @@ public class GameMusicScript : MonoBehaviour {
 
     void Start()
     {
+
         //  スクリプト取得
         status = GameObject.Find("Status").GetComponent<StatusScript>();
         //  オーディオコンポーネント取得
-        bgm = this.gameObject.GetComponent<AudioSource>();
-        //  音楽再生
-        bgm.PlayOneShot(clipGameBGM);
+        for (int i = 0; i < 2; i++) bgm[i] = gameObject.GetComponent<AudioSource>();
+        
+        
+
     }
 
     void Update()
     {
-        bgm.pitch = pitch;
-
-        if (status.GameTime <= pitchChengeTime)
+        if (Input.GetKeyDown(KeyCode.D))
         {
-            pitch = pitchChenge;
+            bgm[0].clip = clipGameBGM;
+            bgm[0].Play();
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            bgm[1].clip = SE_Click;
+            bgm[1].Play();
+        }
+        //bgm[0].pitch = pitch;
+        ////  設定時間にピッチ変更
+        //if (status.GameTime <= pitchChengeTime)
+        //{
+        //    pitch = pitchChenge;
+        //}
     }
 }
