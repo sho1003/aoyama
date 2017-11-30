@@ -81,8 +81,10 @@
     <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
-    <Compile Include="Assets\script\GameMusicScript.cs" />
+    <Compile Include="Assets\script\Floor_Move_Script.cs" />
+    <Compile Include="Assets\script\GameBGM_Script.cs" />
     <Compile Include="Assets\script\GamenSizeScript.cs" />
+    <Compile Include="Assets\script\GameSE_Script.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
@@ -99,10 +101,10 @@
     <Compile Include="Assets\script\SceneManager.cs" />
     <Compile Include="Assets\script\ScoreScript.cs" />
     <Compile Include="Assets\script\Speech_UIscript.cs" />
-    <Compile Include="Assets\script\Speech2_UIscript.cs" />
     <Compile Include="Assets\script\StatusScript.cs" />
     <Compile Include="Assets\script\Suuti2Script.cs" />
     <Compile Include="Assets\script\SuutiScript.cs" />
+    <Compile Include="Assets\script\TeamManager.cs" />
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
     <Compile Include="Assets\script\TitleScript.cs" />

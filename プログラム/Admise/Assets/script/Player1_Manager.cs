@@ -27,7 +27,6 @@ public class Player1_Manager : MonoBehaviour {
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
-
         for (int i = 0; i < PLAYER_MAX; i++)
         {
             //初めの座標位置を指定
@@ -40,14 +39,13 @@ public class Player1_Manager : MonoBehaviour {
             SetPlayer(i);
             time[i] = status.RespawnTime;
         }
-
     }
 
     // Update is called once per frame
     void Update () {
         for (int i = 0; i < PLAYER_MAX; i++)
         {
-            if (FlagDeath[i] == false)
+            if (!FlagDeath[i])
             {
                 // player[i]が止まりかけるとアニメーションrunをfalseにする
                 if (player[i].agent.remainingDistance <= player[i].agent.stoppingDistance)
@@ -65,7 +63,7 @@ public class Player1_Manager : MonoBehaviour {
                     player[i].gameObject.SetActive(true);
               
                     player[i].transform.position = pos[i];
-                    player[i].HP = status.maxValue;
+                    player[i].HP = status.CharaHP;
                     FlagDeath[i] = false;
 
                     time[i] = status.RespawnTime;
@@ -79,12 +77,10 @@ public class Player1_Manager : MonoBehaviour {
                 SceneManager.Player1Click = false;
                 FlagDeath[i] = true;
                 player[i].death = false;
+                player[i].anime.SetBool("set", false);
             }
         }
-		
 	}
-
-
 
     void DeathObject(GameObject obj)
     {
@@ -97,11 +93,10 @@ public class Player1_Manager : MonoBehaviour {
         //playerObj[i]の座標位置、付与するscriptを指示している
         playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
         //playerObj[i]として呼び出されるオブジェクト名を変えられる
-     
-        playerObj[i].name = "player1_" + (i+1);
+        playerObj[i].name = "player1_" + i;
         player[i] = playerObj[i].GetComponent<player1_script>();
         player[i].Number = number[i];
+        player[i].ID = i;
         FlagDeath[i] = false;
-
     }
 }

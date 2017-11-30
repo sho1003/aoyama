@@ -11,8 +11,8 @@ public class SceneManager : MonoBehaviour {
     player1_script player1;
     player2_script player2;
 
-    GameObject zone1;
-    GameObject zone2;
+    GameObject circleTextureOut1;
+    GameObject circleTextureOut2;
 
 
     // Use this for initialization
@@ -22,7 +22,11 @@ public class SceneManager : MonoBehaviour {
         Player1Click = false;
         Player2Click = false;
 
+        
+
         //player_ = GameObject.Find("Cube").GetComponent<player_script>();
+
+
     }
 
     private string Player1Tag = "Player1";
@@ -49,35 +53,47 @@ public class SceneManager : MonoBehaviour {
                         Player1Click = true;
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player1 = GameObject.Find(hit.transform.gameObject.name).GetComponent<player1_script>();
-                        //  外枠表示
-                        zone1 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
-                        zone1.SetActive(true);
+                        //  外枠表示 & 黄色に設定
+                        circleTextureOut1 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
+                        circleTextureOut1.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
+                        circleTextureOut1.SetActive(true);
+
+
+                        if (Input.GetMouseButtonDown(1))
+                        {
+                            Player1Click = false;
+
+
+                        }
+
+
                     }
                 }
             }
         }
+
         else
         {
-            //二回目のクリック
-            if (Input.GetMouseButtonDown(0))
-            {
-                Ray ray = new Ray();
-                RaycastHit hit = new RaycastHit();
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
-                if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+                //二回目のクリック
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.transform.tag != Player1Tag)
+                    Ray ray = new Ray();
+                    RaycastHit hit = new RaycastHit();
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
+                    if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
                     {
-                        //  外枠非表示
-                        zone1.SetActive(false);
-                        //移動させる
-                        player1.Pointer_Click();
-                        Player1Click = false;
+                        if (hit.transform.tag != Player1Tag)
+                        {
+                            //  外枠非表示
+                            circleTextureOut1.SetActive(false);
+                            //移動させる
+                            player1.Pointer_Click();
+                            Player1Click = false;
+                        }
                     }
                 }
-            }
         }
         if (!Player2Click)
         {
@@ -97,8 +113,9 @@ public class SceneManager : MonoBehaviour {
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player2 = GameObject.Find(hit.transform.gameObject.name).GetComponent<player2_script>();
                         //  外枠表示
-                        zone2 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
-                        zone2.SetActive(true);
+                        circleTextureOut2 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
+                        circleTextureOut2.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
+                        circleTextureOut2.SetActive(true);
                     }
                 }
             }
@@ -119,7 +136,7 @@ public class SceneManager : MonoBehaviour {
                     if (hit.transform.tag != Player2Tag)
                     {
                         //  外枠非表示
-                        zone2.SetActive(false);
+                        circleTextureOut2.SetActive(false);
                         //移動させる
                         player2.Pointer_Click();
                         Player2Click = false;

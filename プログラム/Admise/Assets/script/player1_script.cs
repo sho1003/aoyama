@@ -19,11 +19,13 @@ public class player1_script : MonoBehaviour
     public int Number;   //キャラクターの記されている数字
     public bool death;
     public float Deathtime;
-
-    private player1_script player1;
-    private player2_script player2;
+    public bool FlagTeam;
+    public int TeamNumber;
 
     public bool tasi;
+
+    public List<int> edge;
+    public int ID;
 
    public int i2;//相手側の数値
 
@@ -43,16 +45,19 @@ public class player1_script : MonoBehaviour
 
         //    transform.rotation = Quaternion.Euler(0, 180, 0);
         HP = status.CharaHP; //初期体力を最大値にする
-        //HP = 10;//↑なぜかHPが１０００ある
         death = false;
         tasi = true;
         zeroflag = false;
+        FlagTeam = false;
+        edge = new List<int>();
+        TeamNumber = 0;
+        ID = 0;
+
+        edge = new List<int>();
     }
 
     void Update()
     {
-
-      //  HP -= 1;
         SuutiScript.Number = Number;
         SuutiScript.i2 = i2;
 
@@ -60,14 +65,7 @@ public class player1_script : MonoBehaviour
         if (HP <= 0)
         {
             anime.SetBool("run", false);
-            //if (gameObject.tag=="Player1")  transform.position = new Vector3(0, 50, 0);
-
-            //Deathtime = Deathtime - Time.deltaTime;
-            //if (Deathtime <= 0.1f)
-            //{
-            //    Deathtime = 0;
-                death = true;
-            //}
+            death = true;
         }
     }
 
@@ -86,78 +84,43 @@ public class player1_script : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
         if (col.gameObject.tag == "Player1")
         {
             SuutiByougaflag = false;
-            player1 = GameObject.Find(col.gameObject.transform.name).GetComponent<player1_script>();
-
-            // Number = Number + player.Number;
-
-         if (tasi == true && zeroflag == false) i2 = player1.Number;
+         if (tasi == true && zeroflag == false) i2 = Number;
         }
-
-
 
         if (Number >= i2)
         {
-            player1 = GameObject.Find(col.gameObject.transform.name).GetComponent<player1_script>();
             if (tasi == true)
             {
-            //    i3 = i2;
-             //   Number = Number + i3;
                 tasi = false;
                 zeroflag = true;
-
-
             }
         }
         else if (Number < i2)
         {
             if (tasi == true)
             {
-            //    i3 = Number;
-               //Number = 0;プレイヤーの順番的にバグる
                 tasi = false;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
                 zeroflag = true;
-
             }
         }
-
     }
 
     void OnTriggerExit(Collider col)
     {
-
         if (col.gameObject.tag == "Player1")
         {
-            player1 = GameObject.Find(col.gameObject.transform.name).GetComponent<player1_script>();
-
-            //Number = Number - player.Number;
-            //   Number = Number - i2;
             zeroflag = false;
             SuutiByougaflag = true;
         }
 
-        if (col.gameObject.tag == "Player2")
-
-        {
-            //anime.SetBool("set", false);
-        }
-
-
-
         if (Number > i2)
         {
-   
             if (tasi == false)
             {
-              //  Number = Number - i3;
                 tasi = true;
-               // player1.tasi = false;
-                
-
             }
         }
 
@@ -165,10 +128,7 @@ public class player1_script : MonoBehaviour
         {
             if (tasi == false)
             {
-              //  Number = i3;
                 tasi = true;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
-              
             }
         }
     }
