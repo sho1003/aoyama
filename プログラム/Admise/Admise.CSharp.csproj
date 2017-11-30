@@ -81,11 +81,13 @@
     <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
+    <Compile Include="Assets\script\GameMusicScript.cs" />
     <Compile Include="Assets\script\GamenSizeScript.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
     <Compile Include="Assets\script\Life2_script.cs" />
+    <Compile Include="Assets\script\LoadingScript.cs" />
     <Compile Include="Assets\script\PickManager.cs" />
     <Compile Include="Assets\script\PickScript.cs" />
     <Compile Include="Assets\script\Player1_Manager.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Assets\script\SuutiScript.cs" />
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
+    <Compile Include="Assets\script\TitleScript.cs" />
     <Compile Include="Assets\script\UI_Script.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>

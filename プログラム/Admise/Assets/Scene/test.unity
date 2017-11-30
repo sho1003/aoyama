@@ -773,12 +773,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e20d36006d6744e844a2c58945d6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharaHP: 25
-  maxValue: 25
+  CharaHP: 100
+  maxValue: 100
   CharBaseSpeed: 5.5
   CharMainteSpeed: 0
   RespawnTime: 30
-  BattleSpace: 4
+  BattleSpace: 5
   GetAreaTime: 3
   FirstPosition:
   - {x: 10, y: 0.6, z: -13}
@@ -1177,7 +1177,6 @@ GameObject:
   - component: {fileID: 1192901292}
   - component: {fileID: 1192901291}
   - component: {fileID: 1192901290}
-  - component: {fileID: 1192901289}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1185,13 +1184,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1192901289
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1192901288}
-  m_Enabled: 1
 --- !u!124 &1192901290
 Behaviour:
   m_ObjectHideFlags: 0
