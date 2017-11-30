@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admise.CSharp", "Admise.CSharp.csproj", "{61C248EC-9057-6DEE-61AC-905960709781}"
@@ -18,3 +18,25 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
+=======
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admise", "Admise.csproj", "{F2716785-7FA5-14E4-3FEE-623806CE993E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2716785-7FA5-14E4-3FEE-623806CE993E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2716785-7FA5-14E4-3FEE-623806CE993E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2716785-7FA5-14E4-3FEE-623806CE993E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2716785-7FA5-14E4-3FEE-623806CE993E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
+>>>>>>> 04291640e56072bcdf32b44b6743a333979b1981
