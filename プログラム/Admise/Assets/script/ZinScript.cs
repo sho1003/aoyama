@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ZinScript : MonoBehaviour
 {
+    //------------------------スクリプト関連------------------------//
     private StatusScript status;
+    private GameSE_Script se;
 
     public bool Openflag;
     public Texture[] textures;
@@ -27,6 +29,8 @@ public class ZinScript : MonoBehaviour
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
+
         frameNum = 0;    // frameNum[0]占拠なし　[1]青　[2]赤
         timeleft = 0.0f;
         VSflag = false;//戦闘しているかのフラグ
@@ -40,7 +44,7 @@ public class ZinScript : MonoBehaviour
         RedSenkyoflag = false;
         BlueSenkyoflag = false;
 
-
+        
     }
 
     // Update is called once per frame
@@ -71,7 +75,7 @@ public class ZinScript : MonoBehaviour
         //  if (Openflag == true && timeleft <= -3.0f && VSflag == false)
 
 
-
+        //  青組占領
         if (BlueSenkyoflag == false && timeleft < -status.GetAreaTime)
         {
             frameNum = 1;
@@ -79,8 +83,11 @@ public class ZinScript : MonoBehaviour
             if (RedSenkyoflag == true) RedScore -= 1;
             BlueSenkyoflag = true;
             RedSenkyoflag = false;
+            //  占領時のSE実行
+            se.SetSE(se.areaGetSE);
         }
 
+        //  紅組占領
         if (RedSenkyoflag == false && timeleft > status.GetAreaTime)
         {
             frameNum = 2;
@@ -88,7 +95,8 @@ public class ZinScript : MonoBehaviour
             if (BlueSenkyoflag == true) BlueScore -= 1;
             RedSenkyoflag = true;
             BlueSenkyoflag = false;
-
+            //  占領時のSE実行
+            se.SetSE(se.areaGetSE);
         }
 
         ren.material.SetTexture("_MainTex", textures[frameNum]);

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player2_Manager : MonoBehaviour
 {
     private StatusScript status;
+    private GameSE_Script se;
+
 
     //オブジェクトの定義
     public GameObject playerPrefab;
@@ -27,6 +29,8 @@ public class Player2_Manager : MonoBehaviour
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
+
         for (int i = 0; i < PLAYER_MAX; i++)
         {
             //初めの座標位置を指定
@@ -39,7 +43,6 @@ public class Player2_Manager : MonoBehaviour
             SetPlayer(i);
             time[i] = status.RespawnTime;
         }
-
     }
 
     // Update is called once per frame
@@ -47,7 +50,6 @@ public class Player2_Manager : MonoBehaviour
     {
         for (int i = 0; i < PLAYER_MAX; i++)
         {
-            //if (!player[i].agent) continue;
             if (!FlagDeath[i])
             {
                 //player[i]が止まりかけるとアニメーションrunをfalseにする
@@ -56,7 +58,6 @@ public class Player2_Manager : MonoBehaviour
                     player[i].anime.SetBool("run", false);
                 }
             }
-
 
             if (FlagDeath[i])
             {
@@ -79,15 +80,15 @@ public class Player2_Manager : MonoBehaviour
                 //DeathObject(player[i].gameObject);
                 player[i].gameObject.SetActive(false);
                 SceneManager.Player2Click = false;
-
                 FlagDeath[i] = true;
                 player[i].death = false;
+                player[i].anime.SetBool("set", false);
+
+                //  攻撃時のSE実行
+                se.SetSE(se.diedSE);
             }
         }
-
     }
-
-
 
     void DeathObject(GameObject obj)
     {
@@ -102,7 +103,6 @@ public class Player2_Manager : MonoBehaviour
 
         playerObj[i].name = "player2_" + (i + 1);
         player[i] = playerObj[i].GetComponent<player2_script>();
-
         player[i].Number = number[i];
         FlagDeath[i] = false;
 

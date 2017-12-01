@@ -19,6 +19,8 @@ public class Speech_UIscript : MonoBehaviour
     GameObject hukidashi;
     Text sumText;
 
+    int player_number;
+
     // Use this for initialization
     void Start()
     {
@@ -33,6 +35,8 @@ public class Speech_UIscript : MonoBehaviour
 
         hukidashi = transform.Find("SpeechBalloon").gameObject;
         sumText = hukidashi.transform.GetChild(0).GetComponent<Text>();
+
+        player_number = 0;
     }
 
     // Update is called once per frame
@@ -64,7 +68,6 @@ public class Speech_UIscript : MonoBehaviour
                 }
 
                 //吹き出しの中の数字
-                int player_number = 0;
                 if (player.tag == "Player1")
                 {
                     player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
@@ -72,11 +75,12 @@ public class Speech_UIscript : MonoBehaviour
                     player1.TeamNumber = player_number;
                     //　チームを組んだフラグを立てる
                     player1.FlagTeam = true;
+                    otherplayer.GetComponent<player1_script>().FlagTeam = true;
                     //　数字の小さいオブジェクトを調べる
                     if (otherplayer.GetComponent<player1_script>().Number < player1.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject.name);
+                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
                     else
-                        player1.GetComponent<BattleScript>().SetObjectName(player1.name);
+                        player1.GetComponent<BattleScript>().SetObjectName(player1.gameObject);
                 }
                 else if (player.tag == "Player2")
                 {
@@ -85,11 +89,12 @@ public class Speech_UIscript : MonoBehaviour
                     player2.TeamNumber = player_number;
                     //　チームを組んだフラグを立てる
                     player2.FlagTeam = true;
+                    otherplayer.GetComponent<player2_script>().FlagTeam = true;
                     //　数字の小さいオブジェクトを調べる
                     if (otherplayer.GetComponent<player2_script>().Number < player2.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject.name);
+                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
                     else
-                        player1.GetComponent<BattleScript>().SetObjectName(player2.name);
+                        player2.GetComponent<BattleScript>().SetObjectName(player2.gameObject);
                 }
                 sumText.text = "" + player_number;
 
@@ -109,6 +114,7 @@ public class Speech_UIscript : MonoBehaviour
                     player1.TeamNumber = player1.Number;
                     //　チームを組んでいないのでフラグを立てない
                     player1.FlagTeam = false;
+                    otherplayer.GetComponent<player1_script>().FlagTeam = false;
                 }
                 else if (player.tag == "Player2")
                 {
@@ -117,6 +123,7 @@ public class Speech_UIscript : MonoBehaviour
                     player2.TeamNumber = player2.Number;
                     //　チームを組んでいないのでフラグを立てない
                     player2.FlagTeam = false;
+                    otherplayer.GetComponent<player2_script>().FlagTeam = false;
                 }
 
                 //プレイヤーの位置によって微調整

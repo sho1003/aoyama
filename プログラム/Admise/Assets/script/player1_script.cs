@@ -24,6 +24,9 @@ public class player1_script : MonoBehaviour
 
     public bool tasi;
 
+    public List<int> edge;
+    public int ID;
+
    public int i2;//相手側の数値
 
     public int i3;//相手側の数値保管
@@ -46,7 +49,11 @@ public class player1_script : MonoBehaviour
         tasi = true;
         zeroflag = false;
         FlagTeam = false;
+        edge = new List<int>();
         TeamNumber = 0;
+        ID = 0;
+
+        edge = new List<int>();
     }
 
     void Update()
@@ -77,24 +84,16 @@ public class player1_script : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
         if (col.gameObject.tag == "Player1")
         {
             SuutiByougaflag = false;
-
-            // Number = Number + player.Number;
-
          if (tasi == true && zeroflag == false) i2 = Number;
         }
-
-
 
         if (Number >= i2)
         {
             if (tasi == true)
             {
-            //    i3 = i2;
-             //   Number = Number + i3;
                 tasi = false;
                 zeroflag = true;
             }
@@ -103,41 +102,25 @@ public class player1_script : MonoBehaviour
         {
             if (tasi == true)
             {
-            //    i3 = Number;
-               //Number = 0;プレイヤーの順番的にバグる
                 tasi = false;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
                 zeroflag = true;
-
             }
         }
-
     }
 
     void OnTriggerExit(Collider col)
     {
-
         if (col.gameObject.tag == "Player1")
         {
-
-            //Number = Number - player.Number;
-            //   Number = Number - i2;
             zeroflag = false;
             SuutiByougaflag = true;
         }
 
-
-
         if (Number > i2)
         {
-   
             if (tasi == false)
             {
-              //  Number = Number - i3;
                 tasi = true;
-               // player1.tasi = false;
-                
-
             }
         }
 
@@ -145,10 +128,7 @@ public class player1_script : MonoBehaviour
         {
             if (tasi == false)
             {
-              //  Number = i3;
                 tasi = true;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
-              
             }
         }
     }

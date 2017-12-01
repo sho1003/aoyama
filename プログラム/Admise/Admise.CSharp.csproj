@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.; 0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -81,11 +81,18 @@
     <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
+    <Compile Include="Assets\script\Floor_Move_Script.cs" />
+    <Compile Include="Assets\script\GameBGM_Script.cs" />
+=======
+    <Compile Include="Assets\script\GameBGM_Script.cs" />
+>>>>>>> df89f8a44aad21337838f72284ac36d020dcb779
     <Compile Include="Assets\script\GamenSizeScript.cs" />
+    <Compile Include="Assets\script\GameSE_Script.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
     <Compile Include="Assets\script\Life2_script.cs" />
+    <Compile Include="Assets\script\LoadingScript.cs" />
     <Compile Include="Assets\script\PickManager.cs" />
     <Compile Include="Assets\script\PickScript.cs" />
     <Compile Include="Assets\script\Player1_Manager.cs" />
@@ -97,12 +104,13 @@
     <Compile Include="Assets\script\SceneManager.cs" />
     <Compile Include="Assets\script\ScoreScript.cs" />
     <Compile Include="Assets\script\Speech_UIscript.cs" />
-    <Compile Include="Assets\script\Speech2_UIscript.cs" />
     <Compile Include="Assets\script\StatusScript.cs" />
     <Compile Include="Assets\script\Suuti2Script.cs" />
     <Compile Include="Assets\script\SuutiScript.cs" />
+    <Compile Include="Assets\script\TeamManager.cs" />
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
+    <Compile Include="Assets\script\TitleScript.cs" />
     <Compile Include="Assets\script\UI_Script.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>
