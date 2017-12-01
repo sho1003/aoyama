@@ -218,9 +218,9 @@ public class BattleScript : MonoBehaviour
                     //　攻撃アニメーション再生
                     ps1.anime.SetBool("set", true);
                     ps2.anime.SetBool("set", true);
-                    //  半透明
+                    //  透明
                     //zoneColor1.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
-                    //zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
+                    //for (int i = 0; i < OBJECT_MAX; i++)  zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
 
                     //  1人でも周辺にいる限り、攻撃し続ける
                     bool isEndAttack = true;
@@ -243,7 +243,8 @@ public class BattleScript : MonoBehaviour
 
                         //  半透明
                         //zoneColor1.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
-                        //zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
+                        //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
+                       
                         step = BATTLE_STEP.NOT_APPROACH;
                         ps1.anime.SetBool("set", false);
                         ps2.anime.SetBool("set", false);
