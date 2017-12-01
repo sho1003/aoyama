@@ -35,7 +35,7 @@ public class SceneManager : MonoBehaviour {
     // Update is called once per frame  
     void Update()
     {
-
+        //　まだキャラが選択されていない状態
         if (!Player1Click)
         {
             //一回目のクリック
@@ -58,31 +58,32 @@ public class SceneManager : MonoBehaviour {
                         circleTextureOut1.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
                         circleTextureOut1.SetActive(true);
 
-
-                        if (Input.GetMouseButtonDown(1))
-                        {
-                            Player1Click = false;
-
-
                         }
-
-
-                    }
                 }
             }
         }
-
+        //　キャラが選択された状態
         else
         {
-                //二回目のクリック
-                if (Input.GetMouseButtonDown(0))
-                {
-                    Ray ray = new Ray();
-                    RaycastHit hit = new RaycastHit();
-                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //　もし右クリックが押された場合
+            if(Input.GetMouseButtonDown(1))
+            {
+                Player1Click = false;
+                //  外枠非表示
+                circleTextureOut1.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
+                circleTextureOut1.SetActive(false);
+            }
+            //二回目のクリック
+            else if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = new Ray();
+                RaycastHit hit = new RaycastHit();
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                    //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
-                    if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+                //マウスクリックした場所からRayを飛ばし、オブジェクトがあればtrue 
+                if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+                {
+                    if (hit.transform.tag != Player1Tag)
                     {
                         if (hit.transform.tag != Player1Tag)
                         {
@@ -94,6 +95,7 @@ public class SceneManager : MonoBehaviour {
                         }
                     }
                 }
+            }
         }
         if (!Player2Click)
         {
@@ -122,8 +124,17 @@ public class SceneManager : MonoBehaviour {
         }
         else
         {
+            //　もし右クリックが押された場合
+            if (Input.GetMouseButtonDown(1))
+            {
+                Player2Click = false;
+                //  外枠非表示
+                circleTextureOut2.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
+                circleTextureOut2.SetActive(false);
+            }
+
             //二回目のクリック
-            if (Input.GetMouseButtonDown(0))
+            else if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = new Ray();
                 RaycastHit hit = new RaycastHit();
