@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ZinScript : MonoBehaviour
 {
+    //------------------------スクリプト関連------------------------//
     private StatusScript status;
+    private GameSE_Script se;
 
     public bool Openflag;
     public Texture[] textures;
