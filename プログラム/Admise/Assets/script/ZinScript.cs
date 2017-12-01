@@ -42,7 +42,7 @@ public class ZinScript : MonoBehaviour
         RedSenkyoflag = false;
         BlueSenkyoflag = false;
 
-
+        se = GameObject.Find("Sounds").GetComponent<GameSE_Script>();
     }
 
     // Update is called once per frame
@@ -81,6 +81,8 @@ public class ZinScript : MonoBehaviour
             if (RedSenkyoflag == true) RedScore -= 1;
             BlueSenkyoflag = true;
             RedSenkyoflag = false;
+
+            //se.SetSE(se.areaGetSE);
         }
 
         if (RedSenkyoflag == false && timeleft > status.GetAreaTime)
