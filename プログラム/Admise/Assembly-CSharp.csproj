@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3A340F2B-82B5-19D9-9177-1B2304EEF363}</ProjectGuid>
+    <ProjectGuid>{433E8F0F-AA20-4433-A2BF-C47F388E8A4C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -54,11 +54,15 @@
      <Compile Include="Assets\script\BattleScript.cs" />
      <Compile Include="Assets\script\enemy_script.cs" />
      <Compile Include="Assets\script\ExitScript.cs" />
+     <Compile Include="Assets\script\Floor_Move_Script.cs" />
+     <Compile Include="Assets\script\GameBGM_Script.cs" />
      <Compile Include="Assets\script\GamenSizeScript.cs" />
+     <Compile Include="Assets\script\GameSE_Script.cs" />
      <Compile Include="Assets\script\GameUIManager.cs" />
      <Compile Include="Assets\script\HP_UIscript.cs" />
      <Compile Include="Assets\script\Life1_script.cs" />
      <Compile Include="Assets\script\Life2_script.cs" />
+     <Compile Include="Assets\script\LoadingScript.cs" />
      <Compile Include="Assets\script\PickManager.cs" />
      <Compile Include="Assets\script\PickScript.cs" />
      <Compile Include="Assets\script\Player1_Manager.cs" />
@@ -70,12 +74,13 @@
      <Compile Include="Assets\script\SceneManager.cs" />
      <Compile Include="Assets\script\ScoreScript.cs" />
      <Compile Include="Assets\script\Speech_UIscript.cs" />
-     <Compile Include="Assets\script\Speech2_UIscript.cs" />
      <Compile Include="Assets\script\StatusScript.cs" />
      <Compile Include="Assets\script\Suuti2Script.cs" />
      <Compile Include="Assets\script\SuutiScript.cs" />
+     <Compile Include="Assets\script\TeamManager.cs" />
      <Compile Include="Assets\script\TimeScript.cs" />
      <Compile Include="Assets\script\TitleSceneScript.cs" />
+     <Compile Include="Assets\script\TitleScript.cs" />
      <Compile Include="Assets\script\UI_Script.cs" />
      <Compile Include="Assets\script\ZinScript.cs" />
  <Reference Include="UnityEngine.UI">
