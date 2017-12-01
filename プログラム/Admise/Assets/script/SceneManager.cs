@@ -87,7 +87,7 @@ public class SceneManager : MonoBehaviour {
                         if (hit.transform.tag != Player1Tag)
                         {
                             //  外枠非表示
-                            zone1.SetActive(false);
+                            circleTextureOut1.SetActive(false);
                             //移動させる
                             player1.Pointer_Click();
                             Player1Click = false;

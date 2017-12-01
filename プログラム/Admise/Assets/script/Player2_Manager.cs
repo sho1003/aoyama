@@ -39,7 +39,6 @@ public class Player2_Manager : MonoBehaviour
             SetPlayer(i);
             time[i] = status.RespawnTime;
         }
-
     }
 
     // Update is called once per frame
@@ -47,7 +46,6 @@ public class Player2_Manager : MonoBehaviour
     {
         for (int i = 0; i < PLAYER_MAX; i++)
         {
-            //if (!player[i].agent) continue;
             if (!FlagDeath[i])
             {
                 //player[i]が止まりかけるとアニメーションrunをfalseにする
@@ -56,7 +54,6 @@ public class Player2_Manager : MonoBehaviour
                     player[i].anime.SetBool("run", false);
                 }
             }
-
 
             if (FlagDeath[i])
             {
@@ -79,15 +76,12 @@ public class Player2_Manager : MonoBehaviour
                 //DeathObject(player[i].gameObject);
                 player[i].gameObject.SetActive(false);
                 SceneManager.Player2Click = false;
-
                 FlagDeath[i] = true;
                 player[i].death = false;
+                player[i].anime.SetBool("set", false);
             }
         }
-
     }
-
-
 
     void DeathObject(GameObject obj)
     {
@@ -102,7 +96,6 @@ public class Player2_Manager : MonoBehaviour
 
         playerObj[i].name = "player2_" + (i + 1);
         player[i] = playerObj[i].GetComponent<player2_script>();
-
         player[i].Number = number[i];
         FlagDeath[i] = false;
 
