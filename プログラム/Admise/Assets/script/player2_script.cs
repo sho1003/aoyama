@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class player2_script : MonoBehaviour
 {
     private StatusScript status;
-
     public Animator anime;
 
     public NavMeshAgent agent;
@@ -22,9 +21,6 @@ public class player2_script : MonoBehaviour
     public float Deathtime;
     public bool FlagTeam;
     public int TeamNumber;
-
-    private player2_script player2;
-    private player1_script player1;
 
     public bool tasi;
 
@@ -45,7 +41,6 @@ public class player2_script : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(0, 180, 0);
         HP = status.CharaHP; //初期体力を最大値にする
-       // HP = 10;//↑なぜかHPが１０００ある
         death = false;
         tasi = true;
         zeroflag = false;
@@ -55,23 +50,13 @@ public class player2_script : MonoBehaviour
 
     void Update()
     {
-
-
         Suuti2Script.Number = Number;
         Suuti2Script.i2 = i2;
 
-        // HP -= 1;
         if (HP <= 0)
         {
             anime.SetBool("run", false);
-            //if (gameObject.tag == "Player2") transform.position = new Vector3(0, 50, 0);
-
-            //Deathtime = Deathtime - Time.deltaTime;
-            //if (Deathtime <= 0.1f)
-            //{
-            //    Deathtime = 0;
-                death = true;
-            //}
+            death = true;
         }
     }
 
@@ -90,30 +75,18 @@ public class player2_script : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-
         if (col.gameObject.tag == "Player2")
         {
             SuutiByougaflag = false;
-            player2 = GameObject.Find(col.gameObject.transform.name).GetComponent<player2_script>();
-
-            // Number = Number + player.Number;
-
-            if (tasi == true && zeroflag == false) i2 = player2.Number;
+            if (tasi == true && zeroflag == false) i2 = Number;
         }
-
-
 
         if (Number >= i2)
         {
-            player2 = GameObject.Find(col.gameObject.transform.name).GetComponent<player2_script>();
             if (tasi == true)
             {
-              //  i3 = i2;
-              //  Number = Number + i3;
                 tasi = false;
                 zeroflag = true;
-
-
             }
         }
 
@@ -121,42 +94,26 @@ public class player2_script : MonoBehaviour
         {
             if (tasi == true)
             {
-              //  i3 = Number;
-                //Number = 0;プレイヤーの順番的にバグる
                 tasi = false;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
                 zeroflag = true;
-
             }
         }
-
-
     }
 
     void OnTriggerExit(Collider col)
     {
-
         if (col.gameObject.tag == "Player2")
         {
-            player2 = GameObject.Find(col.gameObject.transform.name).GetComponent<player2_script>();
-
-            //Number = Number - player.Number;
-            //   Number = Number - i2;
             zeroflag = false;
             SuutiByougaflag = true;
         }
-
 
         if (Number > i2)
         {
 
             if (tasi == false)
             {
-              //  Number = Number - i3;
                 tasi = true;
-                //player.tasi = false;
-
-
             }
         }
 
@@ -164,10 +121,7 @@ public class player2_script : MonoBehaviour
         {
             if (tasi == false)
             {
-              //  Number = i3;
                 tasi = true;
-                //player.tasi = false;//相手の方↑でfalseにしてる?
-                //zeroflag = false;
             }
         }
     }
