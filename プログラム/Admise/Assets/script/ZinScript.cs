@@ -29,6 +29,8 @@ public class ZinScript : MonoBehaviour
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
+
         frameNum = 0;    // frameNum[0]占拠なし　[1]青　[2]赤
         timeleft = 0.0f;
         VSflag = false;//戦闘しているかのフラグ
@@ -42,7 +44,7 @@ public class ZinScript : MonoBehaviour
         RedSenkyoflag = false;
         BlueSenkyoflag = false;
 
-        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
+        
     }
 
     // Update is called once per frame
@@ -73,7 +75,7 @@ public class ZinScript : MonoBehaviour
         //  if (Openflag == true && timeleft <= -3.0f && VSflag == false)
 
 
-        //  青組
+        //  青組占領
         if (BlueSenkyoflag == false && timeleft < -status.GetAreaTime)
         {
             frameNum = 1;
@@ -85,7 +87,7 @@ public class ZinScript : MonoBehaviour
             se.SetSE(se.areaGetSE);
         }
 
-        //  紅組
+        //  紅組占領
         if (RedSenkyoflag == false && timeleft > status.GetAreaTime)
         {
             frameNum = 2;

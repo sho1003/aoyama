@@ -1596,7 +1596,7 @@ MonoBehaviour:
   clipGameBGM: {fileID: 8300000, guid: ce842b1fb61725145ab1589863c63d0f, type: 3}
   pitch: 1
   pitchChenge: 1.5
-  pitchChengeTime: 9995
+  pitchChengeTime: 30
 --- !u!82 &1392600334
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1652,7 +1652,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1676,7 +1676,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &1454379533 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 5888206432dd9d54e82d05253b56e33c, type: 3}
@@ -1772,7 +1772,7 @@ MonoBehaviour:
   battleSE: {fileID: 8300000, guid: ac2f734f9dda67c42af1b24c9717d505, type: 3}
   cancelSE: {fileID: 8300000, guid: 234521b66418b2c449032257212a0778, type: 3}
   clockSE: {fileID: 8300000, guid: b9775d8e4ac1a944abca284b0f5343a3, type: 3}
-  diedSE: {fileID: 8300000, guid: 0393a4813007325429bb6ad57bd8c1e1, type: 3}
+  diedSE: {fileID: 8300000, guid: cbc5d61b3a8e002478221077c64fb7d3, type: 3}
   enterSE: {fileID: 8300000, guid: efd7bb22ddd131d4ea0fe8d76568816a, type: 3}
 --- !u!82 &1649694135
 AudioSource:
@@ -1829,7 +1829,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1853,7 +1853,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &1666101626
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player2_Manager : MonoBehaviour
 {
     private StatusScript status;
+    private GameSE_Script se;
+
 
     //オブジェクトの定義
     public GameObject playerPrefab;
@@ -27,6 +29,8 @@ public class Player2_Manager : MonoBehaviour
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
+
         for (int i = 0; i < PLAYER_MAX; i++)
         {
             //初めの座標位置を指定
@@ -79,6 +83,9 @@ public class Player2_Manager : MonoBehaviour
                 FlagDeath[i] = true;
                 player[i].death = false;
                 player[i].anime.SetBool("set", false);
+
+                //  攻撃時のSE実行
+                se.SetSE(se.diedSE);
             }
         }
     }

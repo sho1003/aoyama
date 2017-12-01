@@ -11,6 +11,7 @@ using UnityEngine;
 public class BattleScript : MonoBehaviour
 {
     StatusScript status;
+    GameSE_Script se;
     //  スクリプト取得
     player1_script ps1;
     player2_script ps2;
@@ -62,6 +63,7 @@ public class BattleScript : MonoBehaviour
     {
         //  呼び込み
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
 
         //  敵を指定(仮)
         //rival = GameObject.Find("enemy1");
@@ -83,13 +85,13 @@ public class BattleScript : MonoBehaviour
                 rival[i] = GameObject.Find("player1_" + i);
             }
             zoneColor2[i] = rival[i].transform.Find("CircleTextureIn").gameObject;
-            zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
+            zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
         }
 
         //  Zoneオブジェクト取得
         zoneColor1 = this.gameObject.transform.Find("CircleTextureIn").gameObject;
         //  半透明
-        zoneColor1.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
+        zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
 
         Deathtime = 0;//とりあえず攻撃モーションとHPの減るタイミングを合わすための時間
 
@@ -158,6 +160,9 @@ public class BattleScript : MonoBehaviour
                 //  キャラクターの移動を止める
                 if (ps1.agent != null) ps1.agent.ResetPath();
                 if (ps2.agent != null) ps2.agent.ResetPath();
+                //  攻撃時のSE実行
+                se.SetSE(se.battleSE);
+
                 step = BATTLE_STEP.BATTLE;
                 break;
 
@@ -218,9 +223,10 @@ public class BattleScript : MonoBehaviour
                     //　攻撃アニメーション再生
                     ps1.anime.SetBool("set", true);
                     ps2.anime.SetBool("set", true);
+
                     //  透明
-                    //zoneColor1.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
-                    //for (int i = 0; i < OBJECT_MAX; i++)  zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
+                    //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
+                    //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
 
                     //  1人でも周辺にいる限り、攻撃し続ける
                     bool isEndAttack = true;
@@ -242,8 +248,8 @@ public class BattleScript : MonoBehaviour
                         //  攻撃終了
 
                         //  半透明
-                        //zoneColor1.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
-                        //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
+                        //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
+                        //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
                        
                         step = BATTLE_STEP.NOT_APPROACH;
                         ps1.anime.SetBool("set", false);
