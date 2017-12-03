@@ -88,8 +88,9 @@
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
     <Compile Include="Assets\script\Floor_Move_Script.cs" />
-    <Compile Include="Assets\script\GameMusicScript.cs" />
+    <Compile Include="Assets\script\GameBGM_Script.cs" />
     <Compile Include="Assets\script\GamenSizeScript.cs" />
+    <Compile Include="Assets\script\GameSE_Script.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
