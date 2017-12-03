@@ -83,9 +83,6 @@
     <Compile Include="Assets\script\ExitScript.cs" />
     <Compile Include="Assets\script\Floor_Move_Script.cs" />
     <Compile Include="Assets\script\GameBGM_Script.cs" />
-=======
-    <Compile Include="Assets\script\GameBGM_Script.cs" />
->>>>>>> df89f8a44aad21337838f72284ac36d020dcb779
     <Compile Include="Assets\script\GamenSizeScript.cs" />
     <Compile Include="Assets\script\GameSE_Script.cs" />
     <Compile Include="Assets\script\GameUIManager.cs" />
@@ -114,5 +111,5 @@
     <Compile Include="Assets\script\UI_Script.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

@@ -20,7 +20,7 @@ public class player1_script : MonoBehaviour
     public bool death;
     public float Deathtime;
     public bool FlagTeam;
-    public int TeamNumber;
+    //public int TeamNumber;
 
     public bool tasi;
 
@@ -50,8 +50,7 @@ public class player1_script : MonoBehaviour
         zeroflag = false;
         FlagTeam = false;
         edge = new List<int>();
-        TeamNumber = 0;
-        ID = 0;
+        //ID = 0;
 
         edge = new List<int>();
     }

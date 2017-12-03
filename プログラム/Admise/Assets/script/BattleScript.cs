@@ -14,6 +14,7 @@ public class BattleScript : MonoBehaviour
     //  スクリプト取得
     player1_script ps1;
     player2_script ps2;
+    TeamManager team;
 
     //  rival(ライバル)
     static int OBJECT_MAX = 7;
@@ -28,15 +29,12 @@ public class BattleScript : MonoBehaviour
     private float length;
 
     private BATTLE_STEP step;
-    private TEAMNUM team;
+    private TEAMNUM teamnum;
 
     private float Deathtime;                    //とりあえず攻撃モーションとHPの減るタイミングを合わすための時間
 
     private int PS1Sabun;                       //自分と敵の攻撃力（Number）の差分
     private int PS2Sabun;                       //自分と敵の攻撃力（Number）の差分2
-
-    private string SmallNumberPlayerName;       //　自分のチーム内で一番数値の低いオブジェクトの名前
-    private string SmallNumberEnemyName;        //　相手のチーム内で一番数値の低いオブジェクトの名前
 
     //  行動順
     enum BATTLE_STEP
@@ -82,8 +80,8 @@ public class BattleScript : MonoBehaviour
                 //　オブジェクト取得
                 rival[i] = GameObject.Find("player1_" + i);
             }
-            zoneColor2[i] = rival[i].transform.Find("CircleTextureIn").gameObject;
-            zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
+            //zoneColor2[i] = rival[i].transform.Find("CircleTextureIn").gameObject;
+            //zoneColor2[i].GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
         }
 
         //  Zoneオブジェクト取得
@@ -93,9 +91,8 @@ public class BattleScript : MonoBehaviour
 
         Deathtime = 0;//とりあえず攻撃モーションとHPの減るタイミングを合わすための時間
 
-        //　nullにならないために空文字を代入
-        SmallNumberPlayerName = "";
-        SmallNumberEnemyName = "";
+        team = GameObject.Find("TeamManager").GetComponent<TeamManager>();
+
     }
 
     //========================================================//
@@ -168,51 +165,54 @@ public class BattleScript : MonoBehaviour
                 {
                     Deathtime = Deathtime - Time.deltaTime;
                     //　どちらもチームでなければ
-                    if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
+                    if (Deathtime < -1.8f && Check(ps1.FlagTeam, ps2.FlagTeam) == TEAMNUM.NONE)
                     {
-                        PS1Sabun = 0;
-                        PS2Sabun = 0;
-                        if (ps1.Number >= ps2.Number) PS1Sabun = ps1.Number - ps2.Number;
-                        if (ps1.Number < ps2.Number) PS2Sabun = ps2.Number - ps1.Number;
-                        ps1.HP -= ps2.PlayerATK + PS2Sabun;// + ps2[i].Number;
-                        ps2.HP -= ps1.PlayerATK + PS1Sabun; //+ ps1.Number;
+                        Namerical();
+                        ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                        ps2.HP -= ps1.PlayerATK + PS1Sabun;
                         Deathtime = 0;
                     }
-                    //　どちらか又はどっちもチームだったら
-                    else if (Deathtime < -1.8f && ps1.FlagTeam || ps2.FlagTeam)
+                    //　どっちかがチームだったら
+                    else if (Deathtime < -1.8f && Check(ps1.FlagTeam, ps2.FlagTeam) == TEAMNUM.ONE)
                     {
-                        PS1Sabun = 0;
-                        PS2Sabun = 0;
                         //　敵味方の数値差を計算
-                        if (ps1.TeamNumber >= ps2.TeamNumber) PS1Sabun = ps1.TeamNumber - ps2.TeamNumber;
-                        else if (ps1.TeamNumber < ps2.TeamNumber) PS2Sabun = ps2.TeamNumber - ps1.TeamNumber;
-                        //　両方チームだったら
-                        if (Deathtime < -1.8f && ps1.FlagTeam && ps2.FlagTeam)
-                        {
-                            //　ダメージ計算
-                            //　チーム内(Player1目線)で自分が一番数値が低い場合
-                            if (SmallNumberPlayerName == this.gameObject.name)
-                                ps1.HP -= ps2.PlayerATK + PS2Sabun;
-                            //　チーム内(Player2目線)で自分()が一番数値が低い場合
-                            else if (SmallNumberEnemyName == this.gameObject.name)
-                                ps2.HP -= ps1.PlayerATK + PS1Sabun;
-                        }
+                        Namerical();
+
                         //　Player1が個人でPlayer2がチームの場合
-                        else if (!ps1.FlagTeam && ps2.FlagTeam)
+                        if (!ps1.FlagTeam && ps2.FlagTeam)
                         {
                             //　ダメージ計算
                             ps1.HP -= ps2.PlayerATK + PS2Sabun;
-                            if (SmallNumberEnemyName == gameObject.name) ps2.HP -= ps1.PlayerATK + PS1Sabun;
+                            if (ps2.ID == team.LowPlayerID(false, ps2.ID)) ps2.HP -= ps1.PlayerATK + PS1Sabun;
                         }
                         //　Player1がチームでPlayer2が個人の場合
                         else if (ps1.FlagTeam && !ps2.FlagTeam)
                         {
                             //　ダメージ計算
-                            if (SmallNumberPlayerName == gameObject.name) ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                            if (ps1.ID == team.LowPlayerID(true, ps1.ID)) ps1.HP -= ps2.PlayerATK + PS2Sabun;
                             ps2.HP -= ps1.PlayerATK + PS1Sabun;
                         }
                         Deathtime = 0;
                     }
+                    //　どっちもチームだったら
+                    else if (Deathtime < -1.8f && Check(ps1.FlagTeam, ps2.FlagTeam) == TEAMNUM.TWO)
+                    {
+                        //　敵味方の数値差を計算
+                        Namerical();
+                        //　両方チームだったら
+                        if (Deathtime < -1.8f && ps1.FlagTeam && ps2.FlagTeam)
+                        {
+                            //　ダメージ計算
+                            //　チーム内(Player1目線)で自分が一番数値が低い場合
+                            if (ps1.ID == team.LowPlayerID(true, ps1.ID))
+                                ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                            //　チーム内(Player2目線)で自分()が一番数値が低い場合
+                            else if (ps2.ID == team.LowPlayerID(false, ps2.ID))
+                                ps2.HP -= ps1.PlayerATK + PS1Sabun;
+                        }
+                        Deathtime = 0;
+                    }
+
                     //　敵の方向を向く
 
                     //　攻撃アニメーション再生
@@ -229,6 +229,7 @@ public class BattleScript : MonoBehaviour
                         //  距離計算
                         BattleLength(this.gameObject, rival[i]);
                         //  1人でも周辺にいる限り、攻撃し続ける
+                        //または、味方が戦闘状態なら
                         if (status.BattleSpace > length)
                         {
                             isEndAttack = false;
@@ -261,22 +262,27 @@ public class BattleScript : MonoBehaviour
         }
     }
 
-    public void SetObjectName(GameObject obj)
-    {
-        if (obj.tag == "Player1") 
-            SmallNumberPlayerName = obj.name;
-        else if (obj.tag == "Player2") 
-            SmallNumberEnemyName = obj.name;
-    }
-
     private TEAMNUM Check(bool Flag1,bool Flag2)
     {
         //　どっちもチームじゃなかったら
-        if (!Flag1 && !Flag2) team = TEAMNUM.NONE;
+        if (!Flag1 && !Flag2) teamnum = TEAMNUM.NONE;
         //　どっちかがチームやったら
-        if ((Flag1 && !Flag2) || (!Flag1 && Flag2)) team = TEAMNUM.ONE;
+        if ((Flag1 && !Flag2) || (!Flag1 && Flag2)) teamnum = TEAMNUM.ONE;
         //　どっちもチームやったら
-        if (Flag1 && Flag2) team = TEAMNUM.TWO;
-        return team;
+        if (Flag1 && Flag2) teamnum = TEAMNUM.TWO;
+        return teamnum;
     }
+
+    private void Namerical()
+    {
+        PS1Sabun = 0;
+        PS2Sabun = 0;
+
+        //差分計算
+        if (team.TeamSumNumber(true, ps1.ID) >= team.TeamSumNumber(false, ps2.ID))
+            PS1Sabun = team.TeamSumNumber(true, ps1.ID) - team.TeamSumNumber(false, ps2.ID);
+        else PS2Sabun = team.TeamSumNumber(false, ps2.ID) - team.TeamSumNumber(true, ps1.ID);
+
+    }
+    
 }

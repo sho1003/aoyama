@@ -32,10 +32,6 @@ public class Player1_Manager : MonoBehaviour {
             //初めの座標位置を指定
             pos[i] = status.FirstPosition[i];
             number[i] = PlayerPrefs.GetInt("PlayerNum" + i);
-        }
-
-        for (int i = 0; i < PLAYER_MAX; i++)
-        {
             SetPlayer(i);
             time[i] = status.RespawnTime;
         }
@@ -61,12 +57,13 @@ public class Player1_Manager : MonoBehaviour {
                 {
                     //SetPlayer(i);
                     player[i].gameObject.SetActive(true);
-              
+
                     player[i].transform.position = pos[i];
                     player[i].HP = status.CharaHP;
                     FlagDeath[i] = false;
 
                     time[i] = status.RespawnTime;
+                    player[i].anime.SetBool("set", false);
                 }
             }
 
@@ -77,14 +74,12 @@ public class Player1_Manager : MonoBehaviour {
                 SceneManager.Player1Click = false;
                 FlagDeath[i] = true;
                 player[i].death = false;
-                player[i].anime.SetBool("set", false);
             }
         }
 	}
 
     void DeathObject(GameObject obj)
     {
-
         Destroy(obj);
     }
 
@@ -95,7 +90,6 @@ public class Player1_Manager : MonoBehaviour {
         //playerObj[i]として呼び出されるオブジェクト名を変えられる
      
         playerObj[i].name = "player1_" + i;
-
         player[i] = playerObj[i].GetComponent<player1_script>();
         player[i].Number = number[i];
         player[i].ID = i;

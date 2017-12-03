@@ -94,10 +94,10 @@ public class Player2_Manager : MonoBehaviour
         playerObj[i] = Instantiate(playerPrefab, pos[i], Quaternion.identity);
         //playerObj[i]として呼び出されるオブジェクト名を変えられる
 
-        playerObj[i].name = "player2_" + (i + 1);
+        playerObj[i].name = "player2_" + i;
         player[i] = playerObj[i].GetComponent<player2_script>();
         player[i].Number = number[i];
+        player[i].ID = i;
         FlagDeath[i] = false;
-
     }
 }

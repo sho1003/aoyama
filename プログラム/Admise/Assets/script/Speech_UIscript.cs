@@ -13,6 +13,7 @@ public class Speech_UIscript : MonoBehaviour
     GameObject player;
     player1_script player1;
     player2_script player2;
+    TeamManager team;
 
     RectTransform myRectTrans;
     RectTransform SpeechBalloon;
@@ -30,6 +31,8 @@ public class Speech_UIscript : MonoBehaviour
         if (player.tag == "Player1") player1 = player.GetComponent<player1_script>();
         else if (player.tag == "Player2") player2 = player.GetComponent<player2_script>();
 
+        team = GameObject.Find("TeamManager").GetComponent<TeamManager>();
+
         myRectTrans = GetComponent<RectTransform>();
         SpeechBalloon = transform.GetChild(1).GetComponent<RectTransform>();
 
@@ -45,6 +48,7 @@ public class Speech_UIscript : MonoBehaviour
         transform.rotation = rotateCamera.transform.rotation;
 
         //同じタグの一番近いプレイヤーを取得
+
         GameObject otherplayer = SearchTag(player, player.tag);
         if (otherplayer != null)
         {
@@ -66,39 +70,46 @@ public class Speech_UIscript : MonoBehaviour
                 {
                     hukidashi.SetActive(true);
                 }
-
+                
                 //吹き出しの中の数字
                 if (player.tag == "Player1")
                 {
-                    player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
+                    player1_script other1 = otherplayer.GetComponent<player1_script>();
+
+                    if (team.checkTeamID(true, player1.ID,other1.ID))
+                    {
+                        team.connectTeam(true, player1.ID, other1.ID);
+                    }
+
+                    player_number = team.TeamSumNumber(true, player1.ID);
                     //　プレイヤー個人にもチームの数字を持たせる
-                    player1.TeamNumber = player_number;
+                    //player1.TeamNumber = player_number;
                     //　チームを組んだフラグを立てる
                     player1.FlagTeam = true;
-                    otherplayer.GetComponent<player1_script>().FlagTeam = true;
-                    //　数字の小さいオブジェクトを調べる
-                    if (otherplayer.GetComponent<player1_script>().Number < player1.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
-                    else
-                        player1.GetComponent<BattleScript>().SetObjectName(player1.gameObject);
+                    other1.FlagTeam = true;
                 }
                 else if (player.tag == "Player2")
                 {
-                    player_number = otherplayer.GetComponent<player2_script>().Number + player2.Number;
+                    player2_script other2 = otherplayer.GetComponent<player2_script>();
+
+                    if (team.checkTeamID(false, player2.ID, other2.ID))
+                    {
+                        team.connectTeam(false, player2.ID, other2.ID);
+                    }
+
+                    player_number = team.TeamSumNumber(false, player2.ID);
                     //　プレイヤー個人にもチームの数字を持たせる
-                    player2.TeamNumber = player_number;
+                    //player2.TeamNumber = player_number;
                     //　チームを組んだフラグを立てる
                     player2.FlagTeam = true;
-                    otherplayer.GetComponent<player2_script>().FlagTeam = true;
-                    //　数字の小さいオブジェクトを調べる
-                    if (otherplayer.GetComponent<player2_script>().Number < player2.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
-                    else
-                        player2.GetComponent<BattleScript>().SetObjectName(player2.gameObject);
+                    other2.FlagTeam = true;
                 }
+
+                //吹き出しの数字変更
                 sumText.text = "" + player_number;
 
-
+                //吹き出しの位置
+                //xはメンバーの数で割る
                 offset.x = vec.x / 2;
                 offset.y = 4.0f;
                 offset.z = 2.0f;
@@ -109,21 +120,27 @@ public class Speech_UIscript : MonoBehaviour
 
                 if (player.tag == "Player1")
                 {
+                    player1_script other1 = otherplayer.GetComponent<player1_script>();
+
                     sumText.text = "" + player1.Number;
-                    //　チームを組んでいないため自分の数値を代入
-                    player1.TeamNumber = player1.Number;
                     //　チームを組んでいないのでフラグを立てない
                     player1.FlagTeam = false;
-                    otherplayer.GetComponent<player1_script>().FlagTeam = false;
+                    other1.FlagTeam = false;
+
+                    //チーム解除
+                    team.RemoveTeam(true, other1.ID, player1.ID);
                 }
                 else if (player.tag == "Player2")
                 {
+                    player2_script other2 = otherplayer.GetComponent<player2_script>();
+
                     sumText.text = "" + player2.Number;
-                    //　チームを組んでいないため自分の数値を代入
-                    player2.TeamNumber = player2.Number;
                     //　チームを組んでいないのでフラグを立てない
                     player2.FlagTeam = false;
-                    otherplayer.GetComponent<player2_script>().FlagTeam = false;
+                    other2.FlagTeam = false;
+
+                    //チーム解除
+                    team.RemoveTeam(false, other2.ID, player2.ID);
                 }
 
                 //プレイヤーの位置によって微調整
