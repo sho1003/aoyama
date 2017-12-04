@@ -1665,10 +1665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80ea9ee019eeb743bb2cd5405f4c584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipGameBGM: {fileID: 8300000, guid: ce842b1fb61725145ab1589863c63d0f, type: 3}
+  clipGameBGM: {fileID: 8300000, guid: 96e77a93c3fd84f419c88a1bba3d2bf4, type: 3}
   pitch: 1
   pitchChenge: 1.5
-  pitchChengeTime: 30
+  pitchChengeTime: 160
 --- !u!82 &1392600334
 AudioSource:
   m_ObjectHideFlags: 0
