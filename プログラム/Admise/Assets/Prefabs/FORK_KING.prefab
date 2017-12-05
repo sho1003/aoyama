@@ -423,6 +423,7 @@ GameObject:
   - component: {fileID: 222078108111771002}
   - component: {fileID: 114874256467429100}
   - component: {fileID: 114684229183845866}
+  - component: {fileID: 114157117811048612}
   m_Layer: 5
   m_Name: SuutiText
   m_TagString: text1
@@ -1720,8 +1721,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640488673869798}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.7491403, y: -0.25, z: -6.050375}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 220.03613, y: 249.9431, z: -1.3770905}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 4144797482784520}
@@ -2392,6 +2393,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114157117811048612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1289453700794656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ae6a5d1da731c4e96509bf28e4c143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Suutitext: {fileID: 114874256467429100}
+  Skilltime: 10
 --- !u!114 &114278844648449554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2469,7 +2483,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Deathtime: 0
 --- !u!114 &114447708585160188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2563,7 +2576,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289453700794656}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -2630,9 +2643,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 20
+  m_MaxValue: 25
   m_WholeNumbers: 0
-  m_Value: 20
+  m_Value: 25
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2660,16 +2673,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64a0349d0c89a9439a84d60437d0a2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anime: {fileID: 0}
-  agent: {fileID: 0}
-  HP: -4770
+  anime: {fileID: 95683573957740784}
+  agent: {fileID: 195552928629525120}
+  HP: 25
   PlayerATK: 1
   Number: 0
   death: 0
   Deathtime: 0
   FlagTeam: 0
   TeamNumber: 0
-  tasi: 0
+  tasi: 1
   i2: 0
   i3: 0
   zeroflag: 0
@@ -3357,7 +3370,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.13
-  m_Speed: 3.5
+  m_Speed: 5.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3424,7 +3437,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3531,7 +3544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 80}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224295478474744636
@@ -3595,7 +3608,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1250121653178072}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.000000021855694, y: -0.8660254, z: 0.5, w: -0.000000037855173}
   m_LocalPosition: {x: 0, y: 0, z: -0.03125}
   m_LocalScale: {x: 0.00375, y: 0.0112499995, z: 0.037499998}
   m_Children:
@@ -3626,6 +3639,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: -80}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

@@ -27,8 +27,14 @@ public class StatusScript : MonoBehaviour {
     //　ゲーム時間
     public float GameTime = 100;
 
-	// Use this for initialization
-	void Start () {
+    //　スキル１の発動回数
+    public int SkillCount = 2;
+
+    //　スキル１の発動時間
+    public int Skilltime = 10;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

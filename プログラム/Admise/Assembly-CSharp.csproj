@@ -51,6 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\MenuScript.cs" />
+     <Compile Include="Assets\MenuTuibiScript.cs" />
      <Compile Include="Assets\script\BattleScript.cs" />
      <Compile Include="Assets\script\enemy_script.cs" />
      <Compile Include="Assets\script\ExitScript.cs" />
@@ -83,6 +85,8 @@
      <Compile Include="Assets\script\TitleScript.cs" />
      <Compile Include="Assets\script\UI_Script.cs" />
      <Compile Include="Assets\script\ZinScript.cs" />
+     <Compile Include="Assets\SkillScript.cs" />
+     <Compile Include="Assets\SkillSuutiScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
