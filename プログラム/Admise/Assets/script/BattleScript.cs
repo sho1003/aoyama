@@ -38,8 +38,6 @@ public class BattleScript : MonoBehaviour
     private string SmallNumberPlayerName;       //　自分のチーム内で一番数値の低いオブジェクトの名前
     private string SmallNumberEnemyName;        //　相手のチーム内で一番数値の低いオブジェクトの名前
 
-     [System.NonSerialized]
-    public bool isEndAttack = true;
 
     //  行動順
     private enum BATTLE_STEP
@@ -234,7 +232,7 @@ public class BattleScript : MonoBehaviour
                     //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
 
                     //  1人でも周辺にいる限り、攻撃し続ける
-                    isEndAttack = true;
+                    bool isEndAttack = true;
                     for (int i = 0; i < OBJECT_MAX; i++)
                     {
                         //  距離計算
