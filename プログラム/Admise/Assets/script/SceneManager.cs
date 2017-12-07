@@ -11,6 +11,8 @@ public class SceneManager : MonoBehaviour {
     player1_script player1;
     player2_script player2;
 
+    GameSE_Script se;
+
     GameObject circleTextureOut1;
     GameObject circleTextureOut2;
 
@@ -18,6 +20,8 @@ public class SceneManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //  スクリプト取得
+        se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
 
         Player1Click = false;
         Player2Click = false;
@@ -53,6 +57,8 @@ public class SceneManager : MonoBehaviour {
                         Player1Click = true;
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player1 = GameObject.Find(hit.transform.gameObject.name).GetComponent<player1_script>();
+                        //  クリップSE
+                        se.SetSE1(se.enterSE);
                         //  外枠表示 & 黄色に設定
                         circleTextureOut1 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
                         circleTextureOut1.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
@@ -69,6 +75,7 @@ public class SceneManager : MonoBehaviour {
             if(Input.GetMouseButtonDown(1))
             {
                 Player1Click = false;
+
                 //  外枠非表示
                 circleTextureOut1.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
                 circleTextureOut1.SetActive(false);
@@ -87,6 +94,8 @@ public class SceneManager : MonoBehaviour {
                     {
                         if (hit.transform.tag != Player1Tag)
                         {
+                            //  決定SE
+                            se.SetSE1(se.enterSE);
                             //  外枠非表示
                             circleTextureOut1.SetActive(false);
                             //移動させる

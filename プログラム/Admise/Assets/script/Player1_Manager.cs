@@ -83,7 +83,7 @@ public class Player1_Manager : MonoBehaviour {
                 player[i].anime.SetBool("set", false);
 
                 //  攻撃時のSE実行
-                se.SetSE(se.diedSE);
+                se.SetSE1(se.diedSE);
             }
         }
 	}
