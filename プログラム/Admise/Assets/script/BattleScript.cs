@@ -23,7 +23,6 @@ public class BattleScript : MonoBehaviour
     //  ZoneColor
     private GameObject zoneColor1;
     private GameObject[] zoneColor2 = new GameObject[OBJECT_MAX];
-    private Color semitransparent = new Color(0, 0, 0, 0.1f);
 
     //  距離変数
     private float length;
@@ -42,7 +41,7 @@ public class BattleScript : MonoBehaviour
     private Animator animator;
 
     //  行動順
-    enum BATTLE_STEP
+    private enum BATTLE_STEP
     {
         NOT_APPROACH = -1,
         APPROACH = 0,
@@ -165,7 +164,7 @@ public class BattleScript : MonoBehaviour
                 if (ps1.agent != null) ps1.agent.ResetPath();
                 if (ps2.agent != null) ps2.agent.ResetPath();
                 //  攻撃時のSE実行
-                se.SetSE(se.battleSE);
+                se.SetSE1(se.battleSE);
 
                 step = BATTLE_STEP.BATTLE;
                 break;
@@ -175,6 +174,9 @@ public class BattleScript : MonoBehaviour
                 //  プレイヤーと相手が存在する場合
                 if (this.gameObject != null && rival != null)
                 {
+                    //  合戦中SE
+                    se.SetSE2(se.GassenSE);
+
                     Deathtime = Deathtime - Time.deltaTime;
                     //　どちらもチームでなければ
                     if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
@@ -251,7 +253,7 @@ public class BattleScript : MonoBehaviour
                     if( isEndAttack )
                     {
                         //  攻撃終了
-
+                        //se.SetSE1(se.diedSE);
                         //  半透明
                         //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
                         //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);

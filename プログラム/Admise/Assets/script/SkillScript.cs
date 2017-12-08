@@ -8,7 +8,7 @@ public class SkillScript : MonoBehaviour
 {
     StatusScript status;
     public static bool Skill;
-    public float Skilltime;//
+    //public float Skilltime;//
 
 
     // Use this for initialization

@@ -29,6 +29,7 @@ public class GameBGM_Script : MonoBehaviour {
         bgm.Play();
     }
 
+    //5
     void Update()
     {
         bgm.pitch = pitch;
