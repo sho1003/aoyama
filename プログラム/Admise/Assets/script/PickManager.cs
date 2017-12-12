@@ -274,7 +274,7 @@ public class PickManager : MonoBehaviour
         //  ローディング時に一時停止されていないことを確認
         if (Time.timeScale == 0) Time.timeScale = 1;
         //  非同期でロードを開始
-        AsyncOperation async = SceneManager.LoadSceneAsync("test");
+        AsyncOperation async = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("test");
         //  ロード完了時にシーン切り替えが勝手にされないようにする(デフォルトはtrue)
         async.allowSceneActivation = false;
         //  ロード状態が90%以上になるまでの処理

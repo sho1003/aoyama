@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneManager : MonoBehaviour {
+public class SceneManager : MonoBehaviour
+{
 
 
-   public static bool Player1Click;
-   public static bool Player2Click;
+    public static bool Player1Click;
+    public static bool Player2Click;
 
     player1_script player1;
     player2_script player2;
@@ -41,7 +42,7 @@ public class SceneManager : MonoBehaviour {
         Player1Click = false;
         Player2Click = false;
 
-        
+
 
         //player_ = GameObject.Find("Cube").GetComponent<player_script>();
 
@@ -54,23 +55,23 @@ public class SceneManager : MonoBehaviour {
     // Update is called once per frame  
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
-            {
-                if (hit.transform.tag != "Player1")
-                {
-                    if (CheckIfMouseIsDragging())
-                    {
-                        IsDragging = true;
-                    }
-                }
-            }
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            IsDragging = false;
-        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+        //    {
+        //        if (hit.transform.tag != "Player1")
+        //        {
+        //            if (CheckIfMouseIsDragging())
+        //            {
+        //                IsDragging = true;
+        //            }
+        //        }
+        //    }
+        //}
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    IsDragging = false;
+        //}
 
         //　まだキャラが選択されていない状態
         if (!Player1Click)
@@ -97,7 +98,7 @@ public class SceneManager : MonoBehaviour {
                         circleTextureOut1.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
                         circleTextureOut1.SetActive(true);
 
-                        }
+                    }
                 }
             }
         }
@@ -105,7 +106,7 @@ public class SceneManager : MonoBehaviour {
         else
         {
             //　もし右クリックが押された場合
-            if(Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1))
             {
                 Player1Click = false;
 
@@ -198,51 +199,52 @@ public class SceneManager : MonoBehaviour {
             }
         }
 
-        if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))       
-        CurrentDownPoint = hit.point;
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
-                MouseDownPoint = hit.point;
-        }
-        if (IsDragging)
-        {
-            BoxWidth = Camera.main.WorldToScreenPoint(MouseDownPoint).x - Camera.main.WorldToScreenPoint(CurrentDownPoint).x;
-            BoxHeight = Camera.main.WorldToScreenPoint(MouseDownPoint).y - Camera.main.WorldToScreenPoint(CurrentDownPoint).y;
-            BoxLeft = Input.mousePosition.x;
-            BoxTop = (Screen.height - Input.mousePosition.y) - BoxHeight;
+        //    if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))       
+        //    CurrentDownPoint = hit.point;
+        //    if (Input.GetMouseButtonDown(0))
+        //    {
+        //        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
+        //            MouseDownPoint = hit.point;
+        //    }
+        //    if (IsDragging)
+        //    {
+        //        BoxWidth = Camera.main.WorldToScreenPoint(MouseDownPoint).x - Camera.main.WorldToScreenPoint(CurrentDownPoint).x;
+        //        BoxHeight = Camera.main.WorldToScreenPoint(MouseDownPoint).y - Camera.main.WorldToScreenPoint(CurrentDownPoint).y;
+        //        BoxLeft = Input.mousePosition.x;
+        //        BoxTop = (Screen.height - Input.mousePosition.y) - BoxHeight;
 
-            if (BoxWidth > 0f && BoxHeight < 0f)
-            {
-                BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-            }
-            else if(BoxWidth > 0f && BoxHeight > 0f)
-            {
-                BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y + BoxHeight);
-            }
-            else if (BoxWidth < 0f && BoxHeight < 0f)
-            {
-                BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y);
-            }
-            else if (BoxWidth < 0f && BoxHeight < 0f)
-            {
-                BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y + BoxHeight);
-            }
-            BoxFinish = new Vector2(BoxStart.x + Unsigned(BoxWidth), BoxStart.y - Unsigned(BoxHeight));
-        }
-    }
-    float Unsigned(float val)
-    {
-        if (val < 0f)
-            val *= -1;
-        return val;
-    }
-    private bool CheckIfMouseIsDragging()
-    {
-        if (CurrentDownPoint.x - 1 >= MouseDownPoint.x || CurrentDownPoint.y - 1 >= MouseDownPoint.y || CurrentDownPoint.z - 1 >= MouseDownPoint.z ||
-            CurrentDownPoint.x < MouseDownPoint.x - 1 || CurrentDownPoint.y < MouseDownPoint.y - 1 || CurrentDownPoint.z < MouseDownPoint.z - 1)
-            return true;
-        else
-            return false;
+        //        if (BoxWidth > 0f && BoxHeight < 0f)
+        //        {
+        //            BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        //        }
+        //        else if(BoxWidth > 0f && BoxHeight > 0f)
+        //        {
+        //            BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y + BoxHeight);
+        //        }
+        //        else if (BoxWidth < 0f && BoxHeight < 0f)
+        //        {
+        //            BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y);
+        //        }
+        //        else if (BoxWidth < 0f && BoxHeight < 0f)
+        //        {
+        //            BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y + BoxHeight);
+        //        }
+        //        BoxFinish = new Vector2(BoxStart.x + Unsigned(BoxWidth), BoxStart.y - Unsigned(BoxHeight));
+        //    }
+        //}
+        //float Unsigned(float val)
+        //{
+        //    if (val < 0f)
+        //        val *= -1;
+        //    return val;
+        //}
+        //private bool CheckIfMouseIsDragging()
+        //{
+        //    if (CurrentDownPoint.x - 1 >= MouseDownPoint.x || CurrentDownPoint.y - 1 >= MouseDownPoint.y || CurrentDownPoint.z - 1 >= MouseDownPoint.z ||
+        //        CurrentDownPoint.x < MouseDownPoint.x - 1 || CurrentDownPoint.y < MouseDownPoint.y - 1 || CurrentDownPoint.z < MouseDownPoint.z - 1)
+        //        return true;
+        //    else
+        //        return false;
+        //}
     }
 }

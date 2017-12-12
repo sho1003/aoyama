@@ -39,7 +39,7 @@ public class TitleSceneScript : MonoBehaviour {
         //  ローディング時に一時停止されていないことを確認
         if (Time.timeScale == 0) Time.timeScale = 1;
         //  非同期でロードを開始し、"2pick"移動準備
-        AsyncOperation async = SceneManager.LoadSceneAsync("2pick");
+        AsyncOperation async = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("2pick");
         //  ロード完了時にシーン切り替えが勝手にされないようにする(デフォルトはtrue)
         async.allowSceneActivation = false;
         //  ロード状態が90%以上になるまでの処理
