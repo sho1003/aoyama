@@ -38,6 +38,7 @@ public class BattleScript : MonoBehaviour
     private string SmallNumberPlayerName;       //　自分のチーム内で一番数値の低いオブジェクトの名前
     private string SmallNumberEnemyName;        //　相手のチーム内で一番数値の低いオブジェクトの名前
 
+    private Animator animator;
 
     //  行動順
     private enum BATTLE_STEP
@@ -61,6 +62,8 @@ public class BattleScript : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+
         //  呼び込み
         status = GameObject.Find("Status").GetComponent<StatusScript>();
         se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
@@ -225,6 +228,7 @@ public class BattleScript : MonoBehaviour
 
                     //　攻撃アニメーション再生
                     ps1.anime.SetBool("set", true);
+                    animator.SetFloat("Speed", 10f);
                     ps2.anime.SetBool("set", true);
 
                     //  透明
