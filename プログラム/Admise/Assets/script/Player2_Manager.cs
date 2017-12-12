@@ -79,7 +79,7 @@ public class Player2_Manager : MonoBehaviour
             {
                 //DeathObject(player[i].gameObject);
                 player[i].gameObject.SetActive(false);
-                SceneManager.Player2Click = false;
+                SceneManagerScript.Player2Click = false;
                 FlagDeath[i] = true;
                 player[i].death = false;
                 player[i].anime.SetBool("set", false);

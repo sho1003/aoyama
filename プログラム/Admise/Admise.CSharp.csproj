@@ -89,7 +89,6 @@
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
     <Compile Include="Assets\script\Life2_script.cs" />
-    <Compile Include="Assets\script\LoodingScript.cs" />
     <Compile Include="Assets\script\MenuScript.cs" />
     <Compile Include="Assets\script\MenuTuibiScript.cs" />
     <Compile Include="Assets\script\PickManager.cs" />
@@ -100,7 +99,7 @@
     <Compile Include="Assets\script\player2_script.cs" />
     <Compile Include="Assets\script\PointMove_script.cs" />
     <Compile Include="Assets\script\Result.cs" />
-    <Compile Include="Assets\script\SceneManager.cs" />
+    <Compile Include="Assets\script\SceneManagerScript.cs" />
     <Compile Include="Assets\script\ScoreScript.cs" />
     <Compile Include="Assets\script\SkillScript.cs" />
     <Compile Include="Assets\script\SkillSuutiScript.cs" />
