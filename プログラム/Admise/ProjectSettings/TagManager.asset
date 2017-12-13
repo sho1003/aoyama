@@ -11,6 +11,10 @@ TagManager:
   - Card
   - Player1
   - Player2
+  - Skill
+  - SelectableUnit
+  - Floor
+  - CARD2
   layers:
   - Default
   - TransparentFX

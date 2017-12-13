@@ -16,7 +16,7 @@ public class Player2_Manager : MonoBehaviour
     //player2_scriptを定義できる箱をn個作る
     player2_script[] player = new player2_script[PLAYER_MAX];
     private bool[] FlagDeath = new bool[PLAYER_MAX];
-    private int[] time = new int[PLAYER_MAX];
+    private float[] time = new float[PLAYER_MAX];
 
 
     //座標位置を指定する箱をn個作る
@@ -56,7 +56,7 @@ public class Player2_Manager : MonoBehaviour
 
             if (FlagDeath[i])
             {
-                if (time[i] > 0) time[i]--;
+                if (time[i] > 0.0f) time[i]--;
                 else
                 {
                     //SetPlayer(i);
@@ -75,13 +75,13 @@ public class Player2_Manager : MonoBehaviour
             {
                 //DeathObject(player[i].gameObject);
                 player[i].gameObject.SetActive(false);
-                SceneManager.Player2Click = false;
+                SceneManagerScript.Player2Click = false;
                 FlagDeath[i] = true;
                 player[i].death = false;
                 player[i].anime.SetBool("set", false);
 
                 //  攻撃時のSE実行
-                se.SetSE(se.diedSE);
+                se.SetSE1(se.diedSE);
             }
         }
     }

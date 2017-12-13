@@ -14,7 +14,7 @@ public class StatusScript : MonoBehaviour {
     //　キャラの移動速度微調整用(ただ、全体に反映されるのでキャラの数値ごとにいじりたい場合は計算式をいじる)
     public float CharMainteSpeed = 0.0f;
     //　リスポーン時間(フレーム)(60で約1秒)
-    public int RespawnTime = 60;
+    public float RespawnTime = 60;
     //　オブジェクトの最大数
     public static int OBJECT_MAX = 7;
     //　戦闘が起こる敵との距離幅
@@ -27,8 +27,28 @@ public class StatusScript : MonoBehaviour {
     //　ゲーム時間
     public float GameTime = 100;
 
-	// Use this for initialization
-	void Start () {
+    //　スキル１の発動回数
+    public int SkillCount = 2;
+
+    //　スキル１の発動時間
+    public int Skilltime = 10;
+
+    //　リスポーンタイム短縮エリアの時間設定
+    public float RespownTimeAreaStage1 = 0.9f;
+    public float RespownTimeAreaStage2 = 0.75f;
+    public float RespownTimeAreaStage3 = 0.5f;
+    
+
+    //　移動速度アップエリアのスピード設定
+    public float SpeedAreaStage1 = 1.1f;
+    public float SpeedAreaStage2 = 1.25f;
+    public float SpeedAreaStage3 = 1.5f;
+
+    //　デバッグ用
+    public int AreaNum = 0;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

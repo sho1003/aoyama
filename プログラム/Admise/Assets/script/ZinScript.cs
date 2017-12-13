@@ -75,7 +75,7 @@ public class ZinScript : MonoBehaviour
         //  if (Openflag == true && timeleft <= -3.0f && VSflag == false)
 
 
-        //  青組占領
+        //  蒼組占領
         if (BlueSenkyoflag == false && timeleft < -status.GetAreaTime)
         {
             frameNum = 1;
@@ -84,7 +84,7 @@ public class ZinScript : MonoBehaviour
             BlueSenkyoflag = true;
             RedSenkyoflag = false;
             //  占領時のSE実行
-            se.SetSE(se.areaGetSE);
+            se.SetSE1(se.areaGetSE);
         }
 
         //  紅組占領
@@ -96,7 +96,7 @@ public class ZinScript : MonoBehaviour
             RedSenkyoflag = true;
             BlueSenkyoflag = false;
             //  占領時のSE実行
-            se.SetSE(se.areaGetSE);
+            se.SetSE1(se.areaGetSE);
         }
 
         ren.material.SetTexture("_MainTex", textures[frameNum]);
