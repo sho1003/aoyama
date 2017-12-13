@@ -95,7 +95,7 @@
     <Compile Include="Assets\script\HP_UIscript.cs" />
     <Compile Include="Assets\script\Life1_script.cs" />
     <Compile Include="Assets\script\Life2_script.cs" />
-    <Compile Include="Assets\script\LoadingScript.cs" />
+    <Compile Include="Assets\script\LoodingScript.cs" />
     <Compile Include="Assets\script\MenuScript.cs" />
     <Compile Include="Assets\script\MenuTuibiScript.cs" />
     <Compile Include="Assets\script\PickManager.cs" />
@@ -118,7 +118,6 @@
     <Compile Include="Assets\script\TeamManager.cs" />
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
-    <Compile Include="Assets\script\TitleScript.cs" />
     <Compile Include="Assets\script\UI_Script.cs" />
     <Compile Include="Assets\script\Unit.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
