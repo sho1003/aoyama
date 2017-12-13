@@ -74,7 +74,7 @@ public class Player1_Manager : MonoBehaviour {
                 {
                     //SetPlayer(i);
                     player[i].gameObject.SetActive(true);
-              
+
                     player[i].transform.position = pos[i];
                     player[i].HP = status.CharaHP;
                     FlagDeath[i] = false;
@@ -87,7 +87,7 @@ public class Player1_Manager : MonoBehaviour {
             {
                 //DeathObject(player[i].gameObject);
                 player[i].gameObject.SetActive(false);
-                SceneManager.Player1Click = false;
+                SceneManagerScript.Player1Click = false;
                 FlagDeath[i] = true;
                 player[i].death = false;
                 player[i].anime.SetBool("set", false);

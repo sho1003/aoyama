@@ -14,21 +14,31 @@ public class TitleSceneScript : MonoBehaviour {
     //  ローディングバー
     public Image loadingBar;
 
+    void Awake()
+    {
+        //  バーとテキストの初期化
+        if (loadingBar.fillAmount != 0) loadingBar.fillAmount = 0;
+        if (loadingText.gameObject.activeSelf == true) loadingText.gameObject.SetActive(false);
+    }
 
-	void Start () {
+
+    void Start()
+    {
         //  コンポーネント取得
         se = this.gameObject.GetComponent<AudioSource>();
         se.clip = bgm;
         se.Play();
-	}
-	
+    }
+
 
     public void OnClick()
     {
         se.PlayOneShot(enterSE);
+        //  ローディングテキスト表示
+        loadingText.gameObject.SetActive(true);
         //  ローディングへ移行
         StartCoroutine("Loading");
-       //UnityEngine.SceneManagement.SceneManager.LoadScene("2pick");
+        //UnityEngine.SceneManagement.SceneManager.LoadScene("2pick");
     }
 
     //--------------------------------------------------------------------------------------------------------------//
@@ -46,14 +56,14 @@ public class TitleSceneScript : MonoBehaviour {
         while (async.progress < 0.9f)
         {
             //  テキストでローディングの％を表示
-            //loadingText.text = (async.progress * 100).ToString("F0") + "%";
+            loadingText.text = (async.progress * 100).ToString("F0") + "%";
             //  バー表示
             loadingBar.fillAmount = async.progress;
             //  スクリーン上のレンダリング終了まで待機
             yield return new WaitForEndOfFrame();
         }
         //  100%にならない(なぜか) ので100%に上げる
-        //loadingText.text = "100%";
+        loadingText.text = "100%";
         loadingBar.fillAmount = 1;
         //  指定した秒数の間だけコルーチンの実行待機
         yield return new WaitForSeconds(1);

@@ -56,6 +56,10 @@ public class BattleScript : MonoBehaviour
         TWO
     }
 
+    public static int ASZin; //攻撃速度を上げる為のエリア獲得数
+    public float AS;
+    public float ASTime = 0.25f; //エリア獲得数毎に
+
     //========================================================//
     //      初期化
     //========================================================//
@@ -163,8 +167,11 @@ public class BattleScript : MonoBehaviour
                 //  キャラクターの移動を止める
                 if (ps1.agent != null) ps1.agent.ResetPath();
                 if (ps2.agent != null) ps2.agent.ResetPath();
+
                 //  攻撃時のSE実行
                 se.SetSE1(se.battleSE);
+                //  合戦中SE
+                se.SetSE1(se.GassenSE);
 
                 step = BATTLE_STEP.BATTLE;
                 break;
@@ -176,8 +183,15 @@ public class BattleScript : MonoBehaviour
                 {
                     //  合戦中SE
                     //se.SetSE2(se.GassenSE);
+             
+                    if (ASZin > 1)
+                        for (int i = 0; i < ASZin-1; i++)
+                        {
+                            ASTime = ASTime * 2;
+                        }
 
-                    Deathtime = Deathtime - Time.deltaTime;
+                    Deathtime = Deathtime - Time.deltaTime * (1+ASTime);
+
                     //　どちらもチームでなければ
                     if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
                     {
@@ -252,7 +266,8 @@ public class BattleScript : MonoBehaviour
                     //  攻撃が終わる時
                     if( isEndAttack )
                     {
-                        //  攻撃終了
+                        //  攻撃終了SEストップ
+                        se.se.Stop();
                         //  半透明
                         //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
                         //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
