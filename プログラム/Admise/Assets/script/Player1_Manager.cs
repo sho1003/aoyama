@@ -64,7 +64,7 @@ public class Player1_Manager : MonoBehaviour {
                 {
                     //SetPlayer(i);
                     player[i].gameObject.SetActive(true);
-              
+
                     player[i].transform.position = pos[i];
                     player[i].HP = status.CharaHP;
                     FlagDeath[i] = false;

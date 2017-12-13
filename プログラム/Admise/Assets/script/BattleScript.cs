@@ -56,6 +56,10 @@ public class BattleScript : MonoBehaviour
         TWO
     }
 
+    public static int ASZin; //攻撃速度を上げる為のエリア獲得数
+    public float AS;
+    public float ASTime = 0.25f; //エリア獲得数毎に
+
     //========================================================//
     //      初期化
     //========================================================//
@@ -176,8 +180,15 @@ public class BattleScript : MonoBehaviour
                 {
                     //  合戦中SE
                     se.SetSE2(se.GassenSE);
+             
+                    if (ASZin > 1)
+                        for (int i = 0; i < ASZin-1; i++)
+                        {
+                            ASTime = ASTime * 2;
+                        }
 
-                    Deathtime = Deathtime - Time.deltaTime;
+                    Deathtime = Deathtime - Time.deltaTime * (1+ASTime);
+
                     //　どちらもチームでなければ
                     if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
                     {
