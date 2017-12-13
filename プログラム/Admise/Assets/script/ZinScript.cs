@@ -75,7 +75,7 @@ public class ZinScript : MonoBehaviour
         //  if (Openflag == true && timeleft <= -3.0f && VSflag == false)
 
 
-        //  青組占領
+        //  蒼組占領
         if (BlueSenkyoflag == false && timeleft < -status.GetAreaTime)
         {
             frameNum = 1;
