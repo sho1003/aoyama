@@ -103,6 +103,7 @@
     <Compile Include="Assets\script\Result.cs" />
     <Compile Include="Assets\script\SceneManagerScript.cs" />
     <Compile Include="Assets\script\ScoreScript.cs" />
+    <Compile Include="Assets\script\SelectUnit.cs" />
     <Compile Include="Assets\script\SkillScript.cs" />
     <Compile Include="Assets\script\SkillSuutiScript.cs" />
     <Compile Include="Assets\script\Speech_UIscript.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\script\TimeScript.cs" />
     <Compile Include="Assets\script\TitleSceneScript.cs" />
     <Compile Include="Assets\script\UI_Script.cs" />
+    <Compile Include="Assets\script\Unit.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />

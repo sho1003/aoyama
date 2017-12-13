@@ -113,6 +113,8 @@ public class SceneManagerScript: MonoBehaviour
                 //  外枠非表示
                 circleTextureOut1.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
                 circleTextureOut1.SetActive(false);
+                //  キャンセルSE
+                se.SetSE1(se.cancelSE);
             }
             //二回目のクリック
             else if (Input.GetMouseButtonDown(0))
@@ -176,6 +178,8 @@ public class SceneManagerScript: MonoBehaviour
                 //  外枠非表示
                 circleTextureOut2.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
                 circleTextureOut2.SetActive(false);
+                //  キャンセルSE
+                se.SetSE1(se.cancelSE);
             }
 
             //二回目のクリック
