@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player1_Manager : MonoBehaviour {
 
     private StatusScript status;
+    private AreaSkillScript AreaSkill;
     private GameSE_Script se;
 
     //オブジェクトの定義
@@ -16,7 +17,7 @@ public class Player1_Manager : MonoBehaviour {
     //player1_scriptを定義できる箱をn個作る
     player1_script[] player = new player1_script[PLAYER_MAX];
     private bool[] FlagDeath = new bool[PLAYER_MAX];
-    private int[] time = new int[PLAYER_MAX];
+    private float[] time = new float[PLAYER_MAX];
 
 
     //座標位置を指定する箱をn個作る
@@ -28,6 +29,7 @@ public class Player1_Manager : MonoBehaviour {
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        AreaSkill = GameObject.Find("Area").GetComponent<AreaSkillScript>();
         se = GameObject.Find("Sounds/SE").GetComponent<GameSE_Script>();
 
         for (int i = 0; i < PLAYER_MAX; i++)
@@ -57,9 +59,17 @@ public class Player1_Manager : MonoBehaviour {
                 }
             }
 
+            //　プレイヤーが死んだ判定になってなかったら
+            if(!FlagDeath[i]&&!player[i].death)
+            {
+                //　もしリスポーンタイムが短くなるエリアを取っていれば
+                //if()
+                time[i] = AreaSkill.RTimeShort(status.RespawnTime, status.AreaNum);
+            }
+
             if (FlagDeath[i])
             {
-                if (time[i] > 0) time[i]--;
+                if (time[i] > 0.0f) time[i]--;
                 else
                 {
                     //SetPlayer(i);

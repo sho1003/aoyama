@@ -1315,7 +1315,7 @@ MonoBehaviour:
   maxValue: 25
   CharBaseSpeed: 5.5
   CharMainteSpeed: 0
-  RespawnTime: 30
+  RespawnTime: 60
   BattleSpace: 4
   GetAreaTime: 3
   FirstPosition:
@@ -1329,6 +1329,13 @@ MonoBehaviour:
   GameTime: 9999
   SkillCount: 2
   Skilltime: 10
+  RespownTimeAreaStage1: 0.9
+  RespownTimeAreaStage2: 0.75
+  RespownTimeAreaStage3: 0.5
+  SpeedAreaStage1: 2
+  SpeedAreaStage2: 3
+  SpeedAreaStage3: 4
+  AreaNum: 3
 --- !u!1 &909411535 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 5888206432dd9d54e82d05253b56e33c, type: 3}
@@ -2939,6 +2946,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1541971189}
+  - component: {fileID: 1541971190}
   m_Layer: 0
   m_Name: Area
   m_TagString: Untagged
@@ -2962,6 +2970,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541971190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1541971188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a8d1056c3588cb4ab69eb6c9135a0d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649694132
 GameObject:
   m_ObjectHideFlags: 0

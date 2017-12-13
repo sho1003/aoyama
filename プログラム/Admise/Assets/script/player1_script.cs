@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class player1_script : MonoBehaviour
 {
     private StatusScript status;
+    private AreaSkillScript AreaSkill;
     public Animator anime;
 
     public NavMeshAgent agent;
@@ -21,6 +22,7 @@ public class player1_script : MonoBehaviour
     public float Deathtime;
     public bool FlagTeam;
     public int TeamNumber;
+    private float BaseSpeed;
 
     public bool tasi;
 
@@ -36,12 +38,14 @@ public class player1_script : MonoBehaviour
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
+        AreaSkill = GameObject.Find("Area").GetComponent<AreaSkillScript>();
         anime = GetComponent<Animator>();
 
         agent = GetComponent<NavMeshAgent>();
         //　キャラ速度の設定
         //　基礎速度からキャラの数字割る２で0.5単位で変化させてる(＋Speedで外部から微調整できる(キャラ全体での調整、キャラ数値で調整したいなら計算式を変更する))
-        agent.speed = status.CharBaseSpeed - Number / 2 + status.CharMainteSpeed;
+        BaseSpeed = status.CharBaseSpeed - Number / 2 + status.CharMainteSpeed;
+        agent.speed = BaseSpeed;
 
         //    transform.rotation = Quaternion.Euler(0, 180, 0);
         HP = status.CharaHP; //初期体力を最大値にする
@@ -67,6 +71,16 @@ public class player1_script : MonoBehaviour
             anime.SetBool("run", false);
             death = true;
         }
+
+        //　椿井がエリアのマネージャーを作り次第デバッグする(終わるとこの一文削除)
+        //if(/*スピードアップのエリアを取ってる*/)
+        //{
+            agent.speed = AreaSkill.MoveSpeedUp(BaseSpeed,status.AreaNum);
+        //}
+        //else //　スピードアップのエリアを取っていない場合 
+        //{
+        //    agent.speed = BaseSpeed;
+        //}
     }
 
 

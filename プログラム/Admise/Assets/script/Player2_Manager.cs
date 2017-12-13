@@ -17,7 +17,7 @@ public class Player2_Manager : MonoBehaviour
     //player2_scriptを定義できる箱をn個作る
     player2_script[] player = new player2_script[PLAYER_MAX];
     private bool[] FlagDeath = new bool[PLAYER_MAX];
-    private int[] time = new int[PLAYER_MAX];
+    private float[] time = new float[PLAYER_MAX];
 
 
     //座標位置を指定する箱をn個作る
@@ -61,7 +61,7 @@ public class Player2_Manager : MonoBehaviour
 
             if (FlagDeath[i])
             {
-                if (time[i] > 0) time[i]--;
+                if (time[i] > 0.0f) time[i]--;
                 else
                 {
                     //SetPlayer(i);
