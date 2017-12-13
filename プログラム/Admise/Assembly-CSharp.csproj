@@ -51,8 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\script\Area_Manager.cs" />
      <Compile Include="Assets\script\BattleScript.cs" />
-     <Compile Include="Assets\script\CardHPScript.cs" />
+     <Compile Include="Assets\script\CardCreateScript.cs" />
+     <Compile Include="Assets\script\CardHPScript2.cs" />
      <Compile Include="Assets\script\enemy_script.cs" />
      <Compile Include="Assets\script\ExitScript.cs" />
      <Compile Include="Assets\script\Floor_Move_Script.cs" />
