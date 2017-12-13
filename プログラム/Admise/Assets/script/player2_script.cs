@@ -50,7 +50,6 @@ public class player2_script : MonoBehaviour
         FlagTeam = false;
         TeamNumber = 0;
 
-        ID = 0;
         edge = new List<int>();
     }
 

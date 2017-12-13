@@ -49,8 +49,6 @@ public class player1_script : MonoBehaviour
         tasi = true;
         zeroflag = false;
         FlagTeam = false;
-        edge = new List<int>();
-        //ID = 0;
 
         edge = new List<int>();
     }

@@ -7,7 +7,6 @@ public class Player2_Manager : MonoBehaviour
     private StatusScript status;
     private GameSE_Script se;
 
-
     //オブジェクトの定義
     public GameObject playerPrefab;
 
@@ -36,10 +35,6 @@ public class Player2_Manager : MonoBehaviour
             //初めの座標位置を指定
             pos[i] = new Vector3(status.FirstPosition[i].x, status.FirstPosition[i].y, -status.FirstPosition[i].z);
             number[i] = PlayerPrefs.GetInt("PlayerNum" + i);
-        }
-
-        for (int i = 0; i < PLAYER_MAX; i++)
-        {
             SetPlayer(i);
             time[i] = status.RespawnTime;
         }
@@ -72,6 +67,7 @@ public class Player2_Manager : MonoBehaviour
                     FlagDeath[i] = false;
 
                     time[i] = status.RespawnTime;
+                    player[i].anime.SetBool("set", false);
                 }
             }
 
