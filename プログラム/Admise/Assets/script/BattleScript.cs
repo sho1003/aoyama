@@ -12,6 +12,10 @@ public class BattleScript : MonoBehaviour
 {
     StatusScript status;
     GameSE_Script se;
+
+    //突貫工事
+    public bool P1;//（東　次250）
+
     //  スクリプト取得
     player1_script ps1;
     player2_script ps2;
@@ -240,10 +244,25 @@ public class BattleScript : MonoBehaviour
                     }
                     //　敵の方向を向く
 
-                    //　攻撃アニメーション再生
+                    //　Player1攻撃アニメーション再生
                     ps1.anime.SetBool("set", true);
-                    animator.SetFloat("Speed", 10f);
+
+                    //GetBoolでif文を使える (東)
+                    if(ps1.anime.GetBool("set") == true && P1 == true)
+                    {
+                        GetComponent<Animator>().speed = 3;
+                    }
+                    //(東　次259)
+
+                    //　Player2攻撃アニメーション再生
                     ps2.anime.SetBool("set", true);
+
+                    //GetBoolでif文を使える (東)
+                    if (ps2.anime.GetBool("set") == true && P1 == false)
+                    {
+                        GetComponent<Animator>().speed = 3;
+                    }
+                    //(東 次296)
 
                     //  透明
                     //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
@@ -273,8 +292,25 @@ public class BattleScript : MonoBehaviour
                         //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
                        
                         step = BATTLE_STEP.NOT_APPROACH;
+
                         ps1.anime.SetBool("set", false);
+
+                        //Player1"set"速度を戻す (東)
+                        if (ps1.anime.GetBool("set") == false && P1 == true)
+                        {
+                            GetComponent<Animator>().speed = 1;
+                        }
+                        //(東　次305)
+
                         ps2.anime.SetBool("set", false);
+
+                        //Player2"set"速度を戻す (東)
+                        //if (ps2.anime.GetBool("set") == false && P1 == false)
+                        //{
+                        //    GetComponent<Animator>().speed = 1;
+                        //}
+                        //(東)
+
                     }
                     if (ps1.HP <= 0)
                     {

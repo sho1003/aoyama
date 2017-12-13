@@ -3105,10 +3105,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114166065851106084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3197,10 +3196,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114223290214540202
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3213,37 +3211,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
-  CardHPs: 0
-  PlayerHP: 0
-  Cards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  IdouCards:
-  - {fileID: 1569714600313782, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1674288544619430, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1267461910347950, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1498871751004534, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1231941734945336, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1757131969119512, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  - {fileID: 1574408575018830, guid: abbc1e1438c0ea740840fbc121161c0b, type: 2}
-  frameNum: 0
   N: 0
-  M: 0
-  CardMax: 10
-  playerPrefab: {fileID: 0}
-  target: {fileID: 0}
   _parent: {fileID: 0}
   Flags: 1
   POS: {x: 0, y: 0, z: 0}
-  time: 0
 --- !u!114 &114251029889178956
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3425,6 +3396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: 1
   AS: 0
   ASTime: 0.25
 --- !u!114 &114481641151220806
@@ -3440,10 +3412,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114557092143691510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3457,10 +3428,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114582800032945658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3474,10 +3444,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114613995529674780
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3715,10 +3684,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114762371196016704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3771,10 +3739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114797385941537778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3788,10 +3755,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114841550759012398
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3832,10 +3798,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114925279371749690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3902,10 +3867,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameobject: {fileID: 1485650916983118}
   CardHPs: 0
+  CardHP: 0
   PlayerHP: 0
-  N: 0
-  Red_HP: 5
-  Grenn_HP: 10
+  i: 0
 --- !u!114 &114950095951972422
 MonoBehaviour:
   m_ObjectHideFlags: 1
