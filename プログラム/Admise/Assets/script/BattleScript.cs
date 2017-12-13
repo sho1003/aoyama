@@ -175,7 +175,7 @@ public class BattleScript : MonoBehaviour
                 if (this.gameObject != null && rival != null)
                 {
                     //  合戦中SE
-                    se.SetSE2(se.GassenSE);
+                    //se.SetSE2(se.GassenSE);
 
                     Deathtime = Deathtime - Time.deltaTime;
                     //　どちらもチームでなければ
@@ -253,7 +253,6 @@ public class BattleScript : MonoBehaviour
                     if( isEndAttack )
                     {
                         //  攻撃終了
-                        //se.SetSE1(se.diedSE);
                         //  半透明
                         //zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
                         //for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);

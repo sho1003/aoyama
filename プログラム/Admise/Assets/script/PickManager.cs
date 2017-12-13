@@ -2,10 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 //using UnityEditor.SceneManagement;//ビルドしたらエラーでたからコメントアウト
 
 public class PickManager : MonoBehaviour
 {
+
+    //  ローディングバー
+    public Image loadingBar;
+    private bool loadingFlag = false;
+
     public GameObject CardPrefab;
     Text timesDisplay;
 
@@ -157,6 +163,7 @@ public class PickManager : MonoBehaviour
         }
 
         //3回カードを選んだ時
+
         if (times > HowManyTimes.third)
         {
             for (int i = 0; i < CARD_MAX/*6*/; i++)
@@ -165,7 +172,14 @@ public class PickManager : MonoBehaviour
                 PlayerPrefs.SetInt("PlayerNum" + i, pickcard[i]);
             }
             //シーン遷移(また後で
-            UnityEngine.SceneManagement.SceneManager.LoadScene("test");
+            //UnityEngine.SceneManagement.SceneManager.LoadScene("test");
+            //  ローディングへ移行
+            if (loadingFlag == false)
+            {
+                StartCoroutine("Loading");
+                loadingFlag = true;
+                //Debug.Log(step++ + "回呼ばれた");
+            }
         }
     }
 
@@ -252,4 +266,33 @@ public class PickManager : MonoBehaviour
         }
     }
 
+    //--------------------------------------------------------------------------------------------------------------//
+    //  ローディング処理
+    //--------------------------------------------------------------------------------------------------------------//
+    IEnumerator Loading()
+    {
+        //  ローディング時に一時停止されていないことを確認
+        if (Time.timeScale == 0) Time.timeScale = 1;
+        //  非同期でロードを開始
+        AsyncOperation async = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync("test");
+        //  ロード完了時にシーン切り替えが勝手にされないようにする(デフォルトはtrue)
+        async.allowSceneActivation = false;
+        //  ロード状態が90%以上になるまでの処理
+        while (async.progress < 0.9f)
+        {
+            //  テキストでローディングの％を表示
+            //loadingText.text = (async.progress * 100).ToString("F0") + "%";
+            //  バー表示
+            loadingBar.fillAmount = async.progress;
+            //  スクリーン上のレンダリング終了まで待機
+            yield return new WaitForEndOfFrame();
+        }
+        //  100%にならない(なぜか) ので100%に上げる
+        //loadingText.text = "100%";
+        loadingBar.fillAmount = 1;
+        //  指定した秒数の間だけコルーチンの実行待機
+        yield return new WaitForSeconds(1);
+        //  シーンを切り替えを許可
+        async.allowSceneActivation = true;
+    }
 }
