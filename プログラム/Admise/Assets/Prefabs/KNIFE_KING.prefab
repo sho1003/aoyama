@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 114124843267472590}
   - component: {fileID: 114580850513983604}
   - component: {fileID: 212645802717102490}
+  - component: {fileID: 114418464228440720}
   m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
@@ -3121,6 +3122,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1213124702092982}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50ea7323a3663f45b332924a381b7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameobject: {fileID: 1485650916983118}
+  CardHPs: 0
+  CardHP: 0
+  PlayerHP: 0
+  i: 0
+--- !u!114 &114126657721606428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686010357345326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50ea7323a3663f45b332924a381b7df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameobject: {fileID: 1485650916983118}
+  CardHPs: 0
+  CardHP: 0
+  PlayerHP: 0
+  i: 0
+--- !u!114 &114166065851106084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -3140,22 +3173,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114126657721606428
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1686010357345326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c50ea7323a3663f45b332924a381b7df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameobject: {fileID: 1485650916983118}
-  CardHPs: 0
-  CardHP: 0
-  PlayerHP: 0
-  i: 0
 --- !u!114 &114201233387417242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3460,6 +3477,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114418464228440720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1213124702092982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 67814dce636ad474991386b2e9112ee6, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!114 &114428087681579094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3498,6 +3542,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: 0
+  match: 0
+  isEndAttack: 0
   AS: 0
   ASTime: 0.25
 --- !u!114 &114481641151220806
@@ -3573,6 +3620,17 @@ MonoBehaviour:
   CardHP: 0
   PlayerHP: 0
   i: 0
+--- !u!114 &114613995529674780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114633077658730066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3797,7 +3855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14773eae76bd7c84fb7ba3a91c437e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114796236575482158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3854,6 +3911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerNumber: 0
   gameobject: {fileID: 1485650916983118}
+  _parent: {fileID: 0}
+  N: 0
 --- !u!114 &114918106710974750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3905,13 +3964,14 @@ MonoBehaviour:
   death: 0
   Deathtime: 0
   FlagTeam: 0
-  TeamNumber: 0
   tasi: 0
   edge: 
   ID: 0
   i2: 0
   i3: 0
   zeroflag: 0
+  N: 0
+  zone: {fileID: 1138515052220152}
 --- !u!114 &114928627008594270
 MonoBehaviour:
   m_ObjectHideFlags: 1

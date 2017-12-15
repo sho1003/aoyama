@@ -884,10 +884,10 @@ GameObject:
   - component: {fileID: 95683573957740784}
   - component: {fileID: 54593233381114924}
   - component: {fileID: 136090670915008444}
+  - component: {fileID: 114438614495685824}
   - component: {fileID: 114938885556949282}
   - component: {fileID: 114737417153507510}
   - component: {fileID: 195552928629525120}
-  - component: {fileID: 114438614495685824}
   m_Layer: 0
   m_Name: FORK_KING
   m_TagString: Player2
@@ -1722,7 +1722,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1640488673869798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 220.03613, y: 249.9431, z: -1.3770905}
+  m_LocalPosition: {x: -3.7619758, y: -2.0385997, z: -11.696207}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
   - {fileID: 4144797482784520}
@@ -2417,7 +2417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14773eae76bd7c84fb7ba3a91c437e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114325835317362630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2483,6 +2482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  P1: 0
+  match: 0
+  isEndAttack: 0
   AS: 0
   ASTime: 0.25
 --- !u!114 &114447708585160188
@@ -2685,9 +2687,12 @@ MonoBehaviour:
   FlagTeam: 0
   TeamNumber: 0
   tasi: 1
+  edge: 
+  ID: 0
   i2: 0
   i3: 0
   zeroflag: 0
+  zone: {fileID: 1405729043880340}
 --- !u!136 &136090670915008444
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -3439,7 +3444,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

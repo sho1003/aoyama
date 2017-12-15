@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\script\Area_Manager.cs" />
+     <Compile Include="Assets\script\AreaSkillScript.cs" />
      <Compile Include="Assets\script\BattleScript.cs" />
      <Compile Include="Assets\script\Card.cs" />
      <Compile Include="Assets\script\CardCreateScript.cs" />

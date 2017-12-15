@@ -7,19 +7,22 @@ public class Speech_UIscript : MonoBehaviour
 {
 
     const float GET_LENGTH = 3.0f;
+    static int PLAYER_MAX = 7;
 
-    public Vector3 offset;
-    Camera rotateCamera;
     GameObject player;
     player1_script player1;
     player2_script player2;
+    player1_script[] otherPlayer1 = new player1_script[PLAYER_MAX];
+    player2_script[] otherPlayer2 = new player2_script[PLAYER_MAX];
+
+    Vector3 offset;
+    Camera rotateCamera;
+    TeamManager team;
 
     RectTransform myRectTrans;
     RectTransform SpeechBalloon;
     GameObject hukidashi;
     Text sumText;
-
-    int player_number;
 
     // Use this for initialization
     void Start()
@@ -27,16 +30,28 @@ public class Speech_UIscript : MonoBehaviour
         rotateCamera = Camera.main;
         player = transform.root.gameObject;
 
-        if (player.tag == "Player1") player1 = player.GetComponent<player1_script>();
-        else if (player.tag == "Player2") player2 = player.GetComponent<player2_script>();
+        if (player.tag == "Player1")
+        {
+            player1 = player.GetComponent<player1_script>();
+        }
+        else if (player.tag == "Player2")
+        {
+            player2 = player.GetComponent<player2_script>();
+        }
+
+        for (int i = 0; i < PLAYER_MAX; i++)
+        {
+            otherPlayer1[i] = GameObject.Find("player1_" + i).GetComponent<player1_script>();
+            otherPlayer2[i] = GameObject.Find("player2_" + i).GetComponent<player2_script>();
+        }
+
+        team = GameObject.Find("TeamManager").GetComponent<TeamManager>();
 
         myRectTrans = GetComponent<RectTransform>();
         SpeechBalloon = transform.GetChild(1).GetComponent<RectTransform>();
 
         hukidashi = transform.Find("SpeechBalloon").gameObject;
         sumText = hukidashi.transform.GetChild(0).GetComponent<Text>();
-
-        player_number = 0;
     }
 
     // Update is called once per frame
@@ -44,91 +59,37 @@ public class Speech_UIscript : MonoBehaviour
     {
         transform.rotation = rotateCamera.transform.rotation;
 
-        //同じタグの一番近いプレイヤーを取得
-        GameObject otherplayer = SearchTag(player, player.tag);
-        if (otherplayer != null)
+        //一定距離内にタグのオブジェクトがあれば
+        if (ExistTag(player, player.tag))
         {
-            //プレイヤーとのベクトルを取得
-            Vector3 vec = otherplayer.transform.position - player.transform.position;
-            //絶対値を取る
-            float Dis = Mathf.Abs(vec.magnitude);
-            //プレイヤーとの距離が一定以下なら
-            if (Dis < GET_LENGTH)
+            List<int> keepID = SearchTag(player, player.tag);
+
+            if (player.tag == "Player1")
             {
-                //Debug.Log("近い");
-
-                if (vec.z < 0.00f)
-                {
-                    //吹き出しを一旦消す
-                    hukidashi.SetActive(false);
-                }
-                else
-                {
-                    hukidashi.SetActive(true);
-                }
-
-                //吹き出しの中の数字
-                if (player.tag == "Player1")
-                {
-                    player_number = otherplayer.GetComponent<player1_script>().Number + player1.Number;
-                    //　プレイヤー個人にもチームの数字を持たせる
-                    player1.TeamNumber = player_number;
-                    //　チームを組んだフラグを立てる
-                    player1.FlagTeam = true;
-                    otherplayer.GetComponent<player1_script>().FlagTeam = true;
-                    //　数字の小さいオブジェクトを調べる
-                    if (otherplayer.GetComponent<player1_script>().Number < player1.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
-                    else
-                        player1.GetComponent<BattleScript>().SetObjectName(player1.gameObject);
-                }
-                else if (player.tag == "Player2")
-                {
-                    player_number = otherplayer.GetComponent<player2_script>().Number + player2.Number;
-                    //　プレイヤー個人にもチームの数字を持たせる
-                    player2.TeamNumber = player_number;
-                    //　チームを組んだフラグを立てる
-                    player2.FlagTeam = true;
-                    otherplayer.GetComponent<player2_script>().FlagTeam = true;
-                    //　数字の小さいオブジェクトを調べる
-                    if (otherplayer.GetComponent<player2_script>().Number < player2.Number)
-                        otherplayer.GetComponent<BattleScript>().SetObjectName(otherplayer.gameObject);
-                    else
-                        player2.GetComponent<BattleScript>().SetObjectName(player2.gameObject);
-                }
-                sumText.text = "" + player_number;
-
-
-                offset.x = vec.x / 2;
-                offset.y = 4.0f;
-                offset.z = 2.0f;
+                tagPlayer1LengthTrue(keepID);
             }
-            else
+            else if (player.tag == "Player2")
             {
-                hukidashi.SetActive(true);
-
-                if (player.tag == "Player1")
-                {
-                    sumText.text = "" + player1.Number;
-                    //　チームを組んでいないため自分の数値を代入
-                    player1.TeamNumber = player1.Number;
-                    //　チームを組んでいないのでフラグを立てない
-                    player1.FlagTeam = false;
-                    otherplayer.GetComponent<player1_script>().FlagTeam = false;
-                }
-                else if (player.tag == "Player2")
-                {
-                    sumText.text = "" + player2.Number;
-                    //　チームを組んでいないため自分の数値を代入
-                    player2.TeamNumber = player2.Number;
-                    //　チームを組んでいないのでフラグを立てない
-                    player2.FlagTeam = false;
-                    otherplayer.GetComponent<player2_script>().FlagTeam = false;
-                }
-
-                //プレイヤーの位置によって微調整
-                OffsetAdjustment();
+                tagPlayer2LengthTrue(keepID);
             }
+        }
+        //プレイヤーとの距離が一定以上離れていたら
+        else
+        {
+            //吹き出し表示
+            hukidashi.SetActive(true);
+
+            if (player.tag == "Player1")
+            {
+                tagPlayer1LengthFalse();
+            }
+            else if (player.tag == "Player2")
+            {
+                tagPlayer2LengthFalse();
+            }
+
+            //プレイヤーの位置によって微調整
+            OffsetAdjustment();
         }
 
         //ワールド座標をスクリーン座標に変換
@@ -139,6 +100,112 @@ public class Speech_UIscript : MonoBehaviour
 
     }
 
+    void tagPlayer1LengthTrue(List<int> ID)
+    {
+        if (team.checkZ(true, player1.ID))
+        {
+            //吹き出しを出したまま
+            hukidashi.SetActive(true);
+        }
+        else
+        {
+            //吹き出しを一旦消す
+            hukidashi.SetActive(false);
+        }
+
+        for (int i = 0; i < ID.Count; i++)
+        {
+            //チームメンバーに自分が居なければ
+            if (team.checkTeamID(true, player1.ID, ID[i]))
+            {
+                //チーム結成
+                team.connectTeam(true, player1.ID, ID[i]);
+            }
+        }
+
+        //吹き出しの位置計算
+        int[] id = team.TeamID(true, player1.ID);
+        Vector3 off = Vector3.zero;
+        for (int i = 0; i < id.Length; i++)
+        {
+            off = otherPlayer1[id[i]].transform.position - player1.transform.position;
+        }
+
+        //吹き出しの位置変更
+        offset.x = off.x / (id.Length + 1);     //+1は自分の分
+        offset.y = 4.0f;
+        offset.z = 2.0f;
+
+        //　チームを組んだフラグを立てる
+        player1.FlagTeam = true;
+
+        //吹き出しの数字変更
+        sumText.text = "" + team.TeamSumNumber(true, player1.ID);
+    }
+
+    void tagPlayer1LengthFalse()
+    {
+        sumText.text = "" + player1.Number;
+        //　チームを組んでいないのでフラグを立てない
+        player1.FlagTeam = false;
+
+        //チーム解除
+        team.RemoveTeam(true, player1.ID);
+    }
+
+    void tagPlayer2LengthTrue(List<int> ID)
+    {
+        if (team.checkZ(false, player2.ID))
+        {
+            //吹き出しを出したまま
+            hukidashi.SetActive(true);
+        }
+        else
+        {
+            //吹き出しを一旦消す
+            hukidashi.SetActive(false);
+        }
+
+        for (int i = 0; i < ID.Count; i++)
+        {
+            //チームメンバーに自分が居なければ
+            if (team.checkTeamID(false, player2.ID, ID[i]))
+            {
+                //チーム結成
+                team.connectTeam(false, player2.ID, ID[i]);
+            }
+        }
+
+        //吹き出しの位置計算
+        int[] id = team.TeamID(false, player2.ID);
+        Vector3 off = Vector3.zero;
+        for (int i = 0; i < id.Length; i++)
+        {
+            off = otherPlayer2[id[i]].transform.position - player2.transform.position;
+        }
+
+        //吹き出しの位置変更
+        offset.x = off.x / (id.Length + 1);
+        offset.y = 4.0f;
+        offset.z = 2.0f;
+
+        //　チームを組んだフラグを立てる
+        player2.FlagTeam = true;
+
+        //吹き出しの数字変更
+        sumText.text = "" + team.TeamSumNumber(false, player2.ID);
+    }
+
+    void tagPlayer2LengthFalse()
+    {
+        sumText.text = "" + player2.Number;
+        //　チームを組んでいないのでフラグを立てない
+        player2.FlagTeam = false;
+
+        //チーム解除
+        team.RemoveTeam(false, player2.ID);
+    }
+
     void OffsetAdjustment()
     {
         offset.x = 0;
@@ -146,13 +213,11 @@ public class Speech_UIscript : MonoBehaviour
         offset.z = 2.0f;
     }
 
-    //指定されたタグの中で距離が一番近いものを取得
-    GameObject SearchTag(GameObject nowObj, string tagName)
+    //指定されたタグが一定距離内にあればtrueを返す
+    bool ExistTag(GameObject nowObj, string tagName)
     {
+        float nearDis = 0.1f;           //最短距離
         float tmpDis = 0;               //距離用一時変数
-        float nearDis = 0.1f;           //最も近いオブジェクトの距離
-        float farDis = 100.0f;
-        GameObject targetObj = null;    //リターンするオブジェクト
 
         //タグ指定されたオブジェクトを配列で取得する
         foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
@@ -160,21 +225,51 @@ public class Speech_UIscript : MonoBehaviour
             //取得したオブジェクトと自身の距離を取得
             tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
 
-            //オブジェクトの距離が0.1以上5.0以下ならばオブジェクトを取得
-            if (nearDis < tmpDis && tmpDis < farDis)
+            //オブジェクトの距離がGET_LENGTH以下ならば
+            if (nearDis < tmpDis && tmpDis < GET_LENGTH)
             {
-                //一時変数に距離を格納
-                farDis = tmpDis;
-                targetObj = obs;
+                return true;
             }
         }
 
-        //オブジェクトを返す
-        return targetObj;
+        return false;
+    }
+
+    //指定されたタグが一定距離内にあればそのIDを返す
+    List<int> SearchTag(GameObject nowObj, string tagName)
+    {
+        float nearDis = 0.1f;               //最短距離
+        float tmpDis = 0;                   //距離用一時変数
+        List<int> list = new List<int>();   //リターン用
+
+        //タグ指定されたオブジェクトを配列で取得する
+        foreach (GameObject obs in GameObject.FindGameObjectsWithTag(tagName))
+        {
+            //取得したオブジェクトと自身の距離を取得
+            tmpDis = Vector3.Distance(obs.transform.position, nowObj.transform.position);
+
+            //オブジェクトの距離がGET_LENGTH以下ならば
+            if (nearDis < tmpDis && tmpDis < GET_LENGTH)
+            {
+                if(tagName == "Player1")
+                {
+                    player1_script p1 = obs.GetComponent<player1_script>();
+                    list.Add(p1.ID);
+                }
+                if (tagName == "Player2")
+                {
+                    player2_script p2 = obs.GetComponent<player2_script>();
+                    list.Add(p2.ID);
+                }
+            }
+        }
+        
+        return list;
     }
 
     void Disable()
     {
         this.gameObject.SetActive(false);
     }
+
 }
