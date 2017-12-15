@@ -195,7 +195,6 @@ public class BattleScript : MonoBehaviour
 				//  キャラクターの移動を止める
 				if (ps1.agent != null) ps1.agent.ResetPath();
 				if (ps2.agent != null) ps2.agent.ResetPath();
-
 				//  攻撃時のSE実行
 				se.SetSE1(se.battleSE);
 				//  合戦中SE
@@ -209,11 +208,8 @@ public class BattleScript : MonoBehaviour
 				//  プレイヤーと相手が存在する場合
 				if (this.gameObject != null && rival != null)
 				{
-					//  合戦中SE
-					//se.SetSE2(se.GassenSE);
-			 
-					if (ASZin > 1)
-						for (int i = 0; i < ASZin-1; i++)
+                    if (ASZin > 1)
+                        for (int i = 0; i < ASZin - 1; i++)
 						{
 							ASTime = ASTime * 2;
 						}
@@ -273,7 +269,6 @@ public class BattleScript : MonoBehaviour
 					{
 						GetComponent<Animator>().speed = 3;
 					}
-					//(東　次259)
 
 					//　Player2攻撃アニメーション再生
 					ps2.anime.SetBool("set", true);

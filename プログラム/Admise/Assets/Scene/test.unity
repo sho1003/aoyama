@@ -1278,7 +1278,7 @@ Transform:
   - {fileID: 1392600332}
   - {fileID: 1649694133}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885471514
 GameObject:
@@ -1309,7 +1309,7 @@ Transform:
   m_Children:
   - {fileID: 1251379012}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &901557244
 GameObject:
@@ -1338,7 +1338,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &901557246
 MonoBehaviour:
@@ -1359,23 +1359,23 @@ MonoBehaviour:
   BattleSpace: 4
   GetAreaTime: 3
   FirstPosition:
-  - {x: 10, y: 0.6, z: -13}
-  - {x: 5, y: 0.6, z: -13}
-  - {x: 0, y: 0.6, z: -13}
-  - {x: -5, y: 0.6, z: -13}
-  - {x: -10, y: 0.6, z: -13}
-  - {x: 5, y: 0.6, z: -9}
-  - {x: -5, y: 0.6, z: -9}
+  - {x: -12, y: 0.6, z: -13}
+  - {x: -8, y: 0.6, z: -9}
+  - {x: -4, y: 0.6, z: -13}
+  - {x: 0, y: 0.6, z: -9}
+  - {x: 4, y: 0.6, z: -13}
+  - {x: 8, y: 0.6, z: -9}
+  - {x: 12, y: 0.6, z: -13}
   GameTime: 9999
   SkillCount: 2
   Skilltime: 10
   RespownTimeAreaStage1: 0.9
   RespownTimeAreaStage2: 0.75
   RespownTimeAreaStage3: 0.5
-  SpeedAreaStage1: 2
-  SpeedAreaStage2: 3
-  SpeedAreaStage3: 4
-  AreaNum: 3
+  SpeedAreaStage1: 1.1
+  SpeedAreaStage2: 1.25
+  SpeedAreaStage3: 1.5
+  AreaNum: 0
 --- !u!1 &909411535 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100006, guid: 5888206432dd9d54e82d05253b56e33c, type: 3}
@@ -1617,7 +1617,7 @@ RectTransform:
   - {fileID: 594616350}
   - {fileID: 1495052520}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

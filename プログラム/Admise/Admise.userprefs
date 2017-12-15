@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Admise.CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\TeamManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\BattleScript.cs">
     <Files>
       <File FileName="Assets\script\TeamManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\BattleScript.cs" Line="32" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

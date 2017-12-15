@@ -52,11 +52,15 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\script\Area_Manager.cs" />
+     <Compile Include="Assets\script\AreaSkillScript.cs" />
      <Compile Include="Assets\script\BattleScript.cs" />
      <Compile Include="Assets\script\CardCreateScript.cs" />
+     <Compile Include="Assets\script\CardFlameScript.cs" />
      <Compile Include="Assets\script\CardHPScript2.cs" />
+     <Compile Include="Assets\script\CardNumberScript.cs" />
      <Compile Include="Assets\script\enemy_script.cs" />
      <Compile Include="Assets\script\ExitScript.cs" />
+     <Compile Include="Assets\script\FadeOutScript.cs" />
      <Compile Include="Assets\script\Floor_Move_Script.cs" />
      <Compile Include="Assets\script\GameBGM_Script.cs" />
      <Compile Include="Assets\script\GamenSizeScript.cs" />
@@ -65,7 +69,6 @@
      <Compile Include="Assets\script\HP_UIscript.cs" />
      <Compile Include="Assets\script\Life1_script.cs" />
      <Compile Include="Assets\script\Life2_script.cs" />
-     <Compile Include="Assets\script\LoodingScript.cs" />
      <Compile Include="Assets\script\MenuScript.cs" />
      <Compile Include="Assets\script\MenuTuibiScript.cs" />
      <Compile Include="Assets\script\PickManager.cs" />
@@ -76,8 +79,9 @@
      <Compile Include="Assets\script\player2_script.cs" />
      <Compile Include="Assets\script\PointMove_script.cs" />
      <Compile Include="Assets\script\Result.cs" />
-     <Compile Include="Assets\script\SceneManager.cs" />
+     <Compile Include="Assets\script\SceneManagerScript.cs" />
      <Compile Include="Assets\script\ScoreScript.cs" />
+     <Compile Include="Assets\script\SelectUnit.cs" />
      <Compile Include="Assets\script\SkillScript.cs" />
      <Compile Include="Assets\script\SkillSuutiScript.cs" />
      <Compile Include="Assets\script\Speech_UIscript.cs" />
@@ -88,6 +92,7 @@
      <Compile Include="Assets\script\TimeScript.cs" />
      <Compile Include="Assets\script\TitleSceneScript.cs" />
      <Compile Include="Assets\script\UI_Script.cs" />
+     <Compile Include="Assets\script\Unit.cs" />
      <Compile Include="Assets\script\ZinScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

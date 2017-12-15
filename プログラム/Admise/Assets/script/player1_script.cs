@@ -34,6 +34,7 @@ public class player1_script : MonoBehaviour
     public int i3;//相手側の数値保管
     public bool zeroflag;
     public static bool SuutiByougaflag=false;
+    public int N;
 
     //  キャラクターの内枠
     public GameObject zone;
@@ -61,6 +62,9 @@ public class player1_script : MonoBehaviour
 
         //  初期は半透明
         zone.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
+
+
+
     }
 
     void Update()
