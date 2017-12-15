@@ -96,7 +96,7 @@ public class SceneManagerScript: MonoBehaviour
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player1 = GameObject.Find(hit.transform.gameObject.name).GetComponent<player1_script>();
                         //
-                        CardFlame = player1.N;
+                        CardFlame = player1.ID;
                         //  クリップSE
                         se.SetSE1(se.enterSE);
                         //  外枠表示 & 黄色に設定

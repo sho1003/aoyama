@@ -35,7 +35,7 @@ public class CardFlameScript : MonoBehaviour {
         Image image = this.GetComponent<Image>();
 
 
-        if (SceneManagerScript.CardChoise == true && SceneManagerScript.CardFlame == N)
+        if (SceneManagerScript.CardChoise == true && SceneManagerScript.CardFlame == N-1)
         {
             //キャラ選択中にカード枠表示する
             image.enabled = true;

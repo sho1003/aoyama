@@ -63,13 +63,6 @@ public class player1_script : MonoBehaviour
         //  初期は半透明
         zone.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
 
-        if (gameObject.name == "player1_0") N = 1;
-        else if (gameObject.name == "player1_1") N = 2;
-        else if (gameObject.name == "player1_2") N = 3;
-        else if (gameObject.name == "player1_3") N = 4;
-        else if (gameObject.name == "player1_4") N = 5;
-        else if (gameObject.name == "player1_5") N = 6;
-        else if (gameObject.name == "player1_6") N = 7; 
 
 
     }
