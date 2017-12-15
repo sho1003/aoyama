@@ -82,7 +82,9 @@
     <Compile Include="Assets\script\AreaSkillScript.cs" />
     <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\CardCreateScript.cs" />
+    <Compile Include="Assets\script\CardFlameScript.cs" />
     <Compile Include="Assets\script\CardHPScript2.cs" />
+    <Compile Include="Assets\script\CardNumberScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
     <Compile Include="Assets\script\FadeOutScript.cs" />
@@ -120,5 +122,5 @@
     <Compile Include="Assets\script\Unit.cs" />
     <Compile Include="Assets\script\ZinScript.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

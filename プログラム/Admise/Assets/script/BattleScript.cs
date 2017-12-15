@@ -195,54 +195,6 @@ public class BattleScript : MonoBehaviour
 				//  キャラクターの移動を止める
 				if (ps1.agent != null) ps1.agent.ResetPath();
 				if (ps2.agent != null) ps2.agent.ResetPath();
-                    //　どちらもチームでなければ
-                    if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
-                    {
-                        PS1Sabun = 0;
-                        PS2Sabun = 0;
-                        if (ps1.Number >= ps2.Number) PS1Sabun = ps1.Number - ps2.Number;
-                        else if (ps1.Number < ps2.Number) PS2Sabun = ps2.Number - ps1.Number;
-                        if(this.gameObject.tag =="Player1") ps1.HP -= ps2.PlayerATK + PS2Sabun;// + ps2[i].Number;
-                        if(this.gameObject.tag =="Player2") ps2.HP -= ps1.PlayerATK + PS1Sabun; //+ ps1.Number;
-                        Deathtime = 0;
-                    }
-                    //　どちらか又はどっちもチームだったら
-                    else if (Deathtime < -1.8f && ps1.FlagTeam || ps2.FlagTeam)
-                    {
-                        //PS1Sabun = 0;
-                        //PS2Sabun = 0;
-                        ////　敵味方の数値差を計算
-                        //if (ps1.TeamNumber >= ps2.TeamNumber) PS1Sabun = ps1.TeamNumber - ps2.TeamNumber;
-                        //else if (ps1.TeamNumber < ps2.TeamNumber) PS2Sabun = ps2.TeamNumber - ps1.TeamNumber;
-                        ////　両方チームだったら
-                        //if (Deathtime < -1.8f && ps1.FlagTeam && ps2.FlagTeam)
-                        //{
-                        //    //　ダメージ計算
-                        //    //　チーム内(Player1目線)で自分が一番数値が低い場合
-                        //    if (SmallNumberPlayerName == this.gameObject.name)
-                        //        ps1.HP -= ps2.PlayerATK + PS2Sabun;
-                        //    //　チーム内(Player2目線)で自分()が一番数値が低い場合
-                        //    else if (SmallNumberEnemyName == this.gameObject.name)
-                        //        ps2.HP -= ps1.PlayerATK + PS1Sabun;
-                        //}
-                        ////　Player1が個人でPlayer2がチームの場合
-                        //else if (!ps1.FlagTeam && ps2.FlagTeam)
-                        //{
-                        //    //　ダメージ計算
-                        //    ps1.HP -= ps2.PlayerATK + PS2Sabun;
-                        //    if (SmallNumberEnemyName == gameObject.name) ps2.HP -= ps1.PlayerATK + PS1Sabun;
-                        //}
-                        ////　Player1がチームでPlayer2が個人の場合
-                        //else if (ps1.FlagTeam && !ps2.FlagTeam)
-                        //{
-                        //    //　ダメージ計算
-                        //    if (SmallNumberPlayerName == gameObject.name) ps1.HP -= ps2.PlayerATK + PS2Sabun;
-                        //    ps2.HP -= ps1.PlayerATK + PS1Sabun;
-                        //}
-                        //Deathtime = 0;
-                    }
-                    //　敵の方向を向く
-
 				//  攻撃時のSE実行
 				se.SetSE1(se.battleSE);
 				//  合戦中SE
@@ -256,11 +208,8 @@ public class BattleScript : MonoBehaviour
 				//  プレイヤーと相手が存在する場合
 				if (this.gameObject != null && rival != null)
 				{
-					//  合戦中SE
-					//se.SetSE2(se.GassenSE);
-			 
-					if (ASZin > 1)
-						for (int i = 0; i < ASZin-1; i++)
+                    if (ASZin > 1)
+                        for (int i = 0; i < ASZin - 1; i++)
 						{
 							ASTime = ASTime * 2;
 						}
@@ -320,7 +269,6 @@ public class BattleScript : MonoBehaviour
 					{
 						GetComponent<Animator>().speed = 3;
 					}
-					//(東　次259)
 
 					//　Player2攻撃アニメーション再生
 					ps2.anime.SetBool("set", true);
