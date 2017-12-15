@@ -3397,6 +3397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   P1: 1
+  match: 0
+  isEndAttack: 0
   AS: 0
   ASTime: 0.25
 --- !u!114 &114481641151220806
@@ -3725,7 +3727,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14773eae76bd7c84fb7ba3a91c437e4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &114796236575482158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3820,13 +3821,13 @@ MonoBehaviour:
   death: 0
   Deathtime: 0
   FlagTeam: 0
-  TeamNumber: 0
   tasi: 0
   edge: 
   ID: 0
   i2: 0
   i3: 0
   zeroflag: 0
+  zone: {fileID: 1138515052220152}
 --- !u!114 &114928627008594270
 MonoBehaviour:
   m_ObjectHideFlags: 1

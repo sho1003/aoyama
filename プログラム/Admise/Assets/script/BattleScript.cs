@@ -96,14 +96,7 @@ public class BattleScript : MonoBehaviour
 				//　オブジェクト取得
 				rival[i] = GameObject.Find("player1_" + i);
 			}
-			zoneColor2[i] = rival[i].transform.Find("CircleTextureIn").gameObject;
-			zoneColor2[i].GetComponent<Renderer>().material.color = new Color(231, 0, 0, 0.1f);
 		}
-
-		//  Zoneオブジェクト取得
-		zoneColor1 = this.gameObject.transform.Find("CircleTextureIn").gameObject;
-		//  半透明
-		zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
 
 		Deathtime = 0;//とりあえず攻撃モーションとHPの減るタイミングを合わすための時間
 
@@ -290,9 +283,10 @@ public class BattleScript : MonoBehaviour
                     {
                         GetComponent<Animator>().speed = 3;
                     }
-					//  透明
-					zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
-					for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
+
+                    //  表示
+                    ps1.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1.0f);
+                    ps2.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 231, 1.0f);
 
 					//  1人でも周辺にいる限り、攻撃し続ける
 					for (int i = 0; i < OBJECT_MAX; i++)
@@ -357,9 +351,9 @@ public class BattleScript : MonoBehaviour
                         se.se.Stop();
                         match = false;
 
-						//  半透明
-						zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
-						for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
+                        //  半透明
+                        ps1.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
+                        ps2.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 231, 0.3f);
 					   
 						step = BATTLE_STEP.NOT_APPROACH;
 

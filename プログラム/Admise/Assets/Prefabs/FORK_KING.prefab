@@ -2482,10 +2482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6f71f6c21a60e469581ea6165d550d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AS: 0
-  ASTime: 0.25
+  P1: 0
   match: 0
   isEndAttack: 0
+  AS: 0
+  ASTime: 0.25
 --- !u!114 &114447708585160188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2691,6 +2692,7 @@ MonoBehaviour:
   i2: 0
   i3: 0
   zeroflag: 0
+  zone: {fileID: 1405729043880340}
 --- !u!136 &136090670915008444
 CapsuleCollider:
   m_ObjectHideFlags: 1

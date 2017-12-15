@@ -35,6 +35,9 @@ public class player1_script : MonoBehaviour
     public bool zeroflag;
     public static bool SuutiByougaflag=false;
 
+    //  キャラクターの内枠
+    public GameObject zone;
+
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
@@ -55,6 +58,9 @@ public class player1_script : MonoBehaviour
         FlagTeam = false;
 
         edge = new List<int>();
+
+        //  初期は半透明
+        zone.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
     }
 
     void Update()
