@@ -32,6 +32,10 @@ public class player2_script : MonoBehaviour
     public int i3;//相手側の数値保管
     public bool zeroflag;
     public static bool SuutiByougaflag = false;
+
+    //  キャラクターの内枠
+    public GameObject zone;
+
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
@@ -51,6 +55,9 @@ public class player2_script : MonoBehaviour
         TeamNumber = 0;
 
         edge = new List<int>();
+
+        //  初期は半透明
+        zone.GetComponent<SpriteRenderer>().color = new Color(0, 255, 231, 0.3f);
     }
 
     void Update()

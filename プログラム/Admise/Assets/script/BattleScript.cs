@@ -96,14 +96,7 @@ public class BattleScript : MonoBehaviour
 				//　オブジェクト取得
 				rival[i] = GameObject.Find("player1_" + i);
 			}
-			zoneColor2[i] = rival[i].transform.Find("CircleTextureIn").gameObject;
-			zoneColor2[i].GetComponent<Renderer>().material.color = new Color(231, 0, 0, 0.1f);
 		}
-
-		//  Zoneオブジェクト取得
-		zoneColor1 = this.gameObject.transform.Find("CircleTextureIn").gameObject;
-		//  半透明
-		zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 0.1f);
 
 		Deathtime = 0;//とりあえず攻撃モーションとHPの減るタイミングを合わすための時間
 
@@ -202,6 +195,53 @@ public class BattleScript : MonoBehaviour
 				//  キャラクターの移動を止める
 				if (ps1.agent != null) ps1.agent.ResetPath();
 				if (ps2.agent != null) ps2.agent.ResetPath();
+                    //　どちらもチームでなければ
+                    if (Deathtime < -1.8f && Check(ps1.FlagTeam ,ps2.FlagTeam) == TEAMNUM.NONE)
+                    {
+                        PS1Sabun = 0;
+                        PS2Sabun = 0;
+                        if (ps1.Number >= ps2.Number) PS1Sabun = ps1.Number - ps2.Number;
+                        else if (ps1.Number < ps2.Number) PS2Sabun = ps2.Number - ps1.Number;
+                        if(this.gameObject.tag =="Player1") ps1.HP -= ps2.PlayerATK + PS2Sabun;// + ps2[i].Number;
+                        if(this.gameObject.tag =="Player2") ps2.HP -= ps1.PlayerATK + PS1Sabun; //+ ps1.Number;
+                        Deathtime = 0;
+                    }
+                    //　どちらか又はどっちもチームだったら
+                    else if (Deathtime < -1.8f && ps1.FlagTeam || ps2.FlagTeam)
+                    {
+                        //PS1Sabun = 0;
+                        //PS2Sabun = 0;
+                        ////　敵味方の数値差を計算
+                        //if (ps1.TeamNumber >= ps2.TeamNumber) PS1Sabun = ps1.TeamNumber - ps2.TeamNumber;
+                        //else if (ps1.TeamNumber < ps2.TeamNumber) PS2Sabun = ps2.TeamNumber - ps1.TeamNumber;
+                        ////　両方チームだったら
+                        //if (Deathtime < -1.8f && ps1.FlagTeam && ps2.FlagTeam)
+                        //{
+                        //    //　ダメージ計算
+                        //    //　チーム内(Player1目線)で自分が一番数値が低い場合
+                        //    if (SmallNumberPlayerName == this.gameObject.name)
+                        //        ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                        //    //　チーム内(Player2目線)で自分()が一番数値が低い場合
+                        //    else if (SmallNumberEnemyName == this.gameObject.name)
+                        //        ps2.HP -= ps1.PlayerATK + PS1Sabun;
+                        //}
+                        ////　Player1が個人でPlayer2がチームの場合
+                        //else if (!ps1.FlagTeam && ps2.FlagTeam)
+                        //{
+                        //    //　ダメージ計算
+                        //    ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                        //    if (SmallNumberEnemyName == gameObject.name) ps2.HP -= ps1.PlayerATK + PS1Sabun;
+                        //}
+                        ////　Player1がチームでPlayer2が個人の場合
+                        //else if (ps1.FlagTeam && !ps2.FlagTeam)
+                        //{
+                        //    //　ダメージ計算
+                        //    if (SmallNumberPlayerName == gameObject.name) ps1.HP -= ps2.PlayerATK + PS2Sabun;
+                        //    ps2.HP -= ps1.PlayerATK + PS1Sabun;
+                        //}
+                        //Deathtime = 0;
+                    }
+                    //　敵の方向を向く
 
 				//  攻撃時のSE実行
 				se.SetSE1(se.battleSE);
@@ -290,9 +330,10 @@ public class BattleScript : MonoBehaviour
                     {
                         GetComponent<Animator>().speed = 3;
                     }
-					//  透明
-					zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
-					for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 1.0f);
+
+                    //  表示
+                    ps1.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1.0f);
+                    ps2.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 231, 1.0f);
 
 					//  1人でも周辺にいる限り、攻撃し続ける
 					for (int i = 0; i < OBJECT_MAX; i++)
@@ -357,9 +398,9 @@ public class BattleScript : MonoBehaviour
                         se.se.Stop();
                         match = false;
 
-						//  半透明
-						zoneColor1.GetComponent<Renderer>().material.color = new Color(0, 255, 231, 1.0f);
-						for (int i = 0; i < OBJECT_MAX; i++) zoneColor2[i].GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
+                        //  半透明
+                        ps1.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 0.3f);
+                        ps2.zone.gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 255, 231, 0.3f);
 					   
 						step = BATTLE_STEP.NOT_APPROACH;
 
