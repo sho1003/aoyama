@@ -9,6 +9,12 @@ public class player1_script : MonoBehaviour
     private AreaSkillScript AreaSkill;
     public Animator anime;
 
+    //　タッチした座標
+    public Vector2 ScreenPos;
+    //　ドラッグでまとめて選択されたキャラ
+    SelectUnit selectunit;
+    bool OnScreen = false;
+
     public NavMeshAgent agent;
 
     private RaycastHit hit;
@@ -44,6 +50,8 @@ public class player1_script : MonoBehaviour
         status = GameObject.Find("Status").GetComponent<StatusScript>();
         AreaSkill = GameObject.Find("Area").GetComponent<AreaSkillScript>();
         anime = GetComponent<Animator>();
+        //　まとめて選択したキャラを取得
+        selectunit = GameObject.Find("_SelectUnitManager").GetComponent<SelectUnit>();
 
         agent = GetComponent<NavMeshAgent>();
         //　キャラ速度の設定
@@ -72,7 +80,7 @@ public class player1_script : MonoBehaviour
         SuutiScript.Number = Number;
         SuutiScript.i2 = i2;
 
-        
+
         if (HP <= 0)
         {
             anime.SetBool("run", false);
@@ -88,6 +96,45 @@ public class player1_script : MonoBehaviour
         //{
         //    agent.speed = BaseSpeed;
         //}
+
+        //　タッチした座標の取得
+        ScreenPos = Camera.main.WorldToScreenPoint(this.transform.position);
+        //　もしドラッグ選択した時にその範囲内に自分のキャラがいれば
+        if (selectunit.UnitWithinScreenSpace(ScreenPos))
+        {
+            OnScreen = true;
+            //　もし自分がドラッグ範囲内にいなかったら
+            if (!selectunit.UnitsOnScreenSpace.Contains(this.gameObject))
+                //　自分をリストに追加
+                selectunit.UnitsOnScreenSpace.Add(this.gameObject);
+        }
+        else
+        {
+            if (OnScreen)
+            {
+                //　移動が終わったら自分をリストから削除
+                selectunit.UnitsOnScreenSpace.Remove(this.gameObject);
+                OnScreen = false;
+            }
+        }
+        //　もしドラッグで選択されたキャラがいれば
+        if (selectunit.selectedunit == this.gameObject || selectunit.selectedunits.Contains(this.gameObject))
+        {
+            //　右クリック
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                {
+                    if (hit.transform.tag == "Floor")
+                    {
+                        //　キャラの移動、アニメーション、自分をリストから削除
+                        agent.destination = hit.point;
+                        anime.SetBool("run", true);
+                        selectunit.selectedunits.Remove(this.gameObject);
+                    }
+                }
+            }
+        }
     }
 
 

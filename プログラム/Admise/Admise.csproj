@@ -88,7 +88,9 @@
     <Compile Include="Assets\script\AreaSkillScript.cs" />
     <Compile Include="Assets\script\BattleScript.cs" />
     <Compile Include="Assets\script\CardCreateScript.cs" />
+    <Compile Include="Assets\script\CardFlameScript.cs" />
     <Compile Include="Assets\script\CardHPScript2.cs" />
+    <Compile Include="Assets\script\CardNumberScript.cs" />
     <Compile Include="Assets\script\enemy_script.cs" />
     <Compile Include="Assets\script\ExitScript.cs" />
     <Compile Include="Assets\script\FadeOutScript.cs" />
