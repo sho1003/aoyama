@@ -32,7 +32,9 @@ public class player1_script : MonoBehaviour
     public int i3;//相手側の数値保管
     public bool zeroflag;
     public static bool SuutiByougaflag=false;
+    public int N;
 
+    /// </summary>
     void Start()
     {
         status = GameObject.Find("Status").GetComponent<StatusScript>();
@@ -54,6 +56,16 @@ public class player1_script : MonoBehaviour
         ID = 0;
 
         edge = new List<int>();
+
+        if (gameObject.name == "player1_0") N = 1;
+        else if (gameObject.name == "player1_1") N = 2;
+        else if (gameObject.name == "player1_2") N = 3;
+        else if (gameObject.name == "player1_3") N = 4;
+        else if (gameObject.name == "player1_4") N = 5;
+        else if (gameObject.name == "player1_5") N = 6;
+        else if (gameObject.name == "player1_6") N = 7; 
+
+
     }
 
     void Update()

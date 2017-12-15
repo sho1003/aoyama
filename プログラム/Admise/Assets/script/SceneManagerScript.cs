@@ -23,6 +23,10 @@ public class SceneManagerScript: MonoBehaviour
     public bool IsDragging;
     private float BoxWidth, BoxHeight, BoxLeft, BoxTop;
     private Vector2 BoxStart, BoxFinish;
+    public static int CardFlame;
+
+    public static bool CardChoise = false;
+    CardFlameScript Flame;
 
     void OnGUI()
     {
@@ -91,12 +95,16 @@ public class SceneManagerScript: MonoBehaviour
                         Player1Click = true;
                         //レイピックを飛ばして当たったオブジェクトの名前を取ってくる(Findの中身)
                         player1 = GameObject.Find(hit.transform.gameObject.name).GetComponent<player1_script>();
+                        //
+                        CardFlame = player1.N;
                         //  クリップSE
                         se.SetSE1(se.enterSE);
                         //  外枠表示 & 黄色に設定
                         circleTextureOut1 = GameObject.Find(hit.transform.gameObject.name).transform.Find("CircleTextureOut").gameObject;
                         circleTextureOut1.GetComponent<Renderer>().material.color = new Color(255, 255, 0, 1.0f);
                         circleTextureOut1.SetActive(true);
+                        //　カード外枠表示（別スクリプトで）
+                        CardChoise = true;
 
                     }
                 }
@@ -113,6 +121,7 @@ public class SceneManagerScript: MonoBehaviour
                 //  外枠非表示
                 circleTextureOut1.GetComponent<Renderer>().material.color = new Color(0, 0, 0, 0.0f);
                 circleTextureOut1.SetActive(false);
+                CardChoise = false;
             }
             //二回目のクリック
             else if (Input.GetMouseButtonDown(0))
@@ -135,6 +144,7 @@ public class SceneManagerScript: MonoBehaviour
                             //移動させる
                             player1.Pointer_Click();
                             Player1Click = false;
+                            CardChoise = false;
                         }
                     }
                 }
@@ -198,6 +208,7 @@ public class SceneManagerScript: MonoBehaviour
                         //移動させる
                         player2.Pointer_Click();
                         Player2Click = false;
+
                     }
                 }
             }

@@ -198,9 +198,9 @@ public class BattleScript : MonoBehaviour
                         PS1Sabun = 0;
                         PS2Sabun = 0;
                         if (ps1.Number >= ps2.Number) PS1Sabun = ps1.Number - ps2.Number;
-                        if (ps1.Number < ps2.Number) PS2Sabun = ps2.Number - ps1.Number;
-                        ps1.HP -= ps2.PlayerATK + PS2Sabun;// + ps2[i].Number;
-                        ps2.HP -= ps1.PlayerATK + PS1Sabun; //+ ps1.Number;
+                        else if (ps1.Number < ps2.Number) PS2Sabun = ps2.Number - ps1.Number;
+                        if(this.gameObject.tag =="Player1") ps1.HP -= ps2.PlayerATK + PS2Sabun;// + ps2[i].Number;
+                        if(this.gameObject.tag =="Player2") ps2.HP -= ps1.PlayerATK + PS1Sabun; //+ ps1.Number;
                         Deathtime = 0;
                     }
                     //　どちらか又はどっちもチームだったら
