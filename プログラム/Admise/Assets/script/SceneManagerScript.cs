@@ -19,10 +19,16 @@ public class SceneManagerScript: MonoBehaviour
 
     Ray ray;
     RaycastHit hit;
+
+    public GameObject selectedunit;
+    public List<GameObject> selectedunits = new List<GameObject>();
+
     private Vector3 MouseDownPoint, CurrentDownPoint;
     public bool IsDragging;
     private float BoxWidth, BoxHeight, BoxLeft, BoxTop;
     private Vector2 BoxStart, BoxFinish;
+    public List<GameObject> UnitsOnScreenSpace = new List<GameObject>();
+    public List<GameObject> UnitInDrag = new List<GameObject>();
     public static int CardFlame;
 
     public static bool CardChoise = false;
@@ -56,26 +62,52 @@ public class SceneManagerScript: MonoBehaviour
     private string Player1Tag = "Player1";
     private string Player2Tag = "Player2";
 
+    void LateUpdate()
+    {
+    }
+
     // Update is called once per frame  
     void Update()
     {
-        //if (Input.GetMouseButton(0))
-        //{
-        //    if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
-        //    {
-        //        if (hit.transform.tag != "Player1")
-        //        {
-        //            if (CheckIfMouseIsDragging())
-        //            {
-        //                IsDragging = true;
-        //            }
-        //        }
-        //    }
-        //}
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    IsDragging = false;
-        //}
+        UnitInDrag.Clear();
+        if (IsDragging && UnitsOnScreenSpace.Count > 0)
+        {
+            selectedunit = null;
+            Debug.Log("a");
+            for (int i = 0; i < UnitsOnScreenSpace.Count; i++)
+            {
+                Debug.Log("b");
+                GameObject UnitObj = UnitsOnScreenSpace[i] as GameObject;
+                Unit PosScript = UnitObj.transform.GetComponent<Unit>();
+                if (!UnitInDrag.Contains(UnitObj))
+                {
+                    Debug.Log("c");
+                    if (UnitWithDrag(PosScript.ScreenPos))
+                    {
+                        UnitInDrag.Add(UnitObj);
+                        Debug.Log("d");
+                    }
+                }
+            }
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            {
+                if (hit.transform.tag != "Player1")
+                {
+                    if (CheckIfMouseIsDragging())
+                    {
+                        IsDragging = true;
+                    }
+                }
+            }
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            IsDragging = false;
+        }
 
         //　まだキャラが選択されていない状態
         if (!Player1Click)
@@ -216,54 +248,83 @@ public class SceneManagerScript: MonoBehaviour
                     }
                 }
             }
+
         }
 
-        //    if(Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))       
-        //    CurrentDownPoint = hit.point;
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        if (Physics.Raycast(ray.origin, ray.direction, out hit, Mathf.Infinity))
-        //            MouseDownPoint = hit.point;
-        //    }
-        //    if (IsDragging)
-        //    {
-        //        BoxWidth = Camera.main.WorldToScreenPoint(MouseDownPoint).x - Camera.main.WorldToScreenPoint(CurrentDownPoint).x;
-        //        BoxHeight = Camera.main.WorldToScreenPoint(MouseDownPoint).y - Camera.main.WorldToScreenPoint(CurrentDownPoint).y;
-        //        BoxLeft = Input.mousePosition.x;
-        //        BoxTop = (Screen.height - Input.mousePosition.y) - BoxHeight;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            CurrentDownPoint = hit.point;
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                MouseDownPoint = hit.point;
+        }
+        if (IsDragging)
+        {
+            BoxWidth = Camera.main.WorldToScreenPoint(MouseDownPoint).x - Camera.main.WorldToScreenPoint(CurrentDownPoint).x;
+            BoxHeight = Camera.main.WorldToScreenPoint(MouseDownPoint).y - Camera.main.WorldToScreenPoint(CurrentDownPoint).y;
+            BoxLeft = Input.mousePosition.x;
+            BoxTop = (Screen.height - Input.mousePosition.y) - BoxHeight;
 
-        //        if (BoxWidth > 0f && BoxHeight < 0f)
-        //        {
-        //            BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        //        }
-        //        else if(BoxWidth > 0f && BoxHeight > 0f)
-        //        {
-        //            BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y + BoxHeight);
-        //        }
-        //        else if (BoxWidth < 0f && BoxHeight < 0f)
-        //        {
-        //            BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y);
-        //        }
-        //        else if (BoxWidth < 0f && BoxHeight < 0f)
-        //        {
-        //            BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y + BoxHeight);
-        //        }
-        //        BoxFinish = new Vector2(BoxStart.x + Unsigned(BoxWidth), BoxStart.y - Unsigned(BoxHeight));
-        //    }
-        //}
-        //float Unsigned(float val)
-        //{
-        //    if (val < 0f)
-        //        val *= -1;
-        //    return val;
-        //}
-        //private bool CheckIfMouseIsDragging()
-        //{
-        //    if (CurrentDownPoint.x - 1 >= MouseDownPoint.x || CurrentDownPoint.y - 1 >= MouseDownPoint.y || CurrentDownPoint.z - 1 >= MouseDownPoint.z ||
-        //        CurrentDownPoint.x < MouseDownPoint.x - 1 || CurrentDownPoint.y < MouseDownPoint.y - 1 || CurrentDownPoint.z < MouseDownPoint.z - 1)
-        //        return true;
-        //    else
-        //        return false;
-        //}
+            if (BoxWidth > 0f && BoxHeight < 0f)
+            {
+                BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            }
+            else if (BoxWidth > 0f && BoxHeight > 0f)
+            {
+                BoxStart = new Vector2(Input.mousePosition.x, Input.mousePosition.y + BoxHeight);
+            }
+            else if (BoxWidth < 0f && BoxHeight < 0f)
+            {
+                BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y);
+            }
+            else if (BoxWidth < 0f && BoxHeight < 0f)
+            {
+                BoxStart = new Vector2(Input.mousePosition.x + BoxWidth, Input.mousePosition.y + BoxHeight);
+            }
+            BoxFinish = new Vector2(BoxStart.x + Unsigned(BoxWidth), BoxStart.y - Unsigned(BoxHeight));
+        }
     }
+    float Unsigned(float val)
+    {
+        if (val < 0f)
+            val *= -1;
+        return val;
+    }
+    private bool CheckIfMouseIsDragging()
+    {
+        if (CurrentDownPoint.x - 1 >= MouseDownPoint.x || CurrentDownPoint.y - 1 >= MouseDownPoint.y || CurrentDownPoint.z - 1 >= MouseDownPoint.z ||
+    CurrentDownPoint.x < MouseDownPoint.x - 1 || CurrentDownPoint.y < MouseDownPoint.y - 1 || CurrentDownPoint.z < MouseDownPoint.z - 1)
+            return true;
+        else
+            return false;
+    }
+    public bool UnitWithinScreenSpace(Vector2 UnitScreenPos)
+    {
+        if ((UnitScreenPos.x < Screen.width && UnitScreenPos.y < Screen.height) && (UnitScreenPos.x > 0f && UnitScreenPos.y > 0f))
+            return true;
+        else
+            return false;
+    }
+    public bool UnitWithDrag(Vector2 UnitScreenPos)
+    {
+        if ((UnitScreenPos.x > BoxStart.x && UnitScreenPos.y < BoxStart.y) && (UnitScreenPos.x < BoxFinish.x && UnitScreenPos.y > BoxFinish.y))
+            return true;
+        else
+            return false;
+    }
+    public void PutUnitsFromDragIntoSelectedUnits()
+    {
+        if (UnitInDrag.Count > 0)
+        {
+            for (int i = 0; i < UnitInDrag.Count; i++)
+            {
+                if (!selectedunits.Contains(UnitInDrag[i]))
+                    selectedunits.Add(UnitInDrag[i]);
+            }
+        }
+        UnitInDrag.Clear();
+    }
+
+
 }
+

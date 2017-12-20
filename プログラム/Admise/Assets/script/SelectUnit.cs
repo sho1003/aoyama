@@ -32,19 +32,12 @@ public class SelectUnit : MonoBehaviour {
             for(int i=0; i<UnitsOnScreenSpace.Count; i++)
             {
                 GameObject UnitObj = UnitsOnScreenSpace[i] as GameObject;
-                Unit PosScript = UnitObj.transform.GetComponent<Unit>();
-                GameObject selectmarker=UnitObj.transform.Find("Marker").gameObject;
+               player1_script PosScript = UnitObj.transform.GetComponent<player1_script>();
                 if (!UnitInDrag.Contains(UnitObj))
                 {
                     if (UnitWithDrag(PosScript.ScreenPos))
                     {
-                        selectmarker.SetActive(true);
                         UnitInDrag.Add(UnitObj);
-                    }
-                    else
-                    {
-                        if (!UnitInDrag.Contains(UnitObj))
-                            selectmarker.SetActive(false);
                     }
                 }
             }
