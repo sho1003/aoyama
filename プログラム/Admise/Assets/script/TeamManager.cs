@@ -10,6 +10,8 @@ public class TeamManager : MonoBehaviour
     GameObject[] p2 = new GameObject[PLAYER_MAX];
     player1_script[] player1 = new player1_script[PLAYER_MAX];
     player2_script[] player2 = new player2_script[PLAYER_MAX];
+    BattleScript[] battle1 = new BattleScript[PLAYER_MAX];
+    BattleScript[] battle2 = new BattleScript[PLAYER_MAX];
 
     // Use this for initialization
     void Start()
@@ -21,6 +23,8 @@ public class TeamManager : MonoBehaviour
 
             player1[i] = p1[i].GetComponent<player1_script>();
             player2[i] = p2[i].GetComponent<player2_script>();
+            battle1[i] = p1[i].GetComponent<BattleScript>();
+            battle2[i] = p2[i].GetComponent<BattleScript>();
         }
     }
 
@@ -548,20 +552,46 @@ public class TeamManager : MonoBehaviour
         {
             for (int i = 0; i < id.Length; i++)
             {
-                BattleScript battle = null;
                 if (friend)
                 {
-                    battle = p1[id[i]].GetComponent<BattleScript>();
+                    //myIDのチームメンバーが戦闘状態ならtrue
+                    if (battle1[id[i]].GetStep() == BattleScript.BATTLE_STEP.BATTLE)
+                        return true;
                 }
                 else
                 {
-                    battle = p2[id[i]].GetComponent<BattleScript>();
+                    //myIDのチームメンバーが戦闘状態ならtrue
+                    if (battle2[id[i]].GetStep() == BattleScript.BATTLE_STEP.BATTLE)
+                        return true;
                 }
-                //myIDのチームメンバーが戦闘状態ならtrue
-                if (battle.GetStep() == BattleScript.BATTLE_STEP.BATTLE) return true;
             }
         }
         return false;
     }
 
+    //matchがfalseのチームメンバーを取得し、rivalのIDを返す
+    public int GetRival(bool friend, int myID)
+    {
+        int[] id = TeamID(friend, myID);
+
+        //チームメンバーが居るなら
+        if (id.Length != 0)
+        {
+            for (int i = 0; i < id.Length; i++)
+            {
+                if(friend)
+                {
+                    if (battle1[id[i]].match == false)
+                        return player1[id[i]].rivalID;
+                }
+                else
+                {
+                    if (battle2[id[i]].match == false)
+                        return player2[id[i]].rivalID;
+                }
+            }
+        }
+
+        return 0;   //ダミー
+    }
 }

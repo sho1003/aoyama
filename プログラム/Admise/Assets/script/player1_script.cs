@@ -28,6 +28,7 @@ public class player1_script : MonoBehaviour
 
     public List<int> edge;
     public int ID;
+    public int rivalID;
 
    public int i2;//相手側の数値
 
