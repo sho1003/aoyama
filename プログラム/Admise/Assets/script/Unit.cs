@@ -41,6 +41,7 @@ public class Unit : MonoBehaviour {
                     if (hit.transform.tag == "Floor")
                     {
                         agent.destination = hit.point;
+                        selectunit.selectedunits.Remove(this.gameObject);
                     }
                 }
             }
