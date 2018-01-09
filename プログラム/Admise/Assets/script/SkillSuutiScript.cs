@@ -10,7 +10,6 @@ public class SkillSuutiScript : MonoBehaviour
     public float Skilltime;
     StatusScript status;
 
-
     // Use this for initialization
     void Start()
     {
@@ -18,7 +17,7 @@ public class SkillSuutiScript : MonoBehaviour
 
         //  呼び込み
         status = GameObject.Find("Status").GetComponent<StatusScript>();
-        Skilltime = status.Skilltime;
+        Skilltime = status.Skill3time;
 
     }
 
@@ -27,16 +26,22 @@ public class SkillSuutiScript : MonoBehaviour
     {
         if (SkillScript.Skill == true)
         {
-            Skilltime = Skilltime - Time.deltaTime;
+            Skilltime = Skilltime - Time.deltaTime;//代入した時間分スキル発動
             Suutitext.enabled = true;
 
-            if (Skilltime < 0) SkillScript.Skill = false;
+            if (Skilltime < 0)
+            {
+                SkillScript.Skill = false;
+                SkillScript.Skill3END = true; 
+            }
+
         }
             
+
         if (SkillScript.Skill == false)
         {
             Suutitext.enabled = false;
-            Skilltime = status.Skilltime;
+            Skilltime = status.Skill3time;
         }
 
         if (Input.GetKeyDown(KeyCode.X)) SkillScript.Skill = true;//デバック用

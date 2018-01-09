@@ -27,11 +27,21 @@ public class StatusScript : MonoBehaviour {
     //　ゲーム時間
     public float GameTime = 100;
 
-    //　スキル１の発動回数
-    public int SkillCount = 2;
 
-    //　スキル１の発動時間
-    public int Skilltime = 10;
+    //　スキル1の発動回数
+    public int Skill1Count = 2;
+
+    //　スキル2の発動回数
+    public int Skill2Count = 2;
+
+    //　スキル3の発動回数
+    public int Skill3Count = 2;
+
+    //　スキル3の発動時間
+    public float Skill1time = 1f;
+
+    //　スキル3の発動時間
+    public float Skill3time = 10f;
 
     //　リスポーンタイム短縮エリアの時間設定
     public float RespownTimeAreaStage1 = 0.9f;

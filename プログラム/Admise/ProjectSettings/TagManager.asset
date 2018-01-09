@@ -15,6 +15,9 @@ TagManager:
   - SelectableUnit
   - Floor
   - CARD2
+  - Area1
+  - Area3
+  - Area2
   layers:
   - Default
   - TransparentFX

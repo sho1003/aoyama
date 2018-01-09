@@ -33,8 +33,8 @@ public class ScoreScript : MonoBehaviour {
 
         RedScorePoint.text = "× " + RedScore;
         BlueScorePoint.text = "× " + BlueScore;
-        RedScore = ZinScript.RedScore;
-        BlueScore = ZinScript.BlueScore;
+        RedScore = AreaScript.RedScore;
+        BlueScore = AreaScript.BlueScore;
 
         //  FPS表示
         frameRate();

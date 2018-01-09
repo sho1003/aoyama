@@ -12,17 +12,22 @@ public class MenuScript : MonoBehaviour
     public float duration = 1.0f;    // スライド時間（秒）
     public bool MenuIn = false;
     public float OutInTime = 0.8f;
+   
+
 
     // Use this for initialization
     void Start()
     {
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (OutInTime < 1) OutInTime += Time.deltaTime;
+      
+
+        if (OutInTime < 1) OutInTime += Time.deltaTime;
         if (OutInTime >= 1) OutInTime = 1;
     }
 
@@ -30,6 +35,7 @@ public class MenuScript : MonoBehaviour
     public void SlideIn()
     {
         if(OutInTime == duration)StartCoroutine(StartSlidePanel(true));
+
         
     }
 
