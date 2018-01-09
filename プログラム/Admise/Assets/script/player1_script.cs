@@ -84,14 +84,19 @@ public class player1_script : MonoBehaviour
 
         if (HP <= 0)
         {
+            //死んだ時プレイヤーワープするからOnTriggerExit反映しない
+            transform.position += new Vector3(0, 500, 0);
+            //なのでごりおしで修正↑
+
             anime.SetBool("run", false);
             death = true;
+            
         }
 
         //　椿井がエリアのマネージャーを作り次第デバッグする(終わるとこの一文削除)
         //if(/*スピードアップのエリアを取ってる*/)
         //{
-            agent.speed = AreaSkill.MoveSpeedUp(BaseSpeed,status.AreaNum);
+        agent.speed = AreaSkill.MoveSpeedUp(BaseSpeed,status.AreaNum);
         //}
         //else //　スピードアップのエリアを取っていない場合 
         //{

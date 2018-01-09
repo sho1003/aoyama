@@ -42,7 +42,7 @@ public class CardCreateScript : MonoBehaviour
         //  親オブジェクトを取得
         if (Flags==true)
         {
-            POS.x = POS.x + 190 * (N-1);
+            POS.x = (POS.x + 140)+ 190 * (N-1);
             transform.position = POS;
             Flags = false;
         }

@@ -68,6 +68,10 @@ public class player2_script : MonoBehaviour
 
         if (HP <= 0)
         {
+            //死んだ時プレイヤーワープするからOnTriggerExit反映しない
+            transform.position += new Vector3(0, 500, 0);
+            //なのでごりおしで修正↑
+
             anime.SetBool("run", false);
             death = true;
         }
