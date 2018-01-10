@@ -3957,6 +3957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anime: {fileID: 0}
+  ScreenPos: {x: 0, y: 0}
   agent: {fileID: 0}
   HP: 0
   PlayerATK: 1
@@ -3967,6 +3968,7 @@ MonoBehaviour:
   tasi: 0
   edge: 
   ID: 0
+  rivalID: 0
   i2: 0
   i3: 0
   zeroflag: 0
@@ -5715,7 +5717,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -80, y: -80}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 80, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224988922493856114
 RectTransform:

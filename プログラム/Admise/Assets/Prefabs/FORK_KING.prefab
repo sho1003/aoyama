@@ -2689,6 +2689,7 @@ MonoBehaviour:
   tasi: 1
   edge: 
   ID: 0
+  rivalID: 0
   i2: 0
   i3: 0
   zeroflag: 0
@@ -3647,5 +3648,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 80, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

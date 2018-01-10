@@ -126,8 +126,8 @@ public class player1_script : MonoBehaviour
         //　もしドラッグで選択されたキャラがいれば
         if (selectunit.selectedunit == this.gameObject || selectunit.selectedunits.Contains(this.gameObject))
         {
-            //　右クリック
-            if (Input.GetMouseButtonDown(1))
+            //　左クリック
+            if (Input.GetMouseButtonDown(0))
             {
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
@@ -140,6 +140,13 @@ public class player1_script : MonoBehaviour
                     }
                 }
             }
+            //　右クリック
+            if (Input.GetMouseButtonDown(1))
+            {
+                //　キャラの移動、アニメーション、自分をリストから削除
+                selectunit.selectedunits.Remove(this.gameObject);
+            }
+
         }
     }
 
