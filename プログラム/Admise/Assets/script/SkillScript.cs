@@ -41,7 +41,7 @@ public class SkillScript : MonoBehaviour
         if (Skill2END == true && gameObject.name == "skill2") //スキル2終了
         {
             transform.localScale = new Vector3(0.52f, 1.2f, 1);
-            this.ren.sortingOrder = 1;
+            this.ren.sortingOrder = 2;
             Skill2END = false;
             //移動もどす
         }
@@ -50,7 +50,7 @@ public class SkillScript : MonoBehaviour
         if (Skill3END == true && gameObject.name == "skill3") //スキル3終了
         {
             transform.localScale = new Vector3(0.52f, 1.2f, 1);
-            this.ren.sortingOrder = 1;
+            this.ren.sortingOrder = 3;
             Skill3END = false;
             //移動もどす
             if (status.Skill3Count == 0) gameObject.GetComponent<GraphicRaycaster>().enabled = false;
@@ -62,7 +62,7 @@ public class SkillScript : MonoBehaviour
     {
         if (Skill == false)//カードが選ばれている間は反応しない
         {
-            this.ren.sortingOrder = 3;
+            this.ren.sortingOrder = 4;
             transform.localScale = new Vector3(0.7f, 1.5f, 1);
         }
             if (gameObject.name == "skill1") { }
@@ -74,13 +74,15 @@ public class SkillScript : MonoBehaviour
     {
         if (Skill == false)//カードが選ばれている間は反応しない
         {
-            this.ren.sortingOrder = 1; 
+            if (gameObject.name == "skill1") { this.ren.sortingOrder = 1; }
+            if (gameObject.name == "skill2") { this.ren.sortingOrder = 2; }
+            if (gameObject.name == "skill3") { this.ren.sortingOrder = 3; }
+
             transform.localScale = new Vector3(0.52f, 1.2f, 1);
+
         }
 
-        if (gameObject.name == "skill1") { }
-        if (gameObject.name == "skill2") { }
-        if (gameObject.name == "skill3") { }
+        
 
     }
 

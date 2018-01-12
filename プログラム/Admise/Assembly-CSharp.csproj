@@ -56,6 +56,9 @@
      <Compile Include="Assets\script\AreaScript.cs" />
      <Compile Include="Assets\script\AreaSkillScript.cs" />
      <Compile Include="Assets\script\BattleScript.cs" />
+     <Compile Include="Assets\script\CameraScript.cs" />
+     <Compile Include="Assets\script\CandleCollarScript.cs" />
+     <Compile Include="Assets\script\CandleScript.cs" />
      <Compile Include="Assets\script\CardCreateScript.cs" />
      <Compile Include="Assets\script\CardFlameScript.cs" />
      <Compile Include="Assets\script\CardHPScript2.cs" />
