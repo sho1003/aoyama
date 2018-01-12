@@ -92,16 +92,9 @@ public class player1_script : MonoBehaviour
             death = true;
             
         }
-
-        //　椿井がエリアのマネージャーを作り次第デバッグする(終わるとこの一文削除)
-        //if(/*スピードアップのエリアを取ってる*/)
-        //{
+        
+        //　引数一個めリスポーン初期値タイム、引数二個目(移動速度の上がる)エリアの数
         agent.speed = AreaSkill.MoveSpeedUp(BaseSpeed,status.AreaNum);
-        //}
-        //else //　スピードアップのエリアを取っていない場合 
-        //{
-        //    agent.speed = BaseSpeed;
-        //}
 
         //　タッチした座標の取得
         ScreenPos = Camera.main.WorldToScreenPoint(this.transform.position);

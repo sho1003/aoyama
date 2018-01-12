@@ -59,7 +59,7 @@ public class Player1_Manager : MonoBehaviour {
             if(!FlagDeath[i]&&!player[i].death)
             {
                 //　もしリスポーンタイムが短くなるエリアを取っていれば
-                //if()
+                //　引数一個めリスポーン初期値タイム、引数二個目(リスポーンタイムの短くなる)エリアの数
                 time[i] = AreaSkill.RTimeShort(status.RespawnTime, status.AreaNum);
             }
 
