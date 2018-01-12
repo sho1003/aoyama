@@ -42,7 +42,7 @@ public class AreaScript : MonoBehaviour
         RedScore = 0;
         BlueScore = 0;
         RedSenkyoflag = false;
-        BlueSenkyoflag = false;
+        BlueSenkyoflag = false;//
         parent = transform.parent.gameObject;
 
     }
